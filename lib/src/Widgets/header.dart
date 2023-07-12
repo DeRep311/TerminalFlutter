@@ -10,12 +10,12 @@ class Greeting extends StatefulWidget {
 class _GreetingState extends State<Greeting> {
   //lo recibira del backend
 
-  String user = 'User';
+  String user = 'Pelotudo';
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Hi, $user',
+      'Hi, $user ',
       textDirection: TextDirection.ltr,
       textAlign: TextAlign.right,
       style: const TextStyle(

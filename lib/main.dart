@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_app/src/Screens/Home.dart';
+import 'package:my_app/src/Screens/Login.dart';
 import 'package:window_manager/window_manager.dart';
 
 void windowsManager() async {
@@ -10,7 +11,7 @@ void windowsManager() async {
   await windowManager.ensureInitialized();
 // Create a window.
   WindowOptions windowOptions = WindowOptions(
-    size: Size(1280, 832),
+    size: Size(1280, 720),
     center: true,
     backgroundColor: Colors.transparent,
     skipTaskbar: false,
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Home(),
-        
+        '/login': (context)=> LoginScreen()
         
         },
     );

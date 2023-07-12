@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 class OptionBox extends StatelessWidget {
   final String imagePath;
   final String title;
+  
   const OptionBox({Key? key, required this.title, required this.imagePath})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      
+      onTap: () => Navigator.pushNamed(context, '/login') ,
       child: Container(
     
       decoration: BoxDecoration(
@@ -24,6 +25,7 @@ class OptionBox extends StatelessWidget {
             offset: Offset(0.0, 0.0),
             blurRadius: 20.0,
             spreadRadius: 13,
+            
           ),
         ],
       ),

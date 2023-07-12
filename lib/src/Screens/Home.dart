@@ -36,11 +36,11 @@ class Home extends StatelessWidget {
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png'),
                     OptionBox(
-                        title: 'opcion',
+                        title: 'random',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png'),
                     OptionBox(
-                        title: 'opcion 2',
+                        title: ' 2',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png'),
                     OptionBox(
