@@ -30,7 +30,6 @@ class _LoginFormState extends State<LoginForm> {
                     },
                   decoration: InputDecoration(
                       labelText: 'Cedula',
-                    
                       labelStyle: TextStyle(
                           color: Colors.black,
                           fontFamily: 'Inter',

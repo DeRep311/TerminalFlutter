@@ -1,7 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class Greeting extends StatefulWidget {
-  const Greeting({super.key});
+  final String name;
+  const Greeting({super.key, required this.name});
+
 
   @override
   State<Greeting> createState() => _GreetingState();
@@ -10,16 +14,16 @@ class Greeting extends StatefulWidget {
 class _GreetingState extends State<Greeting> {
   //lo recibira del backend
 
-  String user = 'Pelotudo';
+
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Hi, $user ',
+      'Hi, ${widget.name} ',
       textDirection: TextDirection.ltr,
       textAlign: TextAlign.right,
       style: const TextStyle(
-          color: Colors.white,
+          color: Color.fromARGB(255, 201, 198, 198),
           fontSize: 64,
           fontFamily: 'Imprima',
           fontWeight: FontWeight.w500),
@@ -28,8 +32,9 @@ class _GreetingState extends State<Greeting> {
 }
 
 class Header extends StatelessWidget {
-  const Header({super.key});
-
+ 
+  const Header({super.key, required this.nameOption});
+  final String nameOption;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,11 +42,11 @@ class Header extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Container(
-          height: 100,
+          height: 107,
           padding: const EdgeInsets.fromLTRB(0, 20, 50, 0),
           decoration:
               const BoxDecoration(color: Color.fromARGB(0, 167, 149, 149)),
-          child: const Greeting(),
+          child:  Greeting( name:nameOption),
         
         ),
         CustomPaint(

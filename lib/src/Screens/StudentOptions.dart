@@ -1,4 +1,3 @@
-//need widget return scaffold
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
@@ -9,8 +8,8 @@ import '../Widgets/Layout.dart';
 import '../Widgets/OptionBox.dart';
 import '../Widgets/Header.dart';
 
-class HomeEstudianteScreen extends StatelessWidget {
-  const HomeEstudianteScreen({super.key});
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,31 +22,30 @@ class HomeEstudianteScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: const [
               //Header main screen
-              Header(nameOption: 'Visitante'),
+
+              Header( nameOption: 'StudentLoged',),
               //Container for grid and weather
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //options grid
-                  GridNavigation(childrens: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [  GridNavigation(childrens: [
                     OptionBox(
-                        title: 'opcion 1',
+                        title: 'Salon',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png'),
+                    
                     OptionBox(
-                        title: 'random',
+                        title: 'Horarios',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png'),
-                    OptionBox(
-                        title: ' 2',
-                        imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),
-                    OptionBox(
-                        title: 'opcion',
-                        imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),
-                  ]),
+                    
+                  ]),],
+                  ),
+             
+                
                   //wheather and time
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,

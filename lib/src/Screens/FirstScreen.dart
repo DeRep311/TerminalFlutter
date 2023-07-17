@@ -7,7 +7,7 @@ import '../Widgets/Cards.dart';
 import '../Widgets/GridNavigation.dart';
 import '../Widgets/Layout.dart';
 import '../Widgets/OptionBox.dart';
-import '../Widgets/headerFirstScreen.dart';
+import '../Widgets/Header.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});
@@ -24,7 +24,7 @@ class FirstScreen extends StatelessWidget {
             children: const [
               //Header main screen
 
-              HeaderFirstScreen(),
+              Header( nameOption: 'Visitante'),
               //Container for grid and weather
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
