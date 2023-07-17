@@ -3,11 +3,11 @@
 
 import 'package:flutter/material.dart';
 
-import '../Widgets/Cards.dart';
-import '../Widgets/GridNavigation.dart';
-import '../Widgets/Layout.dart';
-import '../Widgets/OptionBox.dart';
-import '../Widgets/Header.dart';
+import '../../Widgets/Cards.dart';
+import '../../Widgets/GridNavigation.dart';
+import '../../Widgets/Layout.dart';
+import '../../Widgets/OptionBox.dart';
+import '../../Widgets/Header.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});

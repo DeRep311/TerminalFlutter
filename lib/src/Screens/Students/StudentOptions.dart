@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 
-import '../Widgets/Cards.dart';
-import '../Widgets/GridNavigation.dart';
-import '../Widgets/Layout.dart';
-import '../Widgets/OptionBox.dart';
-import '../Widgets/Header.dart';
+import '../../Widgets/Cards.dart';
+import '../../Widgets/GridNavigation.dart';
+import '../../Widgets/Layout.dart';
+import '../../Widgets/OptionBox.dart';
+import '../../Widgets/Header.dart';
 
 class StudentOptions extends StatelessWidget {
   const StudentOptions({super.key});
