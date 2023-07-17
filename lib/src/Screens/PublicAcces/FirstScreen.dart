@@ -41,15 +41,20 @@ class FirstScreen extends StatelessWidget {
         children: [
 
                    Expanded(child: OptionBox(
-                        title: 'opcion 1',
+                        title: 'Login',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),
+                            'lib/src/Assets/Icons/AccountLoginIcon.png',
+                        route: '/login',  
+                          ),
                      ),
                      
                       Expanded(child: OptionBox(
-                        title: 'opcion 1',
+                        title: 'Ubicaciones',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),
+                            'lib/src/Assets/Icons/LocationsIcon.png',
+                        route: '/HomeEstudiante',    
+                            
+                          ),
                      )
                      ])
                  

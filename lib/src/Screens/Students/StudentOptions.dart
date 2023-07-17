@@ -39,38 +39,56 @@ class StudentOptions extends StatelessWidget {
                     children: [ 
                       
                        Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
           
                         children: [
                           Expanded(child: OptionBox(
                         title: 'Salon',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),),
+                            'lib/src/Assets/Icons/graduation-hat-02.png',
+                        route: '/',    
+                            
+                            
+                            ),
+                        ),
                    
+
+
                      Expanded(child: OptionBox(
                         title: 'Salon',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),),
+                            'lib/src/Assets/Icons/graduation-hat-02.png',
+                        route: '/',     
+                        
+                            ),
+                               
+                        ),
                  
                     
-                  ]),
-                   Expanded(
-                   
-                    
-                    child: 
-                   
-                   
-                   OptionBox(
+                      ] ),
+                      Expanded(child: OptionBox(
                         title: 'Horarios',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png')) ,
+                            'lib/src/Assets/Icons/graduation-hat-02.png',
+                        route: '/',    
+                            
+                            ),
+                            
+                   
+                    
+                    
+                   
+                   
+                   
+                            
+                        ),
                             
                             
-                            ],
+                            
                   
                   
-                  ),
+                    ],),
                   ),
                   
                   

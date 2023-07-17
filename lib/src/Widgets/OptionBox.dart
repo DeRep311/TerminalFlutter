@@ -5,14 +5,15 @@ import 'package:flutter/material.dart';
 class OptionBox extends StatelessWidget {
   final String imagePath;
   final String title;
-  
-  const OptionBox({Key? key, required this.title, required this.imagePath})
+  final String route;
+
+  const OptionBox({Key? key, required this.title, required this.imagePath, required this.route})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, '/login') ,
+      onTap: () => Navigator.pushNamed(context, route) ,
       child: Container(
       
         margin: EdgeInsets.fromLTRB(30, 50, 40, 0),
