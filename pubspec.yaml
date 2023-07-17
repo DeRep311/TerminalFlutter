@@ -63,6 +63,21 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
       - lib/src/Assets/Icons/graduation-hat-02.png
+      - lib/src/Assets/Icons/AccountLoginIcon.png
+      - lib/src/Assets/Icons/AdminIcon.png
+      - lib/src/Assets/Icons/BanioIcon.png
+      - lib/src/Assets/Icons/CantinaIcon.png
+      - lib/src/Assets/Icons/DocenteIcon.png
+      - lib/src/Assets/Icons/DoorIcon.png
+      - lib/src/Assets/Icons/FlechaIcon.png
+      - lib/src/Assets/Icons/GorroGraduacion.png
+      - lib/src/Assets/Icons/LocationsIcon.png
+      - lib/src/Assets/Icons/RelojIcon.png
+      - lib/src/Assets/Icons/SalonIcon.png
+      - lib/src/Assets/Icons/TeamIcon.png
+
+
+  
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
