@@ -1,10 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:my_app/src/Screens/FirstScreen.dart';
+
 import 'package:my_app/src/Screens/HomeEstudiante.dart';
 import 'package:my_app/src/Screens/Login.dart';
 import 'package:window_manager/window_manager.dart';
+
+import 'src/Screens/FirstScreen.dart';
+import 'src/Screens/StudentOptions.dart';
 
 void windowsManager() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,9 +44,11 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => FirstScreen(),
         '/HomeEstudiante': (context) => HomeEstudianteScreen(),
-        '/login': (context)=> LoginScreen()
-        
+        '/login': (context)=> LoginScreen(),
+        '/OpcionesEstudiante': (context) => StudentOptions(),
         },
     );
   }
 }
+
+

@@ -25,10 +25,10 @@ class _LoginFormState extends State<LoginForm> {
             child: Column(
               children: [
                 TextFormField(
-                  onSaved: (value) {
+                    onSaved: (value) {
                       email = value!;
                     },
-                  decoration: InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Cedula',
                       labelStyle: TextStyle(
                           color: Colors.black,
@@ -39,20 +39,18 @@ class _LoginFormState extends State<LoginForm> {
                           borderSide: BorderSide(color: Colors.black)),
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.black)),
-                          
-                          
-                          
-                          ),
-                           validator: (value) {
+                    ),
+                    validator: (value) {
                       if (value!.isEmpty || !(value.length == 8)) {
                         return 'Ingrese su cedula sin . ni guiones';
                       }
 
                       return null;
                     },
-                     keyboardType: TextInputType.number,
-                      inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly]
-                ),
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ]),
                 SizedBox(
                   height: 55,
                 ),
@@ -81,11 +79,11 @@ class _LoginFormState extends State<LoginForm> {
 
                       return null;
                     },
-                     inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
-                     keyboardType: TextInputType.number,
-
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                    keyboardType: TextInputType.number,
                   ),
-                  
                 ),
                 SizedBox(
                   height: 55,
@@ -94,7 +92,7 @@ class _LoginFormState extends State<LoginForm> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState?.save();
-                        
+                        Navigator.pushNamed(context, '/OpcionesEstudiante');
                       }
                     },
                     style: TextButton.styleFrom(

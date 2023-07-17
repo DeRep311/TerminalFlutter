@@ -1,5 +1,5 @@
-//need widget return scaffold
-// ignore_for_file: prefer_const_constructors
+
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
@@ -21,7 +21,7 @@ class FirstScreen extends StatelessWidget {
           children: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: const [
+            children:  [
               //Header main screen
 
               Header( nameOption: 'Visitante'),
@@ -31,18 +31,32 @@ class FirstScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   //options grid
-                  GridNavigation(childrens: [
-                    OptionBox(
+                  SizedBox(
+                    height: 503,
+                    width: 550,
+                    child:  Column(
+                    
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+
+                   Expanded(child: OptionBox(
                         title: 'opcion 1',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png'),
-                    
-                    OptionBox(
-                        title: ' 2',
+                     ),
+                     
+                      Expanded(child: OptionBox(
+                        title: 'opcion 1',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png'),
-                    
-                  ]),
+                     )
+                     ])
+                 
+                   
+
+                  ),
+                
                   //wheather and time
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,

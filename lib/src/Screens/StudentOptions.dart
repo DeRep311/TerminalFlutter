@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
@@ -8,8 +8,8 @@ import '../Widgets/Layout.dart';
 import '../Widgets/OptionBox.dart';
 import '../Widgets/Header.dart';
 
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({super.key});
+class StudentOptions extends StatelessWidget {
+  const StudentOptions({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,30 +20,60 @@ class FirstScreen extends StatelessWidget {
           children: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: const [
+            children: [
               //Header main screen
 
-              Header( nameOption: 'StudentLoged',),
+              Header(nameOption: 'Logued',),
               //Container for grid and weather
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Column(
+                  SizedBox(
+                    width: 550,
+                    height: 502,
+                    child: Column(
+                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [  GridNavigation(childrens: [
-                    OptionBox(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [ 
+                      
+                       Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          
+                        children: [
+                          Expanded(child: OptionBox(
                         title: 'Salon',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),
+                            'lib/src/Assets/Icons/graduation-hat-02.png'),),
+                   
+                     Expanded(child: OptionBox(
+                        title: 'Salon',
+                        imagePath:
+                            'lib/src/Assets/Icons/graduation-hat-02.png'),),
+                 
                     
-                    OptionBox(
+                  ]),
+                   Expanded(
+                   
+                    
+                    child: 
+                   
+                   
+                   OptionBox(
                         title: 'Horarios',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),
-                    
-                  ]),],
+                            'lib/src/Assets/Icons/graduation-hat-02.png')) ,
+                            
+                            
+                            ],
+                  
+                  
                   ),
+                  ),
+                  
+                  
              
                 
                   //wheather and time

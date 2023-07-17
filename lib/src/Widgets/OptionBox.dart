@@ -14,10 +14,11 @@ class OptionBox extends StatelessWidget {
     return InkWell(
       onTap: () => Navigator.pushNamed(context, '/login') ,
       child: Container(
-    
+      
+        margin: EdgeInsets.fromLTRB(30, 50, 40, 0),
+        padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
       decoration: BoxDecoration(
         color: Color.fromRGBO(52, 52, 52, 1),
-        
         boxShadow: [
           BoxShadow(
             
