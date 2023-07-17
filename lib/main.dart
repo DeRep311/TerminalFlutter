@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:my_app/src/Screens/Home.dart';
+import 'package:my_app/src/Screens/FirstScreen.dart';
+import 'package:my_app/src/Screens/HomeEstudiante.dart';
 import 'package:my_app/src/Screens/Login.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       initialRoute: '/',
       routes: {
-        '/': (context) => Home(),
+        '/': (context) => FirstScreen(),
+        '/HomeEstudiante': (context) => HomeEstudianteScreen(),
         '/login': (context)=> LoginScreen()
         
         },

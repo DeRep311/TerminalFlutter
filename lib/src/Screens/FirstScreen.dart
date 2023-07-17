@@ -7,10 +7,10 @@ import '../Widgets/Cards.dart';
 import '../Widgets/GridNavigation.dart';
 import '../Widgets/Layout.dart';
 import '../Widgets/OptionBox.dart';
-import '../Widgets/header.dart';
+import '../Widgets/headerFirstScreen.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,8 @@ class Home extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: const [
               //Header main screen
-              Header(),
+
+              HeaderFirstScreen(),
               //Container for grid and weather
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,18 +36,12 @@ class Home extends StatelessWidget {
                         title: 'opcion 1',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png'),
-                    OptionBox(
-                        title: 'random',
-                        imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),
+                    
                     OptionBox(
                         title: ' 2',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png'),
-                    OptionBox(
-                        title: 'opcion',
-                        imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),
+                    
                   ]),
                   //wheather and time
                   Column(
