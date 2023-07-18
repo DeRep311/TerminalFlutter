@@ -23,7 +23,7 @@ class StudentOptions extends StatelessWidget {
             children: [
               //Header main screen
 
-              Header(nameOption: 'Logued',),
+              Header(nameOption: 'Visitante',),
               //Container for grid and weather
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,7 +44,7 @@ class StudentOptions extends StatelessWidget {
           
                         children: [
                           Expanded(child: OptionBox(
-                        title: 'Salon',
+                        title: 'Baños',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png',
                         route: '/',    
@@ -56,7 +56,7 @@ class StudentOptions extends StatelessWidget {
 
 
                      Expanded(child: OptionBox(
-                        title: 'Salon',
+                        title: 'Auditorio',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png',
                         route: '/',     
@@ -68,7 +68,7 @@ class StudentOptions extends StatelessWidget {
                     
                       ] ),
                       Expanded(child: OptionBox(
-                        title: 'Horarios',
+                        title: 'Adscripciones',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png',
                         route: '/',    

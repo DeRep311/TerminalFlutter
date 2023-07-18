@@ -52,7 +52,7 @@ class Home extends StatelessWidget {
                         title: 'Ubicaciones',
                         imagePath:
                             'lib/src/Assets/Icons/LocationsIcon.png',
-                        route: '/HomeEstudiante',    
+                        route: '/GuestLocations',    
                             
                           ),
                      )

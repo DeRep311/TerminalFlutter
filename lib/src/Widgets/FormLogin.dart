@@ -92,7 +92,7 @@ class _LoginFormState extends State<LoginForm> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState?.save();
-                        Navigator.pushNamed(context, '/OpcionesEstudiante');
+                        Navigator.pushNamed(context, '/HomeEstudiante');
                       }
                     },
                     style: TextButton.styleFrom(

@@ -3,11 +3,14 @@
 import 'package:flutter/material.dart';
 
 
-import 'package:my_app/src/Screens/PublicAcces/Login.dart';
+import 'package:my_app/src/Screens/PublicAccess/Login.dart';
 import 'package:window_manager/window_manager.dart';
 
-import 'src/Screens/PublicAcces/Home.dart';
-import 'src/Screens/Students/StudentOptions.dart';
+import 'src/Screens/PublicAccess/Home.dart';
+import 'src/Screens/PublicAccess/GuestsLocations.dart';
+import 'src/Screens/Students/HomeEstudiante.dart';
+
+
 
 void windowsManager() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +46,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Home(),
-        '/HomeEstudiante': (context) =>  StudentOptions(),
+        '/GuestLocations': (context) =>  StudentOptions(), //GuestsLocations() ---> me da error si le cambio el nombre, por el momento queda el mismo nombre
+        '/HomeEstudiante': (context)=> HomeEstudiante(),
         '/login': (context)=> LoginScreen(),
       
         },

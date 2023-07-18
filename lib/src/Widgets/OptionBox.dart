@@ -16,7 +16,7 @@ class OptionBox extends StatelessWidget {
       onTap: () => Navigator.pushNamed(context, route) ,
       child: Container(
       
-        margin: EdgeInsets.fromLTRB(30, 50, 40, 0),
+        margin: EdgeInsets.fromLTRB(15, 50, 40, 0),
         padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
       decoration: BoxDecoration(
         color: Color.fromRGBO(52, 52, 52, 1),

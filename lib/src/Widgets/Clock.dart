@@ -21,7 +21,7 @@ class _ClockState extends State<Clock> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            '${DateTime.now().hour.toString()}:${DateTime.now().minute.toString().padLeft(2, '0')}',
+            '${DateTime.now().hour.toString()}:${DateTime.now().minute.toString().padLeft(2, '0')} ',
             style: TextStyle(
               fontFamily: 'Segoe UI',
               fontSize: 50,
@@ -35,7 +35,7 @@ class _ClockState extends State<Clock> {
             painter: LineClock(),
           ),
           Text(
-            'PM',
+            ' PM',
             style: TextStyle(
               fontFamily: 'Segoe UI',
               fontSize: 30,

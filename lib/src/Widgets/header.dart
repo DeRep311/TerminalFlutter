@@ -20,7 +20,7 @@ class _GreetingState extends State<Greeting> {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Hi, ${widget.name} ',
+      'Bienvenido, ${widget.name} ',
       textDirection: TextDirection.ltr,
       textAlign: TextAlign.right,
       style: const TextStyle(
