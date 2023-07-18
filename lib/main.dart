@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/src/Screens/PublicAcces/Login.dart';
 import 'package:window_manager/window_manager.dart';
 
-import 'src/Screens/PublicAcces/FirstScreen.dart';
+import 'src/Screens/PublicAcces/Home.dart';
 import 'src/Screens/Students/StudentOptions.dart';
 
 void windowsManager() async {
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       initialRoute: '/',
       routes: {
-        '/': (context) => FirstScreen(),
+        '/': (context) => Home(),
         '/HomeEstudiante': (context) =>  StudentOptions(),
         '/login': (context)=> LoginScreen(),
       

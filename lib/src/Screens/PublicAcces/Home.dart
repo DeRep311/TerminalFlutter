@@ -9,8 +9,8 @@ import '../../Widgets/Layout.dart';
 import '../../Widgets/OptionBox.dart';
 import '../../Widgets/Header.dart';
 
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({super.key});
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {

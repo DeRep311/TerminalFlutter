@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:my_app/src/Widgets/Clock.dart';
 
 class Greeting extends StatefulWidget {
   final String name;
@@ -41,12 +42,15 @@ class Header extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Container(
-          height: 107,
-          padding: const EdgeInsets.fromLTRB(0, 20, 50, 0),
-          decoration:
-              const BoxDecoration(color: Color.fromARGB(0, 167, 149, 149)),
-          child:  Greeting( name:nameOption),
+        Row( 
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+          Clock(),
+        
+           Greeting( name:nameOption),
+           
+           
+           ]
         
         ),
         CustomPaint(
@@ -75,3 +79,5 @@ class LineWhite extends CustomPainter {
     return false;
   }
 }
+
+

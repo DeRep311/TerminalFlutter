@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../../Widgets/Cards.dart';
-import '../../Widgets/GridNavigation.dart';
+
 import '../../Widgets/Layout.dart';
 import '../../Widgets/OptionBox.dart';
 import '../../Widgets/Header.dart';
@@ -46,12 +46,19 @@ class StudentOptions extends StatelessWidget {
                           Expanded(child: OptionBox(
                         title: 'Salon',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),),
+                            'lib/src/Assets/Icons/graduation-hat-02.png',
+                              route: '/',
+                              ),),
                    
                      Expanded(child: OptionBox(
                         title: 'Salon',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png'),),
+                            'lib/src/Assets/Icons/graduation-hat-02.png',
+                            route: '/',    
+                            
+                            
+                            
+                            ),),
                  
                     
                   ]),
@@ -64,7 +71,10 @@ class StudentOptions extends StatelessWidget {
                    OptionBox(
                         title: 'Horarios',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png')) ,
+                            'lib/src/Assets/Icons/graduation-hat-02.png',
+                              route: '/',
+                              )) ,
+                            
                             
                             
                             ],
