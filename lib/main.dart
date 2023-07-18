@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Home(),
-        '/GuestLocations': (context) =>  StudentOptions(), //GuestsLocations() ---> me da error si le cambio el nombre, por el momento queda el mismo nombre
+        '/GuestLocations': (context) => GuestLocation(), 
         '/HomeEstudiante': (context)=> HomeEstudiante(),
         '/login': (context)=> LoginScreen(),
       

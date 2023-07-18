@@ -3,13 +3,12 @@
 import 'package:flutter/material.dart';
 
 import '../../Widgets/Cards.dart';
-import '../../Widgets/GridNavigation.dart';
 import '../../Widgets/Layout.dart';
 import '../../Widgets/OptionBox.dart';
 import '../../Widgets/Header.dart';
 
-class StudentOptions extends StatelessWidget {
-  const StudentOptions({super.key});
+class GuestLocation extends StatelessWidget {
+  const GuestLocation({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,47 +22,41 @@ class StudentOptions extends StatelessWidget {
             children: [
               //Header main screen
 
-              
-
-
-              Header(nameOption: 'Visitante',),
+              Header(
+                nameOption: 'Visitante',
+              ),
               //Container for grid and weather
-              
 
-
-            //------------------------Con este codigo se puede agrandar el size de la flecha y tambien ya tiene la logica para retroceder de screen-----------------------------------------
+              //------------------------Con este codigo se puede agrandar el size de la flecha y tambien ya tiene la logica para retroceder de screen-----------------------------------------
               Row(
                 children: [
                   SizedBox(
                     child: IconButton(
-                    icon: Icon(
-                      Icons.arrow_back,
-                      size: 32, // Ajusta el tamaño del ícono aquí
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      // Lógica de navegación para retroceder a la screen anterior
-                      Navigator.pop(context);                    
-                    },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        size: 32, // Ajusta el tamaño del ícono aquí
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        // Lógica de navegación para retroceder a la screen anterior
+                        Navigator.pop(context);
+                      },
                     ),
                   ),
                 ],
               ),
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+              //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
-            //------------------------Esto hace la flecha con la funcion para ir una screen atras ya funcionando-----------------------------------------
+              //------------------------Esto hace la flecha con la funcion para ir una screen atras ya funcionando-----------------------------------------
               // Row(
-                
+
               //   children: [
 
               //     SizedBox(
               //       child: BackButton(
               //       color: Colors.white,
               //       style: ButtonStyle(
-                  
+
               //         backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
               //         overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
               //       ),
@@ -71,9 +64,7 @@ class StudentOptions extends StatelessWidget {
               //     ),
               //   ],
               // ),
-            //--------------------------------------------------------------------------------------------------------------------------------------------
-
-
+              //--------------------------------------------------------------------------------------------------------------------------------------------
 
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,69 +72,45 @@ class StudentOptions extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: 550,
-                    height: 502,
+                    height: 506,
                     child: Column(
-                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [ 
-                      
-                       Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          
-                        children: [
-                          Expanded(child: OptionBox(
-                        title: 'Baños',
-                        imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png',
-                        route: '/',    
-                            
-                            
-                            ),
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: OptionBox(
+                                  title: 'Baños',
+                                  imagePath:
+                                      'lib/src/Assets/Icons/graduation-hat-02.png',
+                                  route: '/',
+                                ),
+                              ),
+                              Expanded(
+                                child: OptionBox(
+                                  title: 'Auditorio',
+                                  imagePath:
+                                      'lib/src/Assets/Icons/graduation-hat-02.png',
+                                  route: '/',
+                                ),
+                              ),
+                            ]),
+                        Expanded(
+                          child: OptionBox(
+                            title: 'Adscripciones',
+                            imagePath:
+                                'lib/src/Assets/Icons/graduation-hat-02.png',
+                            route: '/',
+                          ),
                         ),
-                   
-
-
-                     Expanded(child: OptionBox(
-                        title: 'Auditorio',
-                        imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png',
-                        route: '/',     
-                        
-                            ),
-                               
-                        ),
-                 
-                    
-                      ] ),
-                      Expanded(child: OptionBox(
-                        title: 'Adscripciones',
-                        imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png',
-                        route: '/',    
-                            
-                            ),
-                            
-                   
-                    
-                    
-                   
-                   
-                   
-                            
-                        ),
-                            
-                            
-                            
-                  
-                  
-                    ],),
+                      ],
+                    ),
                   ),
-                  
-                  
-             
-                
+
                   //wheather and time
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -151,9 +118,6 @@ class StudentOptions extends StatelessWidget {
                   )
                 ],
               )
-              
-            
-            
             ],
           ),
         ),

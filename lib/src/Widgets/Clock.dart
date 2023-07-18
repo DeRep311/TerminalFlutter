@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+
+
 import 'package:flutter/material.dart';
 
 class Clock extends StatefulWidget {
@@ -13,6 +15,8 @@ class Clock extends StatefulWidget {
 class _ClockState extends State<Clock> {
   @override
   Widget build(BuildContext context) {
+
+
       Future.delayed(Duration(seconds: 1)).then((_) { 
       if (mounted) setState(() {});
     });
@@ -20,7 +24,7 @@ class _ClockState extends State<Clock> {
 
     return SizedBox(
       height: 80,
-      width: 180,
+      width: 190,
       child: Row(
   
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,7 +32,7 @@ class _ClockState extends State<Clock> {
         children: [
         
           Text(
-            '${DateTime.now().hour.toString()}:${DateTime.now().minute.toString()}',
+            ' ${DateTime.now().hour.toString()}:${DateTime.now().minute.toString()}',
             style: TextStyle(
               fontFamily: 'Segoe UI',
               fontSize: 50,
@@ -42,7 +46,7 @@ class _ClockState extends State<Clock> {
             painter: LineClock(),
           ),
           Text(
-            'PM',
+         DateTime.now().hour > 12 ? 'PM' : 'AM',
           
             style: TextStyle(
               fontFamily: 'Segoe UI',

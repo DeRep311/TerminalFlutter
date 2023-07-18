@@ -15,19 +15,17 @@ class LoginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-
               SizedBox(
                 child: BackButton(
-                color: Colors.white,
-                style: ButtonStyle(
-                  
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
-                  overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                  color: Colors.white,
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.transparent),
+                    overlayColor:
+                        MaterialStateProperty.all<Color>(Colors.transparent),
+                  ),
                 ),
-                  
               ),
-              ),
-              
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -97,7 +95,6 @@ class LoginScreen extends StatelessWidget {
                           height: 55,
                         ),
                         LoginForm()
-                        
                       ]),
                 ),
               )

@@ -1,10 +1,8 @@
-
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
 import '../../Widgets/Cards.dart';
-import '../../Widgets/GridNavigation.dart';
 import '../../Widgets/Layout.dart';
 import '../../Widgets/OptionBox.dart';
 import '../../Widgets/Header.dart';
@@ -21,10 +19,10 @@ class Home extends StatelessWidget {
           children: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
-            children:  [
+            children: [
               //Header main screen
 
-              Header( nameOption: 'Visitante'),
+              Header(nameOption: 'Visitante'),
               //Container for grid and weather
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,36 +30,30 @@ class Home extends StatelessWidget {
                 children: [
                   //options grid
                   SizedBox(
-                    height: 503,
-                    width: 550,
-                    child:  Column(
-                    
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
+                      height: 506,
+                      width: 550,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Expanded(
+                              child: OptionBox(
+                                title: 'Login',
+                                imagePath:
+                                    'lib/src/Assets/Icons/AccountLoginIcon.png',
+                                route: '/login',
+                              ),
+                            ),
+                            Expanded(
+                              child: OptionBox(
+                                title: 'Ubicaciones',
+                                imagePath:
+                                    'lib/src/Assets/Icons/LocationsIcon.png',
+                                route: '/GuestLocations',
+                              ),
+                            )
+                          ])),
 
-                   Expanded(child: OptionBox(
-                        title: 'Login',
-                        imagePath:
-                            'lib/src/Assets/Icons/AccountLoginIcon.png',
-                        route: '/login',  
-                          ),
-                     ),
-                     
-                      Expanded(child: OptionBox(
-                        title: 'Ubicaciones',
-                        imagePath:
-                            'lib/src/Assets/Icons/LocationsIcon.png',
-                        route: '/GuestLocations',    
-                            
-                          ),
-                     )
-                     ])
-                 
-                   
-
-                  ),
-                
                   //wheather and time
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,

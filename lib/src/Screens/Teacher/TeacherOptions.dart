@@ -23,7 +23,9 @@ class TeacherOptions extends StatelessWidget {
             children: [
               //Header main screen
 
-              Header(nameOption: 'Logued',),
+              Header(
+                nameOption: 'Logued',
+              ),
               //Container for grid and weather
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,61 +33,44 @@ class TeacherOptions extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: 550,
-                    height: 502,
+                    height: 506,
                     child: Column(
-                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [ 
-                      
-                       Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          
-                        children: [
-                          Expanded(child: OptionBox(
-                        title: 'Salon',
-                        imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png',
-                              route: '/',
-                              ),),
-                   
-                     Expanded(child: OptionBox(
-                        title: 'Salon',
-                        imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png',
-                            route: '/',    
-                            
-                            
-                            
-                            ),),
-                 
-                    
-                  ]),
-                   Expanded(
-                   
-                    
-                    child: 
-                   
-                   
-                   OptionBox(
-                        title: 'Horarios',
-                        imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png',
-                              route: '/',
-                              )) ,
-                            
-                            
-                            
-                            ],
-                  
-                  
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: OptionBox(
+                                  title: 'Salon',
+                                  imagePath:
+                                      'lib/src/Assets/Icons/graduation-hat-02.png',
+                                  route: '/',
+                                ),
+                              ),
+                              Expanded(
+                                child: OptionBox(
+                                  title: 'Salon',
+                                  imagePath:
+                                      'lib/src/Assets/Icons/graduation-hat-02.png',
+                                  route: '/',
+                                ),
+                              ),
+                            ]),
+                        Expanded(
+                            child: OptionBox(
+                          title: 'Horarios',
+                          imagePath:
+                              'lib/src/Assets/Icons/graduation-hat-02.png',
+                          route: '/',
+                        )),
+                      ],
+                    ),
                   ),
-                  ),
-                  
-                  
-             
-                
+
                   //wheather and time
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,

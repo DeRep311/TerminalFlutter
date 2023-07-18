@@ -31,7 +31,7 @@ class HomeEstudiante extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: 550,
-                    height: 502,
+                    height: 506,
                     child: Column(
                      mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -43,14 +43,16 @@ class HomeEstudiante extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
           
                         children: [
-                          Expanded(child: OptionBox(
+                          Expanded(
+                            child: OptionBox(
                         title: 'Salon',
                         imagePath:
                             'lib/src/Assets/Icons/SalonIcon.png',
                               route: '/',
                               ),),
                    
-                     Expanded(child: OptionBox(
+                     Expanded(
+                      child: OptionBox(
                         title: 'Horarios',
                         imagePath:
                             'lib/src/Assets/Icons/RelojIcon.png',
