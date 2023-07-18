@@ -16,18 +16,16 @@ class CardTime extends StatelessWidget {
       height: 190,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.0),
-        gradient: LinearGradient(
-      begin: Alignment.bottomLeft,
-      end: Alignment.topLeft,
-      stops: [0.0, 1.0],
-      colors: [
-        Color.fromRGBO(255, 255, 255, 0.40),
-        Color.fromRGBO(255, 255, 255, 0.10),
-      ],
-      transform: GradientRotation(153 * (3.1415926 / 180)),
-      
-    ),
-      
+       color: Color.fromRGBO(52, 52, 52, 1),
+       boxShadow: [
+          BoxShadow(
+            
+            color: Color.fromRGBO(0, 0, 0, 0.25),
+            offset: Offset(0.0, 0.0),
+            blurRadius: 20.0,
+            spreadRadius: 13,
+            
+          )],
       ),
       child: Text(
         '12:00',

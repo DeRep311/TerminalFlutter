@@ -13,15 +13,22 @@ class Clock extends StatefulWidget {
 class _ClockState extends State<Clock> {
   @override
   Widget build(BuildContext context) {
+      Future.delayed(Duration(seconds: 1)).then((_) { 
+      if (mounted) setState(() {});
+    });
+
+
     return SizedBox(
       height: 80,
-      width: 260,
+      width: 180,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+  
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+        
           Text(
-            '${DateTime.now().hour.toString()}:${DateTime.now().minute.toString().padLeft(2, '0')} ',
+            '${DateTime.now().hour.toString()}:${DateTime.now().minute.toString()}',
             style: TextStyle(
               fontFamily: 'Segoe UI',
               fontSize: 50,
@@ -35,10 +42,11 @@ class _ClockState extends State<Clock> {
             painter: LineClock(),
           ),
           Text(
-            ' PM',
+            'PM',
+          
             style: TextStyle(
               fontFamily: 'Segoe UI',
-              fontSize: 30,
+              fontSize: 25,
               color: const Color.fromRGBO(255, 255, 255, 1),
               fontWeight: FontWeight.w700,
             ),
