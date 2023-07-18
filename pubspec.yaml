@@ -75,6 +75,8 @@ flutter:
       - lib/src/Assets/Icons/RelojIcon.png
       - lib/src/Assets/Icons/SalonIcon.png
       - lib/src/Assets/Icons/TeamIcon.png
+      - lib/src/Assets/Icons/ArrowIcon.png
+
 
 
   

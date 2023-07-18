@@ -23,8 +23,58 @@ class StudentOptions extends StatelessWidget {
             children: [
               //Header main screen
 
+              
+
+
               Header(nameOption: 'Visitante',),
               //Container for grid and weather
+              
+
+
+            //------------------------Con este codigo se puede agrandar el size de la flecha y tambien ya tiene la logica para retroceder de screen-----------------------------------------
+              Row(
+                children: [
+                  SizedBox(
+                    child: IconButton(
+                    icon: Icon(
+                      Icons.arrow_back,
+                      size: 32, // Ajusta el tamaño del ícono aquí
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      // Lógica de navegación para retroceder a la screen anterior
+                      Navigator.pop(context);                    
+                    },
+                    ),
+                  ),
+                ],
+              ),
+            //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+            //------------------------Esto hace la flecha con la funcion para ir una screen atras ya funcionando-----------------------------------------
+              // Row(
+                
+              //   children: [
+
+              //     SizedBox(
+              //       child: BackButton(
+              //       color: Colors.white,
+              //       style: ButtonStyle(
+                  
+              //         backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+              //         overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
+              //       ),
+              //     ),
+              //     ),
+              //   ],
+              // ),
+            //--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -101,6 +151,9 @@ class StudentOptions extends StatelessWidget {
                   )
                 ],
               )
+              
+            
+            
             ],
           ),
         ),

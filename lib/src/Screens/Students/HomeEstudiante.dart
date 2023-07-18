@@ -46,14 +46,14 @@ class HomeEstudiante extends StatelessWidget {
                           Expanded(child: OptionBox(
                         title: 'Salon',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png',
+                            'lib/src/Assets/Icons/SalonIcon.png',
                               route: '/',
                               ),),
                    
                      Expanded(child: OptionBox(
-                        title: 'Salon',
+                        title: 'Horarios',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png',
+                            'lib/src/Assets/Icons/RelojIcon.png',
                             route: '/',    
                             
                             
@@ -69,7 +69,7 @@ class HomeEstudiante extends StatelessWidget {
                    
                    
                    OptionBox(
-                        title: 'Horarios',
+                        title: 'Ubicaciones',
                         imagePath:
                             'lib/src/Assets/Icons/graduation-hat-02.png',
                               route: '/',
