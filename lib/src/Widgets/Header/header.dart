@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:my_app/src/Widgets/Clock.dart';
+import 'Clock.dart';
 
 class Greeting extends StatefulWidget {
   final String name;

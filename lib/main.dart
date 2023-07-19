@@ -33,6 +33,7 @@ void windowsManager() async {
 
 void main() async {
   runApp(const MyApp());
+ 
   windowsManager();
 }
 

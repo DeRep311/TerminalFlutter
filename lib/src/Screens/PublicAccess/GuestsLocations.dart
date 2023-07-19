@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 
-import '../../Widgets/Cards.dart';
+import '../../Widgets/LeftCards/Cards.dart';
 import '../../Widgets/Layout.dart';
 import '../../Widgets/OptionBox.dart';
-import '../../Widgets/Header.dart';
+import '../../Widgets/Header/Header.dart';
 
 class GuestLocation extends StatelessWidget {
   const GuestLocation({super.key});
@@ -114,7 +114,25 @@ class GuestLocation extends StatelessWidget {
                   //wheather and time
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [CardTime(), CardTime()],
+                    children: [CardTime( children: Text(
+          '12:00',
+          style: TextStyle(
+            fontFamily: 'Inter',
+            fontSize: 96,
+            color: const Color(0xffffffff),
+            fontWeight: FontWeight.w500,
+          ),
+          textAlign: TextAlign.center,
+        )), CardTime( children: Text(
+          '12:00',
+          style: TextStyle(
+            fontFamily: 'Inter',
+            fontSize: 96,
+            color: const Color(0xffffffff),
+            fontWeight: FontWeight.w500,
+          ),
+          textAlign: TextAlign.center,
+        ))],
                   )
                 ],
               )

@@ -32,7 +32,7 @@ class _ClockState extends State<Clock> {
         children: [
         
           Text(
-            ' ${DateTime.now().hour.toString()}:${DateTime.now().minute.toString()}',
+            ' ${DateTime.now().hour.toString().padLeft(2, '0')}:${DateTime.now().minute.toString().padLeft(2, '0')}',
             style: TextStyle(
               fontFamily: 'Segoe UI',
               fontSize: 50,

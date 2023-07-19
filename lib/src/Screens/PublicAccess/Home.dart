@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:my_app/src/Widgets/LeftCards/Calendar.dart';
 
-import '../../Widgets/Cards.dart';
+import '../../Widgets/LeftCards/Cards.dart';
 import '../../Widgets/Layout.dart';
 import '../../Widgets/OptionBox.dart';
-import '../../Widgets/Header.dart';
+import '../../Widgets/Header/Header.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -57,7 +58,16 @@ class Home extends StatelessWidget {
                   //wheather and time
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [CardTime(), CardTime()],
+                    children: [CardTime(children: Calendar(),), CardTime( children: Text(
+          '12:00',
+          style: TextStyle(
+            fontFamily: 'Inter',
+            fontSize: 96,
+            color: const Color(0xffffffff),
+            fontWeight: FontWeight.w500,
+          ),
+          textAlign: TextAlign.center,
+        ))],
                   )
                 ],
               )
