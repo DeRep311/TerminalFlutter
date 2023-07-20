@@ -83,7 +83,8 @@ flutter:
       - lib/src/Assets/Icons/SalonIcon.png
       - lib/src/Assets/Icons/TeamIcon.png
       - lib/src/Assets/Icons/WallpaperLeaves.jpg
-
+      - lib/src/Assets/Icons/LupaIcon.png
+      - lib/src/Assets/Icons/AdscripIcon.png
 
 
   

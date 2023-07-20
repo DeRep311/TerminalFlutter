@@ -8,8 +8,8 @@ import '../../Widgets/Layout.dart';
 import '../../Widgets/OptionBox.dart';
 import '../../Widgets/Header/Header.dart';
 
-class Locations extends StatelessWidget {
-  const Locations({super.key});
+class LocationsDocentes extends StatelessWidget {
+  const LocationsDocentes({super.key});
 
   @override
   Widget build(BuildContext context) {

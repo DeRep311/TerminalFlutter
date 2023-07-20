@@ -9,7 +9,12 @@ import 'package:window_manager/window_manager.dart';
 import 'src/Screens/PublicAccess/Home.dart';
 import 'src/Screens/PublicAccess/GuestsLocations.dart';
 import 'src/Screens/Students/HomeEstudiante.dart';
-import 'src/Screens/Students/Salones.dart';
+import 'src/Screens/Students/Locations.dart';
+import 'src/Screens/StudentsTeacher/Salones.dart';
+import 'src/Screens/Students/HorariosEstudiantes.dart';
+import 'src/Screens/Teacher/HomeDocentes.dart';
+import 'src/Screens/Teacher/HorariosDocentes.dart';
+import 'src/Screens/Teacher/LocationsDocentes.dart';
 
 
 
@@ -50,7 +55,18 @@ class MyApp extends StatelessWidget {
         '/': (context) => Home(),
         '/GuestLocations': (context) => GuestLocation(), 
         '/HomeEstudiante': (context)=> HomeEstudiante(),
+        '/LocationsEstudiantes': (context)=> Locations(),
+        '/HorariosEstudiantes': (context)=> HorariosEstudiantes(),   
         '/Salones': (context)=> Salones(),   
+        
+        '/HomeDocentes': (context)=> HomeDocentes(),
+        '/HorariosDocentes': (context)=> HorariosDocentes(),
+        '/LocationsDocentes': (context)=> LocationsDocentes(),
+
+
+        
+        
+        
         '/login': (context)=> LoginScreen(),
       
         },

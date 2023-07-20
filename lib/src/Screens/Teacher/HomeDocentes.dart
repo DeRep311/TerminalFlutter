@@ -13,8 +13,8 @@ import '../../Widgets/Button.dart';
 
 
 
-class HomeEstudiante extends StatelessWidget {
-  const HomeEstudiante({super.key});
+class HomeDocentes extends StatelessWidget {
+  const HomeDocentes({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +117,7 @@ class HomeEstudiante extends StatelessWidget {
                         title: 'Horarios',
                         imagePath:
                             'lib/src/Assets/Icons/RelojIcon.png',
-                            route: '/HorariosEstudiantes',    
+                            route: '/HorariosDocentes',    
                             
                             
                             
@@ -135,7 +135,7 @@ class HomeEstudiante extends StatelessWidget {
                         title: 'Ubicaciones',
                         imagePath:
                             'lib/src/Assets/Icons/LocationsIcon.png',
-                              route: '/LocationsEstudiantes',
+                              route: '/LocationsDocentes',
                               )) ,
                             
                             

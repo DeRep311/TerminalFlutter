@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, body_might_complete_normally_nullable
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,8 +14,8 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    String email;
-    String Pin;
+    String email = "";
+    String pin = "";
     return Form(
         key: _formKey,
         child: SizedBox(
@@ -28,7 +26,7 @@ class _LoginFormState extends State<LoginForm> {
                     onSaved: (value) {
                       email = value!;
                     },
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Cedula',
                       labelStyle: TextStyle(
                           color: Colors.black,
@@ -51,17 +49,17 @@ class _LoginFormState extends State<LoginForm> {
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
                     ]),
-                SizedBox(
+                const SizedBox(
                   height: 55,
                 ),
                 SizedBox(
                   width: 300,
                   child: TextFormField(
                     onSaved: (value) {
-                      Pin = value!;
+                      pin = value!;
                     },
                     obscureText: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         labelText: 'Pin',
                         labelStyle: TextStyle(
                             color: Colors.black,
@@ -85,21 +83,29 @@ class _LoginFormState extends State<LoginForm> {
                     keyboardType: TextInputType.number,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 55,
                 ),
                 TextButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState?.save();
-                        Navigator.pushNamed(context, '/HomeEstudiante');
+                        
+                        // Revisa si el email y el pin son '11111111' y '1111' respectivamente
+                        if (email == '11111111' && pin == '1111') {
+                          // Navega a la página '/HomeDocentes'
+                          Navigator.pushNamed(context, '/HomeDocentes');
+                        } else {
+                          // Navega a la página '/HomeEstudiante'
+                          Navigator.pushNamed(context, '/HomeEstudiante');
+                        }
                       }
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black,
-                      padding: EdgeInsets.fromLTRB(100, 30, 100, 30),
+                      padding: const EdgeInsets.fromLTRB(100, 30, 100, 30),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Ingresar',
                       textAlign: TextAlign.center,
                       style: TextStyle(
