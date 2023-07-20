@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class Salones extends StatefulWidget {
@@ -24,40 +23,42 @@ class _DividedScreenState extends State<Salones> {
             child: FractionallySizedBox(
               widthFactor: 1.0, // Representa el 75% del ancho
               alignment: Alignment.center,
-              child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image:
-                        AssetImage('lib/src/Assets/Icons/WallpaperLeaves.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: const Center(
-                  child: Text(
-                    '¡Busca tu salon!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Poppins',
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('lib/src/Assets/Icons/WallpaperLeaves.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        '¡Busca tu salon!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Poppins',
+                          fontSize: 35,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              child: ClipRRect(
-                // make sure we apply clip it properly
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                  child: Container(
-                    alignment: Alignment.center,
-                    color: Colors.grey.withOpacity(0.1),
-                    child: const Text(
-                      "CHOCOLATE",
-                      style:
-                          TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  ClipRRect(
+                    // make sure we apply clip it properly
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                      child: Container(
+                        alignment: Alignment.center,
+                        color: Colors.grey.withOpacity(0.1),
+                        child: const Text(
+                          "CHOCOLATE",
+                          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
             ),
           ),
