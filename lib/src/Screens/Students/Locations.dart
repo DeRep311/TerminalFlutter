@@ -65,14 +65,14 @@ class Locations extends StatelessWidget {
                               child: OptionBox(
                                 title: 'Baño',
                                 imagePath: 'lib/src/Assets/Icons/BanioIcon.png',
-                                route: '/',
+                                route: '/FUD',
                               ),
                             ),
                             Expanded(
                               child: OptionBox(
                                 title: 'Adscripción',
                                 imagePath: 'lib/src/Assets/Icons/AdscripIcon.png',
-                                route: '/',
+                                route: '/FUD',
                               ),
                             ),
                           ],
@@ -85,14 +85,14 @@ class Locations extends StatelessWidget {
                               child: OptionBox(
                                 title: 'Cantina',
                                 imagePath: 'lib/src/Assets/Icons/CantinaIcon.png',
-                                route: '/',
+                                route: '/FUD',
                               ),
                             ),
                             Expanded(
                               child: OptionBox(
                                 title: 'Bedelía',
                                 imagePath: 'lib/src/Assets/Icons/AdminIcon.png',
-                                route: '/',
+                                route: '/FUD',
                               ),
                             ),
                           ],

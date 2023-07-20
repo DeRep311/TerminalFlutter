@@ -10,6 +10,7 @@ import 'src/Screens/PublicAccess/Home.dart';
 import 'src/Screens/PublicAccess/GuestsLocations.dart';
 import 'src/Screens/Students/HomeEstudiante.dart';
 import 'src/Screens/Students/Locations.dart';
+import 'src/Screens/StudentsTeacher/FUD.dart';
 import 'src/Screens/StudentsTeacher/Salones.dart';
 import 'src/Screens/Students/HorariosEstudiantes.dart';
 import 'src/Screens/Teacher/HomeDocentes.dart';
@@ -64,7 +65,8 @@ class MyApp extends StatelessWidget {
         '/LocationsDocentes': (context)=> LocationsDocentes(),
 
 
-        
+        '/FUD': (context)=> FUD(), //Function Under Development
+
         
         
         '/login': (context)=> LoginScreen(),
