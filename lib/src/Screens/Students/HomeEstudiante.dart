@@ -7,6 +7,10 @@ import '../../Widgets/LeftCards/Cards.dart';
 import '../../Widgets/Layout.dart';
 import '../../Widgets/OptionBox.dart';
 import '../../Widgets/Header/Header.dart';
+import '../../Widgets/Button.dart';
+
+
+
 
 class HomeEstudiante extends StatelessWidget {
   const HomeEstudiante({super.key});
@@ -25,6 +29,62 @@ class HomeEstudiante extends StatelessWidget {
 
               Header(nameOption: 'Logued',),
               //Container for grid and weather
+              
+
+
+              //----------------------Flecha para retroceder--------------------
+              // Row(
+              //   children: [
+              //     SizedBox(
+              //       child: IconButton(
+              //         icon: Icon(
+              //           Icons.arrow_back,
+              //           size: 32, // Ajusta el tamaño del ícono aquí
+              //           color: Colors.white,
+              //         ),
+              //         onPressed: () {
+              //           // Lógica de navegación para retroceder a la screen anterior
+              //           Navigator.pop(context);
+              //         },
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              //-----------------------------------------------------------------
+
+
+
+
+
+
+              //----------------------Boton para salir--------------------------
+
+
+
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          
+                  children: [
+                    SizedBox(
+                      child: Button(
+                        text: 'Salir',
+                        onPressed: () {
+                        Navigator.pushNamed(context, '/');
+                        },
+                      ),
+                      
+                    ),
+
+                  ],
+
+                ),
+
+
+
+
+              //-----------------------------------------------------------------
+              
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -48,7 +108,7 @@ class HomeEstudiante extends StatelessWidget {
                         title: 'Salon',
                         imagePath:
                             'lib/src/Assets/Icons/SalonIcon.png',
-                              route: '/',
+                              route: '/Salones',
                               ),),
                    
                      Expanded(
@@ -73,7 +133,7 @@ class HomeEstudiante extends StatelessWidget {
                    OptionBox(
                         title: 'Ubicaciones',
                         imagePath:
-                            'lib/src/Assets/Icons/graduation-hat-02.png',
+                            'lib/src/Assets/Icons/LocationsIcon.png',
                               route: '/',
                               )) ,
                             
@@ -83,6 +143,10 @@ class HomeEstudiante extends StatelessWidget {
                   
                   
                   ),
+                  
+                  
+                  
+                  
                   ),
                   
                   
@@ -113,6 +177,7 @@ class HomeEstudiante extends StatelessWidget {
                   )
                 ],
               )
+            
             ],
           ),
         ),

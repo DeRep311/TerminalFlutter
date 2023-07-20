@@ -9,6 +9,7 @@ import 'package:window_manager/window_manager.dart';
 import 'src/Screens/PublicAccess/Home.dart';
 import 'src/Screens/PublicAccess/GuestsLocations.dart';
 import 'src/Screens/Students/HomeEstudiante.dart';
+import 'src/Screens/Students/Salones.dart';
 
 
 
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => Home(),
         '/GuestLocations': (context) => GuestLocation(), 
         '/HomeEstudiante': (context)=> HomeEstudiante(),
+        '/Salones': (context)=> Salones(),   
         '/login': (context)=> LoginScreen(),
       
         },

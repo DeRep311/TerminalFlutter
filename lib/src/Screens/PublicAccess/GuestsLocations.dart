@@ -27,6 +27,8 @@ class GuestLocation extends StatelessWidget {
               ),
               //Container for grid and weather
 
+
+            
               //------------------------Con este codigo se puede agrandar el size de la flecha y tambien ya tiene la logica para retroceder de screen-----------------------------------------
               Row(
                 children: [
