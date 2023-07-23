@@ -6,6 +6,8 @@ import '../../Widgets/LeftCards/Cards.dart';
 import '../../Widgets/Layout.dart';
 import '../../Widgets/OptionBox.dart';
 import '../../Widgets/Header/Header.dart';
+import '../../Widgets/LeftCards/Calendar.dart';
+
 
 class GuestLocation extends StatelessWidget {
   const GuestLocation({super.key});
@@ -88,7 +90,7 @@ class GuestLocation extends StatelessWidget {
                                 child: OptionBox(
                                   title: 'Baños',
                                   imagePath:
-                                      'lib/src/Assets/Icons/graduation-hat-02.png',
+                                      'lib/src/Assets/Icons/BanioIcon.png',
                                   route: '/',
                                 ),
                               ),
@@ -96,7 +98,7 @@ class GuestLocation extends StatelessWidget {
                                 child: OptionBox(
                                   title: 'Auditorio',
                                   imagePath:
-                                      'lib/src/Assets/Icons/graduation-hat-02.png',
+                                      'lib/src/Assets/Icons/AuditorioRoomIcon.png',
                                   route: '/',
                                 ),
                               ),
@@ -105,7 +107,7 @@ class GuestLocation extends StatelessWidget {
                           child: OptionBox(
                             title: 'Adscripciones',
                             imagePath:
-                                'lib/src/Assets/Icons/graduation-hat-02.png',
+                                'lib/src/Assets/Icons/AdscripIcon.png',
                             route: '/',
                           ),
                         ),
@@ -113,28 +115,26 @@ class GuestLocation extends StatelessWidget {
                     ),
                   ),
 
-                  //wheather and time
+                  //weather and time
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [CardTime( children: Text(
-          '12:00',
-          style: TextStyle(
-            fontFamily: 'Inter',
-            fontSize: 96,
-            color: const Color(0xffffffff),
-            fontWeight: FontWeight.w500,
-          ),
-          textAlign: TextAlign.center,
-        )), CardTime( children: Text(
-          '12:00',
-          style: TextStyle(
-            fontFamily: 'Inter',
-            fontSize: 96,
-            color: const Color(0xffffffff),
-            fontWeight: FontWeight.w500,
-          ),
-          textAlign: TextAlign.center,
-        ))],
+                    children: [
+                      CardTime(
+                        children: Calendar(), // Asegúrate de que CardTime acepte solo un hijo
+                      ),
+                      CardTime(
+                        children: Text(
+                          '12:00',
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 96,
+                            color: Color(0xffffffff),
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
                   )
                 ],
               )
