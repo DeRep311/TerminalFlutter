@@ -8,11 +8,14 @@
 
 // print(await http.read(Uri.https('example.com', 'foobar.txt')));
 
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-Future<void> login(String cedula, String pin) async {
-  final String url = 'http://26.26.41.65:5182/api/Login'; // Reemplaza la IP con la dirección correcta del servidor
+Future<void> login(BuildContext context, cedula, String pin) async {
+  final String url = 'http://localhost:5182/api/Login'; // Reemplaza la IP con la dirección correcta del servidor
 
   // Datos del JSON (cedula y pin)
   Map<String, dynamic> jsonData = {
@@ -34,11 +37,18 @@ Future<void> login(String cedula, String pin) async {
     if (response.statusCode == 200) {
       // La solicitud se completó correctamente
       print('Login exitoso: ${response.body}');
+      Navigator.pushNamed(context, '/HomeEstudiante');
+
+
+      
       // Aquí puedes realizar las acciones necesarias después del inicio de sesión exitoso
     } else {
       // Hubo un error en la solicitud
       print('Error en el login. Código de respuesta: ${response.statusCode}');
       // Aquí puedes manejar el error de acuerdo a tus necesidades
+      Navigator.pushNamed(context, '/loginError');
+
+    
     }
   } catch (e) {
     // Error en la conexión o en la respuesta del servidor

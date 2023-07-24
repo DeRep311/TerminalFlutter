@@ -166,7 +166,7 @@ class _LoginFormState extends State<LoginForm> {
               ),
               validator: (value) {
                 if (value!.isEmpty || value.length != 8) {
-                  return 'Ingrese una cédula válida (8 dígitos numéricos, sin puntos ni guiones)';
+                  return 'Ingrese una cédula válida (sin puntos ni guiones)';
                 }
                 return null;
               },
@@ -216,14 +216,16 @@ class _LoginFormState extends State<LoginForm> {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState?.save();
                   // Llama a la función login para enviar los datos por POST
-                  login(email, pin).then((value) {
+                  login(context, email, pin).then((value) {
                     // Aquí puedes realizar acciones adicionales después del inicio de sesión exitoso
+                    
                     // Por ejemplo, navegar a una nueva pantalla
-                    Navigator.pushNamed(context, '/HomeDocentes');
                   }).catchError((error) {
                     // Aquí puedes manejar errores en la solicitud POST si es necesario
                     print('Error en el login: $error');
                     // Por ejemplo, mostrar un mensaje de error al usuario
+
+
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Error en el inicio de sesión')),
                     );

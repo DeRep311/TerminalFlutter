@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 
 import 'package:my_app/src/Screens/PublicAccess/Login.dart';
+import 'package:my_app/src/Screens/PublicAccess/LoginErrorScreen.dart';
 import 'package:window_manager/window_manager.dart';
 
 import 'src/Screens/PublicAccess/Home.dart';
@@ -68,7 +69,7 @@ class MyApp extends StatelessWidget {
         '/FUD': (context)=> FUD(), //Function Under Development
 
         
-        
+        '/loginError': (context)=> LoginErrorScreen(),
         '/login': (context)=> LoginScreen(),
       
         },
