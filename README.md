@@ -4,14 +4,11 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Para iniciar el frontend necesita el sdk de flutter y con el comando clave "flutter run" dentro de la carpeta frontend
+y el backend solo necesitara asp.net core y para ejecutar usara el comando clave "dotnet run", dentro de la carpeta backend
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 # TerminalFlutter
+
+# Explicaciones para la primera entrega:
+
+El software está dividido en dos capas frontend, backend, el frontend está construido en flutter y su backend en asp.net core, el backend tiene la conexion a la base de datos como se solicita con un login muy básico(Solo para estudiantes), el frontend presenta toda su navegación, las secciones donde se necesitan datos del backend no están funcionales pero si pertenecen al sistema de rutas y se puede acceder.
