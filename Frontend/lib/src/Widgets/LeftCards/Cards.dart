@@ -15,13 +15,13 @@ class CardTime extends StatelessWidget {
         height: 190,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
-          color: Color.fromRGBO(52, 52, 52, 1),
+          color: Color.fromRGBO(61, 61, 61, 1),
           boxShadow: [
             BoxShadow(
               color: Color.fromRGBO(0, 0, 0, 0.25),
-              offset: Offset(0.0, 0.0),
-              blurRadius: 20.0,
-              spreadRadius: 13,
+              offset: Offset(0.0, 4.0),
+              blurRadius: 4,
+              spreadRadius: 0,
             )
           ],
         ),

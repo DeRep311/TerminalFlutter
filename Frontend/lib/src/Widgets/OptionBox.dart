@@ -19,14 +19,14 @@ class OptionBox extends StatelessWidget {
         margin: EdgeInsets.fromLTRB(15, 50, 40, 0),
         padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
       decoration: BoxDecoration(
-        color: Color.fromRGBO(52, 52, 52, 1),
+        color: Color.fromRGBO(61, 61, 61, 1),
         boxShadow: [
           BoxShadow(
             
-            color: Color.fromRGBO(255, 255, 255, 0.25),
-            offset: Offset(0.0, 0.0),
-            blurRadius: 20.0,
-            spreadRadius: 13,
+            color: Color.fromRGBO(0, 0, 0, 0.25),
+            offset: Offset(0.0, 4.0),
+            blurRadius: 4.0,
+            spreadRadius: 0,
             
           ),
         ],

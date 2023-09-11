@@ -1,22 +1,17 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:my_app/src/Screens/Home.dart';
+import 'package:my_app/src/Screens/Login.dart';
+import 'package:my_app/src/Screens/LoginErrorScreen.dart';
+import 'package:my_app/src/Screens/Schedule.dart';
+import 'package:my_app/src/Screens/Ubications.dart';
 
 
-import 'package:my_app/src/Screens/PublicAccess/Login.dart';
-import 'package:my_app/src/Screens/PublicAccess/LoginErrorScreen.dart';
+
 import 'package:window_manager/window_manager.dart';
 
-import 'src/Screens/PublicAccess/Home.dart';
-import 'src/Screens/PublicAccess/GuestsLocations.dart';
-import 'src/Screens/Students/HomeEstudiante.dart';
-import 'src/Screens/Students/Locations.dart';
-import 'src/Screens/StudentsTeacher/FUD.dart';
-import 'src/Screens/StudentsTeacher/Salones.dart';
-import 'src/Screens/Students/HorariosEstudiantes.dart';
-import 'src/Screens/Teacher/HomeDocentes.dart';
-import 'src/Screens/Teacher/HorariosDocentes.dart';
-import 'src/Screens/Teacher/LocationsDocentes.dart';
+
 
 
 
@@ -52,23 +47,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: '/',
+      initialRoute: '/Schedule',
       routes: {
         '/': (context) => Home(),
-        '/GuestLocations': (context) => GuestLocation(), 
-        '/HomeEstudiante': (context)=> HomeEstudiante(),
-        '/LocationsEstudiantes': (context)=> Locations(),
-        '/HorariosEstudiantes': (context)=> HorariosEstudiantes(),   
-        '/Salones': (context)=> Salones(),   
-        
-        '/HomeDocentes': (context)=> HomeDocentes(),
-        '/HorariosDocentes': (context)=> HorariosDocentes(),
-        '/LocationsDocentes': (context)=> LocationsDocentes(),
-
-
-        '/FUD': (context)=> FUD(), //Function Under Development
-
-        
+        '/Locations': (context) => Ubications(), 
+        '/Schedule':(context) => Schedule(),    
         '/loginError': (context)=> LoginErrorScreen(),
         '/login': (context)=> LoginScreen(),
       

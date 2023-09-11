@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/Widgets/LeftCards/Calendar.dart';
 
-import '../../Widgets/LeftCards/Cards.dart';
-import '../../Widgets/Layout.dart';
-import '../../Widgets/OptionBox.dart';
-import '../../Widgets/Header/Header.dart';
+import '../Widgets/LeftCards/Cards.dart';
+import '../Widgets/Layout.dart';
+import '../Widgets/OptionBox.dart';
+import '../Widgets/Header/Header.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -50,7 +50,7 @@ class Home extends StatelessWidget {
                                 title: 'Ubicaciones',
                                 imagePath:
                                     'lib/src/Assets/Icons/LocationsIcon.png',
-                                route: '/GuestLocations',
+                                route: '/Locations',
                               ),
                             )
                           ])),

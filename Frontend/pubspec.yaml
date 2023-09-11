@@ -88,6 +88,8 @@ flutter:
       - lib/src/Assets/Icons/AdscripIcon.png
       - lib/src/Assets/Icons/AuditorioIcon.jpg
       - lib/src/Assets/Icons/AuditorioRoomIcon.png
+      - lib/src/Assets/Icons/Zoom-.png
+      - lib/src/Assets/Icons/IconZoom.png
 
 
   
