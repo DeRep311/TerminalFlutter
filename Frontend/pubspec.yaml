@@ -90,7 +90,12 @@ flutter:
       - lib/src/Assets/Icons/AuditorioRoomIcon.png
       - lib/src/Assets/Icons/Zoom-.png
       - lib/src/Assets/Icons/IconZoom.png
-
+      - lib/src/Assets/Icons/AdminCursos.png
+      - lib/src/Assets/Icons/AdministrarUbicaciones.png
+      - lib/src/Assets/Icons/AdministrarUsuarios.png
+      - lib/src/Assets/Icons/SubirPlanos.png
+      - lib/src/Assets/Icons/ListaPlanos.png
+      - lib/src/Assets/Icons/ListaUbicaciones.png
 
   
   #   - images/a_dot_burr.jpeg

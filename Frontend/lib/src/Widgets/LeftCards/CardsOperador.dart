@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-class CardTime extends StatelessWidget {
+class CardTimeOperador extends StatelessWidget {
   final Widget children;
-  const CardTime({super.key, required this.children});
+  const CardTimeOperador({super.key, required this.children});
 
   @override
   Widget build(BuildContext context) {

@@ -3,14 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class Calendar extends StatefulWidget {
-  const Calendar({super.key});
+class CalendarOperador extends StatefulWidget {
+  const CalendarOperador({super.key});
 
   @override
-  State<Calendar> createState() => _CalendarState();
+  State<CalendarOperador> createState() => _CalendarState();
 }
 
-class _CalendarState extends State<Calendar> {
+class _CalendarState extends State<CalendarOperador> {
   @override
   @override
   Widget build(BuildContext context) {
@@ -52,9 +52,10 @@ class _CalendarState extends State<Calendar> {
               color: Colors.white,
               fontSize: 14,
               fontWeight: FontWeight.normal)),
-      calendarFormat: CalendarFormat.week,
-      rowHeight: 60.0,
-      daysOfWeekHeight: 40.0,
+      calendarFormat: CalendarFormat.month,
+      rowHeight: 40.0, // Adjust this value to change the row height
+      daysOfWeekHeight:
+          20.0, // Adjust this value to change the days of week height
       firstDay: DateTime.utc(2010, 10, 16),
       lastDay: DateTime.utc(2030, 3, 14),
       focusedDay: DateTime.now(),

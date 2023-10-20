@@ -2,18 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_app/src/Screens/Home.dart';
+import 'package:my_app/src/Screens/Operador.dart';
 import 'package:my_app/src/Screens/Login.dart';
 import 'package:my_app/src/Screens/LoginErrorScreen.dart';
+import 'package:my_app/src/Screens/OperadorHorarios.dart';
+import 'package:my_app/src/Screens/OperadorUbicaciones.dart';
+import 'package:my_app/src/Screens/OperadorUsuarios.dart';
 import 'package:my_app/src/Screens/Schedule.dart';
 import 'package:my_app/src/Screens/Ubications.dart';
 
-
-
 import 'package:window_manager/window_manager.dart';
-
-
-
-
 
 void windowsManager() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +34,7 @@ void windowsManager() async {
 
 void main() async {
   runApp(const MyApp());
- 
+
   windowsManager();
 }
 
@@ -47,17 +45,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: '/Schedule',
+      initialRoute: '/operador',
       routes: {
         '/': (context) => Home(),
-        '/Locations': (context) => Ubications(), 
-        '/Schedule':(context) => Schedule(),    
-        '/loginError': (context)=> LoginErrorScreen(),
-        '/login': (context)=> LoginScreen(),
-      
-        },
+        '/locations': (context) => Ubications(),
+        '/schedule': (context) => Schedule(),
+        '/loginError': (context) => LoginErrorScreen(),
+        '/login': (context) => LoginScreen(),
+        '/operador': (context) => OperadorScreen(),
+        '/operador/ubicaciones': (context) => OperadorUbicacionesScreen(),
+        '/operador/horarios': (context) => OperadorHorariosScreen(),
+        '/operador/usuarios': (context) => OperadorUsuariosScreen(),
+      },
     );
   }
 }
-
-

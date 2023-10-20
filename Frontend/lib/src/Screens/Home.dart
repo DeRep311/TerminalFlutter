@@ -50,7 +50,7 @@ class Home extends StatelessWidget {
                                 title: 'Ubicaciones',
                                 imagePath:
                                     'lib/src/Assets/Icons/LocationsIcon.png',
-                                route: '/Locations',
+                                route: '/locations',
                               ),
                             )
                           ])),
@@ -58,16 +58,11 @@ class Home extends StatelessWidget {
                   //wheather and time
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [CardTime(children: Calendar(),), CardTime( children: Text(
-          '12:00',
-          style: TextStyle(
-            fontFamily: 'Inter',
-            fontSize: 96,
-            color: const Color(0xffffffff),
-            fontWeight: FontWeight.w500,
-          ),
-          textAlign: TextAlign.center,
-        ))],
+                    children: [
+                      CardTime(
+                        children: Calendar(),
+                      ),
+                    ],
                   )
                 ],
               )
