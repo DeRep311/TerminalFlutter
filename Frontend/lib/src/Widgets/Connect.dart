@@ -36,7 +36,7 @@ Future<void> login(BuildContext context, cedula, String pin) async {
     if (response.statusCode == 200) {
       // La solicitud se completó correctamente
       print('Login exitoso: ${response.body}');
-      Navigator.pushNamed(context, '/HomeEstudiante');
+      Navigator.pushNamed(context, '/operador');
 
       // Aquí puedes realizar las acciones necesarias después del inicio de sesión exitoso
     } else {
