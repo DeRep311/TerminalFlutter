@@ -122,6 +122,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_app/src/AuthConnect.dart';
 import 'Connect.dart'; // Importa el archivo Connect.dart
 
 class LoginForm extends StatefulWidget {
@@ -213,24 +214,7 @@ class _LoginFormState extends State<LoginForm> {
             const SizedBox(height: 55),
             TextButton(
               onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState?.save();
-                  // Llama a la función login para enviar los datos por POST
-                  login(context, email, pin).then((value) {
-                    // Aquí puedes realizar acciones adicionales después del inicio de sesión exitoso
-                    
-                    // Por ejemplo, navegar a una nueva pantalla
-                  }).catchError((error) {
-                    // Aquí puedes manejar errores en la solicitud POST si es necesario
-                    print('Error en el login: $error');
-                    // Por ejemplo, mostrar un mensaje de error al usuario
-
-
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Error en el inicio de sesión')),
-                    );
-                  });
-                }
+               iniciarSesion(context, email, pin, _formKey); // Llama a la función iniciarSesion
               },
               style: TextButton.styleFrom(
                 backgroundColor: Colors.black,
