@@ -40,66 +40,25 @@ class OperadorUsuariosScreen extends StatelessWidget {
                         Column(
                           children: [
                             SizedBox(
-                              width: 900,
-                              height: 462,
+                              width: 790,
+                              height: 41,
                               child: Container(
                                 margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                                decoration: BoxDecoration(color: Colors.black),
+                                decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 255, 254, 254)),
                               ),
                             ),
                             SizedBox(
-                              width: 900,
-                              height: 90,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: 130,
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(25.0)),
-                                    child: Text(
-                                      "Viajar",
-                                      style: TextStyle(
-                                        fontSize: 25,
-                                        fontFamily: "Poppins-Regular",
-                                      ),
-                                    ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        width: 50,
-                                        height: 50,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(100.0),
-                                            color: Colors.white),
-                                        child: Image(
-                                            image: AssetImage(
-                                                "lib/src/Assets/Icons/IconZoom.png")),
-                                      ),
-                                      Container(
-                                        width: 50,
-                                        height: 50,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(100.0),
-                                            color: Colors.white),
-                                        child: Image(
-                                            image: AssetImage(
-                                                "lib/src/Assets/Icons/IconZoom.png")),
-                                      ),
-                                    ],
-                                  )
-                                ],
+                              width: 790,
+                              height: 362,
+                              child: Container(
+                                margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 255, 254, 254)),
                               ),
-                            )
+                            ),
                           ],
                         ),
                         SearchFilterUsuarios(),
@@ -107,4 +66,18 @@ class OperadorUsuariosScreen extends StatelessWidget {
                 ]))));
     ;
   }
+}
+
+Widget _buildTable(List<dynamic> list, List<String> columns) {
+  return DataTable(columns: <DataColumn>[
+    for (var c in columns) DataColumn(label: Text(c))
+
+  ], rows: <DataRow>[
+    for (var item in list)
+      DataRow(cells: <DataCell>[
+        for (var c in columns) DataCell(Text(item[c]))
+      ])
+    
+   
+  ]);
 }

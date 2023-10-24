@@ -14,7 +14,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:my_app/src/AuthResponse+.dart';
 
-Future<dynamic> login(BuildContext context, cedula, String pin) async {
+Future<dynamic> login(BuildContext context,  cedula,  pin) async {
   final String url = 'http://localhost:5068/api/User/Auth';
 
   // Datos del JSON (cedula y pin)
@@ -34,7 +34,9 @@ Future<dynamic> login(BuildContext context, cedula, String pin) async {
     );
     Map<String, dynamic> responseMap = await json.decode(response.body);
 
-    AuthReponse authResponse =  AuthReponse(responseMap);
+    AuthReponse authResponse = AuthReponse(responseMap);
+
+    print(response.body);
 
     // Verifica la respuesta del servidor
     if (response.statusCode == 200) {
@@ -49,7 +51,6 @@ Future<dynamic> login(BuildContext context, cedula, String pin) async {
       print('Error en el login. Código de respuesta: ${response.statusCode})}');
 
       return {'success': false, 'message': authResponse.message};
-     
     }
   } catch (e) {
     // Error en la conexión o en la respuesta del servidor
