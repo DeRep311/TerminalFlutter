@@ -14,6 +14,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:my_app/src/AuthResponse+.dart';
 import 'package:my_app/src/Models/Response.dart';
+import 'package:my_app/src/Models/UsersDTO.dart';
 import 'package:my_app/src/Models/UsersModel.dart';
 
 Future<dynamic> login(BuildContext context, cedula, pin) async {
@@ -43,7 +44,7 @@ Future<dynamic> login(BuildContext context, cedula, pin) async {
 
     // Verifica la respuesta del servidor
 
-    final UsersModel usuario = authResponse.data;
+    final UsersDTO usuario = UsersDTO(authResponse.data as Map<String, dynamic>);
 
     return authResponse;
     // Aquí puedes realizar las acciones necesarias después del inicio de sesión exitoso

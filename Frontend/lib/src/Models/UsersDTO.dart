@@ -5,22 +5,20 @@ class UsersDTO {
   late String nombre;
   late String Rol;
 
-  UsersDTO({required UsersModel user}) {
+  UsersDTO(Map<String, dynamic> user) {
 
-    this.cedula = user.Cedula;
-    
-    this.nombre = '${user.Nombre} ${user.Apellido}';
-
-    if (user.Administrador) {
-      this.Rol = 'Administrador';
-    } else if (user.Operador) {
-      this.Rol = 'Operador';
-    } else if (user.Docente) {
-      this.Rol = 'Docente';
-    } else if (user.Estudiante) {
-      this.Rol = 'Estudiante';
+    cedula = user['Cedula'];
+    nombre = user['Nombre'];
+    if (user['Administrador'] == true) {
+      Rol = 'Administrador';
+    } else if (user['Operador'] == true) {
+      Rol = 'Operador';
+    } else if (user['Docente'] == true) {
+      Rol = 'Docente';
+    } else if (user['Estudiante'] == true) {
+      Rol = 'Estudiante';
     } else {
-      this.Rol = 'Visitante';
+      Rol = 'Visitante';
     }
 
   
