@@ -13,8 +13,9 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:my_app/src/AuthResponse+.dart';
+import 'package:my_app/src/Models/UsersModel.dart';
 
-Future<dynamic> login(BuildContext context,  cedula,  pin) async {
+Future<dynamic> login(BuildContext context, cedula, pin) async {
   final String url = 'http://localhost:5068/api/User/Auth';
 
   // Datos del JSON (cedula y pin)
@@ -22,6 +23,8 @@ Future<dynamic> login(BuildContext context,  cedula,  pin) async {
     'Cedula': cedula,
     'Pin': pin,
   };
+
+
 
   // Realiza la solicitud POST
   try {
@@ -32,29 +35,53 @@ Future<dynamic> login(BuildContext context,  cedula,  pin) async {
       },
       body: json.encode(jsonData),
     );
-    Map<String, dynamic> responseMap = await json.decode(response.body);
+    // Map<String, dynamic> responseMap = await json.decode(response.body);
 
-    AuthReponse authResponse = AuthReponse(responseMap);
+    // AuthReponse authResponse = AuthReponse(responseMap);
+    jsonData.forEach((key, value) {
+      print('$key: $value');
+    });
 
-    print(response.body);
+    // print(response.body);
+    final UsersModel usuario =
+        UsersModel.fromJson(response as Map<String, dynamic>);
+    // Mostrar toda la información del usuario
+    print('Cedula: ${usuario.Cedula}');
+    print('Nombre: ${usuario.Nombre}');
+    print('Apellido: ${usuario.Apellido}');
+    print('Telefono: ${usuario.Telefono}');
+    print('Direccion: ${usuario.Direccion}');
+    print('Administrador: ${usuario.Administrador}');
+    print('Operador: ${usuario.Operador}');
+    print('Docente: ${usuario.Docente}');
+    print('Estudiante: ${usuario.Estudiante}');
+    print("TEEEEEEEEEEEEEEEST");
 
     // Verifica la respuesta del servidor
     if (response.statusCode == 200) {
       // La solicitud se completó correctamente
       print('Login exitoso: ${response.statusCode}');
 
-      return {'success': true, 'message': authResponse.message};
+      // return {'success': true, 'message': authResponse.message};
 
       // Aquí puedes realizar las acciones necesarias después del inicio de sesión exitoso
     } else {
       // Hubo un error en la solicitud
       print('Error en el login. Código de respuesta: ${response.statusCode})}');
 
-      return {'success': false, 'message': authResponse.message};
+      // return {'success': false, 'message': authResponse.message};
     }
   } catch (e) {
     // Error en la conexión o en la respuesta del servidor
     print('Error: {$e}}');
     // Aquí puedes manejar el error de conexión o respuesta del servidor
+    print("TEEEEEEEEEEEEEEEST");
+    
+    
+
+
+
+
+
   }
 }

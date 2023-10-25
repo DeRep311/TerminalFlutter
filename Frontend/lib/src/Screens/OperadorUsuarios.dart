@@ -21,17 +21,16 @@ class OperadorUsuariosScreen extends StatelessWidget {
     List<String> columns = ['Cedula', 'Nombre', 'Rol'];
 
     var response = GetAll();
-   
+
     Future<dynamic> resp() async {
+      var response = await GetAll();
 
-  var response = await GetAll();
-
-    for (var u in response) {
-      UsersDTO user = UsersDTO(user: u);
-      users.add(user);
+      for (var u in response) {
+        UsersDTO user = UsersDTO(user: u);
+        users.add(user);
+      }
     }
 
-    }
     return Scaffold(
         body: Container(
             color: const Color.fromRGBO(255, 255, 255, 1),
