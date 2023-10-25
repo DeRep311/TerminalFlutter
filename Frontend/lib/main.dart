@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
         '/operador': (context) => OperadorScreen(),
         '/operador/ubicaciones': (context) => OperadorUbicacionesScreen(),
         '/operador/horarios': (context) => OperadorHorariosScreen(),
-        '/operador/usuarios': (context) => OperadorUsuariosScreen(),
+        // '/operador/usuarios': (context) => OperadorUsuariosScreen(),
       },
     );
   }

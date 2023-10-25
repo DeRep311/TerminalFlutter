@@ -40,11 +40,11 @@ Future<dynamic> login(BuildContext context, cedula, pin) async {
     Map<String, dynamic> responseMap = await json.decode(response.body);
     print('Response: $responseMap');
 
-   Result authResponse = Result.fromJson(responseMap);
+   Result authResponse = await Result.fromJson(responseMap);
+
 
     // Verifica la respuesta del servidor
-
-    final UsersDTO usuario = UsersDTO(authResponse.data as Map<String, dynamic>);
+    
 
     return authResponse;
     // Aquí puedes realizar las acciones necesarias después del inicio de sesión exitoso

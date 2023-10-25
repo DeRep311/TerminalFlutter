@@ -18,9 +18,9 @@ Future<void> iniciarSesion(BuildContext context, String cedula, String pin,
       Result resultado = await login(context, cedula, pin);
   
       if (resultado.success == true) {
-        final UsersModel usuario = resultado.data;
-        final UsersDTO usuarioDTO = UsersDTO(user: usuario);
-        Navigator.pushNamed(context, '/home');
+        final UserDTO? usuario = resultado.data;
+        // final UsersDTO usuarioDTO = UsersDTO(user: usuario);
+        Navigator.pushNamed(context, '/');
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

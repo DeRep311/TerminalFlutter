@@ -1,29 +1,25 @@
 import 'package:my_app/src/Models/UsersModel.dart';
 
-class UsersDTO {
-  late int cedula;
-  late String nombre;
-  late String Rol;
+class UserDTO {
+  UsersModel? user;
+  bool? isAdmin;
+  bool? isOperator;
+  bool? isDocente;
+  bool? isEstudiante;
 
-  UsersDTO(Map<String, dynamic> user) {
+  UserDTO({
+    required this.user,
+    this.isAdmin = false,
+    this.isOperator = false,
+    this.isDocente = false,
+    this.isEstudiante = false,
+  });
 
-    cedula = user['Cedula'];
-    nombre = user['Nombre'];
-    if (user['Administrador'] == true) {
-      Rol = 'Administrador';
-    } else if (user['Operador'] == true) {
-      Rol = 'Operador';
-    } else if (user['Docente'] == true) {
-      Rol = 'Docente';
-    } else if (user['Estudiante'] == true) {
-      Rol = 'Estudiante';
-    } else {
-      Rol = 'Visitante';
-    }
-
-  
-
-
-
+  UserDTO.fromMap(Map<String, dynamic> map) {
+    user = UsersModel.fromJson(map['user'] ?? {});
+    isAdmin = map['IsAdmin'] ?? false;
+    isOperator = map['IsOperator'] ?? false;
+    isDocente = map['IsDocente'] ?? false;
+    isEstudiante = map['IsEstudiante'] ?? false;
   }
 }

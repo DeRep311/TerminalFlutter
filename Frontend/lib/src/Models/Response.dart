@@ -1,26 +1,33 @@
+
+
+import 'package:flutter/material.dart';
+import 'package:my_app/src/Models/UsersDTO.dart';
 import 'package:my_app/src/Models/UsersModel.dart';
 
 class Result {
-  late UsersModel data;
+  late UserDTO? data;
   late bool? success;
   late String? message;
 
   Result({required this.data, required this.success, required this.message});
 
-  factory Result.fromJson(Map<String, dynamic> json) {
-    UsersModel datos;
-    if (json['data'] == null|| json['data'] == {}) {
-      datos = UsersModel.Vacio();
+  factory Result.fromJson(Map<String, dynamic> datosDepeticion) {
+    UserDTO datos;
+    if (datosDepeticion['data'] == null || datosDepeticion['data'] == {}) {
+      datos = UserDTO(user: UsersModel.Vacio());
     } else {
-      datos = UsersModel.fromJson(json['data']);
+      Map<String, dynamic> data = datosDepeticion['data'];
+    
+
+      datos = UserDTO.fromMap(data);
     }
-    if (json['message'] == null) {
-      json['message'] = "";
+    if (datosDepeticion['message'] == null) {
+      datosDepeticion['message'] = "";
     }
     return Result(
       data: datos,
-      success: json['success'],
-      message: json['message'],
+      success: datosDepeticion['success'],
+      message: datosDepeticion['message'],
     );
   }
 }

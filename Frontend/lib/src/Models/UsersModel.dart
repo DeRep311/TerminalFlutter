@@ -3,36 +3,26 @@
   late int pin;
   late String Nombre;
   late String Apellido;
-  late String Telefono;
+  late int Telefono;
   late String Direccion;
   late bool Administrador;
   late bool Operador;
   late bool Docente;
   late bool Estudiante;
 
-  UsersModel(
-      {required this.Cedula,
-      required this.pin,
-      required this.Nombre,
-      required this.Apellido,
-      required this.Telefono,
-      required this.Direccion,
-      required this.Administrador,
-      required this.Operador,
-      required this.Docente,
-      required this.Estudiante});
+ 
 
-  UsersModel.fromJson(Map<dynamic, dynamic> json) {
-    Cedula = json['Cedula'];
+  UsersModel.fromJson(Map<String, dynamic> json) {
+    Cedula = json['cedula'];
     pin = json['pin'];
-    Nombre = json['Nombre'];
-    Apellido = json['Apellido'];
-    Telefono = json['Telefono'];
-    Direccion = json['Direccion'];
-    Administrador = json['Administrador'];
-    Operador = json['Operador'];
-    Docente = json['Docente'];
-    Estudiante = json['Estudiante'];
+    Nombre = json['nombre'];
+    Apellido = json['apellido'];
+    Telefono = json['telefono'];
+    Direccion = json['direccion'];
+    Administrador = json['administrador'];
+    Operador = json['operador'];
+    Docente = json['docente']?? false;
+    Estudiante = json['estudiante']?? false;
   }
 
   UsersModel.Vacio() {
@@ -40,7 +30,7 @@
     pin = 0;
     Nombre = '';
     Apellido = '';
-    Telefono = '';
+    Telefono = 0;
     Direccion = '';
     Administrador = false;
     Operador = false;
