@@ -20,7 +20,7 @@
       required this.Docente,
       required this.Estudiante});
 
-  UsersModel.fromJson(Map<String, dynamic> json) {
+  UsersModel.fromJson(Map<dynamic, dynamic> json) {
     Cedula = json['Cedula'];
     Nombre = json['Nombre'];
     Apellido = json['Apellido'];
