@@ -3,12 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/Widgets/Items.dart';
 import 'package:my_app/src/Widgets/LeftCards/SearchFilterHorarios.dart';
+import 'package:my_app/src/Widgets/LeftCards/UbicationsPanel.dart';
 
 import '../Widgets/Header/Header.dart';
 import '../Widgets/Layout.dart';
 
-class OperadorHorariosScreen extends StatelessWidget {
-  const OperadorHorariosScreen({super.key});
+ class OperadorUbicaciones extends StatelessWidget {
+  const OperadorUbicaciones
+({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +104,7 @@ class OperadorHorariosScreen extends StatelessWidget {
                           ],
                         ),
                         Container(
-                          child: SearchFilterHorarios(),
+                          child: UbicationPanel(),
                         ),
                       ])
                 ]))));

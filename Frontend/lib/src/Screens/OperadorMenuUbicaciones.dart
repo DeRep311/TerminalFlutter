@@ -8,8 +8,8 @@ import '../Widgets/Layout.dart';
 import '../Widgets/OptionBox.dart';
 import '../Widgets/Header/Header.dart';
 
-class OperadorUbicacionesScreen extends StatelessWidget {
-  const OperadorUbicacionesScreen({super.key});
+class OperadorUbicacionesMenu extends StatelessWidget {
+  const OperadorUbicacionesMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
