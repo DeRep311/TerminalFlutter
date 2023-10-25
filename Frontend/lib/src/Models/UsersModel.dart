@@ -1,4 +1,4 @@
- class UsersModel {
+class UsersModel {
   late int Cedula;
   late int pin;
   late String Nombre;
@@ -9,8 +9,7 @@
   late bool Operador;
   late bool Docente;
   late bool Estudiante;
-
- 
+  late String? rol;
 
   UsersModel.fromJson(Map<String, dynamic> json) {
     Cedula = json['cedula'];
@@ -21,9 +20,23 @@
     Direccion = json['direccion'];
     Administrador = json['administrador'];
     Operador = json['operador'];
-    Docente = json['docente']?? false;
-    Estudiante = json['estudiante']?? false;
+    Docente = json['docente'] ?? false;
+    Estudiante = json['estudiante'] ?? false;
+
+    if (Administrador) {
+      rol = 'Administrador';
+    } else if (Operador) {
+      rol = 'Operador';
+    } else if (Docente) {
+      rol = 'Docente';
+    } else if (Estudiante) {
+      rol = 'Estudiante';
+    } else {
+      rol = 'Visitante';
+    }
   }
+
+
 
   UsersModel.Vacio() {
     Cedula = 0;
@@ -36,9 +49,5 @@
     Operador = false;
     Docente = false;
     Estudiante = false;
-  } 
-
-  
-
-
+  }
 }
