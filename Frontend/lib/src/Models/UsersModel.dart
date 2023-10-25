@@ -1,5 +1,6 @@
  class UsersModel {
   late int Cedula;
+  late int pin;
   late String Nombre;
   late String Apellido;
   late String Telefono;
@@ -11,6 +12,7 @@
 
   UsersModel(
       {required this.Cedula,
+      required this.pin,
       required this.Nombre,
       required this.Apellido,
       required this.Telefono,
@@ -22,6 +24,7 @@
 
   UsersModel.fromJson(Map<dynamic, dynamic> json) {
     Cedula = json['Cedula'];
+    pin = json['pin'];
     Nombre = json['Nombre'];
     Apellido = json['Apellido'];
     Telefono = json['Telefono'];
@@ -34,6 +37,7 @@
 
   UsersModel.Vacio() {
     Cedula = 0;
+    pin = 0;
     Nombre = '';
     Apellido = '';
     Telefono = '';

@@ -9,7 +9,7 @@ class Result {
 
   factory Result.fromJson(Map<String, dynamic> json) {
     UsersModel datos;
-    if (json['data'] == null) {
+    if (json['data'] == null|| json['data'] == {}) {
       datos = UsersModel.Vacio();
     } else {
       datos = UsersModel.fromJson(json['data']);
