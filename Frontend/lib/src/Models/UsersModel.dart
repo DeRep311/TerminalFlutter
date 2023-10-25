@@ -32,6 +32,18 @@
     Estudiante = json['Estudiante'];
   }
 
+  UsersModel.Vacio() {
+    Cedula = 0;
+    Nombre = '';
+    Apellido = '';
+    Telefono = '';
+    Direccion = '';
+    Administrador = false;
+    Operador = false;
+    Docente = false;
+    Estudiante = false;
+  } 
+
   
 
 

@@ -37,21 +37,16 @@ Future<dynamic> login(BuildContext context, cedula, pin) async {
 
     // Decodifica la respuesta JSON
     Map<String, dynamic> responseMap = await json.decode(response.body);
-  
+    print('Response: $responseMap');
 
-    final Result authResponse = Result.fromJson(responseMap);
+   Result authResponse = Result.fromJson(responseMap);
 
     // Verifica la respuesta del servidor
-    if (response.statusCode == 200) {
-      // La solicitud se completó correctamente
-      final UsersModel usuario = UsersModel.fromJson(authResponse.data);
 
-      return {'success': true, 'data': authResponse.data};
-      // Aquí puedes realizar las acciones necesarias después del inicio de sesión exitoso
-    } else {
-      // La solicitud no se completó correctamente
-      return {'success': false, 'message': authResponse.message};
-    }
+    final UsersModel usuario = authResponse.data;
+
+    return authResponse;
+    // Aquí puedes realizar las acciones necesarias después del inicio de sesión exitoso
   } catch (e) {
     // Error en la conexión o en la respuesta del servidor
     print('Error: {$e}}');
