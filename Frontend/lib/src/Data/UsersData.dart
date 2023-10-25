@@ -21,6 +21,11 @@ Future<List<UsersModel>> GetAll() async {
       users.add(user);
     }
     return users;
+  }else{
+
+    return [];
+
   }
-  return [];
+ 
+  
 }
