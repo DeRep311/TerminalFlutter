@@ -14,6 +14,9 @@ class Result {
     } else {
       datos = UsersModel.fromJson(json['data']);
     }
+    if (json['message'] == null) {
+      json['message'] = "";
+    }
     return Result(
       data: datos,
       success: json['success'],
