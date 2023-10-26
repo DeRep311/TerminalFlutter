@@ -2,22 +2,14 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:my_app/src/Data/UsersData.dart';
-import 'package:my_app/src/Models/UsersDTO.dart';
 import 'package:my_app/src/Models/UsersModel.dart';
 import 'package:my_app/src/Widgets/CheckBox.dart';
-import 'package:my_app/src/Widgets/Items.dart';
-import 'package:my_app/src/Widgets/LeftCards/SearchFilterHorarios.dart';
 import 'package:my_app/src/Widgets/LeftCards/SearchFilterUsuarios.dart';
 
 import '../Widgets/Header/Header.dart';
 import '../Widgets/Layout.dart';
 
-import 'package:flutter/material.dart';
-import 'package:my_app/src/Data/UsersData.dart';
-import 'package:my_app/src/Models/UsersDTO.dart';
-import 'package:my_app/src/Models/UsersModel.dart';
-import 'package:my_app/src/Widgets/Header/Header.dart';
-import 'package:my_app/src/Widgets/Layout.dart';
+import 'package:flutter/services.dart';
 
 class OperadorUsuariosScreen extends StatefulWidget {
   const OperadorUsuariosScreen({Key? key}) : super(key: key);
@@ -27,6 +19,17 @@ class OperadorUsuariosScreen extends StatefulWidget {
 }
 
 class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
+  TextEditingController cedulaController = TextEditingController();
+  TextEditingController nombreController = TextEditingController();
+  TextEditingController apellidoController = TextEditingController();
+  TextEditingController telefonoController = TextEditingController();
+  TextEditingController pinController = TextEditingController();
+
+  final RegExp cedulaRegExp = RegExp(r'^\d{1,8}$');
+  final RegExp nombreRegExp = RegExp(r'^[a-zA-Z ]+$');
+  final RegExp telefonoRegExp = RegExp(r'^\d+$');
+  final RegExp pinRegExp = RegExp(r'^\d{4}$');
+
   List<String> columns = ['Cedula', 'Nombre', 'Rol'];
   List<UsersModel> users = [];
 
@@ -56,13 +59,23 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
       builder: (context) {
         return AlertDialog(
           title: Text('Agregar usuario'),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
           content: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(
-                      bottom: 16.0), // Espaciado entre los campos
+                    bottom: 16.0,
+                  ),
                   child: TextField(
+                    controller: cedulaController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(8),
+                    ],
                     decoration: InputDecoration(
                       hintText: 'Cedula',
                       fillColor: Color.fromARGB(110, 231, 227, 227),
@@ -79,8 +92,13 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                      bottom: 16.0), // Espaciado entre los campos
+                    bottom: 16.0,
+                  ),
                   child: TextField(
+                    controller: nombreController,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(nombreRegExp),
+                    ],
                     decoration: InputDecoration(
                       hintText: 'Nombre',
                       fillColor: Color.fromARGB(110, 231, 227, 227),
@@ -97,8 +115,13 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                      bottom: 16.0), // Espaciado entre los campos
+                    bottom: 16.0,
+                  ),
                   child: TextField(
+                    controller: apellidoController,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(nombreRegExp),
+                    ],
                     decoration: InputDecoration(
                       hintText: 'Apellido',
                       fillColor: Color.fromARGB(110, 231, 227, 227),
@@ -115,8 +138,14 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                      bottom: 16.0), // Espaciado entre los campos
+                    bottom: 16.0,
+                  ),
                   child: TextField(
+                    controller: telefonoController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
                     decoration: InputDecoration(
                       hintText: 'Telefono',
                       fillColor: Color.fromARGB(110, 231, 227, 227),
@@ -133,26 +162,15 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                      bottom: 16.0), // Espaciado entre los campos
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Direccion',
-                      fillColor: Color.fromARGB(110, 231, 227, 227),
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(26.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                    ),
+                    bottom: 16.0,
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      bottom: 16.0), // Espaciado entre los campos
                   child: TextField(
+                    controller: pinController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(4),
+                    ],
                     decoration: InputDecoration(
                       hintText: 'Pin',
                       fillColor: Color.fromARGB(110, 231, 227, 227),
@@ -167,8 +185,8 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
                     ),
                   ),
                 ),
-                const TextWithCheckbox(text: 'Operador'),
-                const TextWithCheckbox(text: 'Docente'),
+                const TextWithCheckbox(text: 'Operador '),
+                const TextWithCheckbox(text: '   Docente'),
                 const TextWithCheckbox(text: 'Estudiante'),
               ],
             ),
@@ -192,6 +210,7 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
       },
     );
   }
+//-------------------------------------------------------------------------------------
 
   @override
   Widget build(BuildContext context) {
@@ -270,64 +289,52 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
   }
 }
 
-class TableWidget extends StatelessWidget {
+class TableWidget extends StatefulWidget {
   final List<UsersModel> users;
   final List<String> columns;
 
   TableWidget({required this.users, required this.columns});
 
   @override
-  Widget build(BuildContext context) {
-    return DataTable(
-      columns: <DataColumn>[
-        for (var c in columns) DataColumn(label: Text(c)),
-      ],
-      rows: [
-        for (var u in users)
-          DataRow(cells: [
-            DataCell(Text(u.Cedula.toString())),
-            DataCell(Text(u.Nombre)),
-            DataCell(Text(u.rol ?? 'Visitante')),
-          ])
-      ],
-    );
+  _TableWidgetState createState() => _TableWidgetState();
+}
+
+class _TableWidgetState extends State<TableWidget> {
+  List<bool> selectedRows = [];
+
+  @override
+  void initState() {
+    super.initState();
+    selectedRows = List<bool>.filled(widget.users.length, false);
   }
-}
-
-class CheckboxExample extends StatefulWidget {
-  const CheckboxExample({super.key});
-
-  @override
-  State<CheckboxExample> createState() => _CheckboxExampleState();
-}
-
-//Checkbox
-class _CheckboxExampleState extends State<CheckboxExample> {
-  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
-    Color getColor(Set<MaterialState> states) {
-      const Set<MaterialState> interactiveStates = <MaterialState>{
-        MaterialState.pressed,
-        MaterialState.hovered,
-        MaterialState.focused,
-      };
-      if (states.any(interactiveStates.contains)) {
-        return Colors.blue;
-      }
-      return Colors.red;
-    }
-
-    return Checkbox(
-      checkColor: Colors.white,
-      fillColor: MaterialStateProperty.resolveWith(getColor),
-      value: isChecked,
-      onChanged: (bool? value) {
-        setState(() {
-          isChecked = value!;
-        });
-      },
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: DataTable(
+        columns: <DataColumn>[
+          for (var c in widget.columns) DataColumn(label: Text(c)),
+        ],
+        rows: [
+          for (var i = 0; i < widget.users.length; i++)
+            DataRow(
+              selected: selectedRows[i],
+              onSelectChanged: (bool? value) {
+                setState(() {
+                  if (value != null) {
+                    selectedRows[i] = value;
+                  }
+                });
+              },
+              cells: [
+                DataCell(Text(widget.users[i].Cedula.toString())),
+                DataCell(Text(widget.users[i].Nombre)),
+                DataCell(Text(widget.users[i].rol ?? 'Visitante')),
+              ],
+            ),
+        ],
+      ),
     );
   }
 }

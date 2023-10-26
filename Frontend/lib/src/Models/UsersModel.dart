@@ -10,6 +10,7 @@ class UsersModel {
   late bool Docente;
   late bool Estudiante;
   late String? rol;
+  bool selected = false;
 
   UsersModel.fromJson(Map<String, dynamic> json) {
     Cedula = json['cedula'];
@@ -35,8 +36,6 @@ class UsersModel {
       rol = 'Visitante';
     }
   }
-
-
 
   UsersModel.Vacio() {
     Cedula = 0;
