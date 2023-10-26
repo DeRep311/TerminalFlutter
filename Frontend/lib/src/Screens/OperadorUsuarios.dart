@@ -1,11 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:my_app/src/Data/UsersData.dart';
 import 'package:my_app/src/Models/UsersDTO.dart';
 import 'package:my_app/src/Models/UsersModel.dart';
+import 'package:my_app/src/Widgets/CheckBox.dart';
 import 'package:my_app/src/Widgets/Items.dart';
 import 'package:my_app/src/Widgets/LeftCards/SearchFilterHorarios.dart';
 import 'package:my_app/src/Widgets/LeftCards/SearchFilterUsuarios.dart';
@@ -14,6 +13,11 @@ import '../Widgets/Header/Header.dart';
 import '../Widgets/Layout.dart';
 
 import 'package:flutter/material.dart';
+import 'package:my_app/src/Data/UsersData.dart';
+import 'package:my_app/src/Models/UsersDTO.dart';
+import 'package:my_app/src/Models/UsersModel.dart';
+import 'package:my_app/src/Widgets/Header/Header.dart';
+import 'package:my_app/src/Widgets/Layout.dart';
 
 class OperadorUsuariosScreen extends StatefulWidget {
   const OperadorUsuariosScreen({Key? key}) : super(key: key);
@@ -25,6 +29,11 @@ class OperadorUsuariosScreen extends StatefulWidget {
 class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
   List<String> columns = ['Cedula', 'Nombre', 'Rol'];
   List<UsersModel> users = [];
+
+  bool operadorCheckbox = false;
+  bool administradorCheckbox = false;
+  bool docenteCheckbox = false;
+  bool estudianteCheckbox = false;
 
   @override
   void initState() {
@@ -41,6 +50,149 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
     });
   }
 
+  void _showAddUserDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Agregar usuario'),
+          content: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(
+                      bottom: 16.0), // Espaciado entre los campos
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Cedula',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      bottom: 16.0), // Espaciado entre los campos
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Nombre',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      bottom: 16.0), // Espaciado entre los campos
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Apellido',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      bottom: 16.0), // Espaciado entre los campos
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Telefono',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      bottom: 16.0), // Espaciado entre los campos
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Direccion',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      bottom: 16.0), // Espaciado entre los campos
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Pin',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ),
+                const TextWithCheckbox(text: 'Operador'),
+                const TextWithCheckbox(text: 'Docente'),
+                const TextWithCheckbox(text: 'Estudiante'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                // Lógica para guardar el usuario
+                Navigator.of(context).pop();
+              },
+              child: Text('Guardar'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cancelar'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +203,6 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              //Header main screen
               Header(nameOption: 'Visitante'),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,12 +223,39 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
                         width: 790,
                         height: 362,
                         child: Container(
-                          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                          decoration: BoxDecoration(
-                              color:
-                                  const Color.fromARGB(255, 255, 254, 254)),
+                          margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+                          decoration: const BoxDecoration(
+                              color: Color.fromARGB(255, 255, 254, 254)),
                           child: TableWidget(users: users, columns: columns),
                         ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: _showAddUserDialog,
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.white,
+                              onPrimary: Colors.black,
+                              fixedSize: const Size(100, 40),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                            ),
+                            child: const Text('Agregar'),
+                          ),
+                          const SizedBox(width: 16),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.white,
+                              onPrimary: Colors.black,
+                              fixedSize: const Size(100, 40),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                            ),
+                            child: const Text('Borrar'),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -92,10 +270,9 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
   }
 }
 
-
 class TableWidget extends StatelessWidget {
   final List<UsersModel> users;
-  final List columns;
+  final List<String> columns;
 
   TableWidget({required this.users, required this.columns});
 
@@ -113,6 +290,44 @@ class TableWidget extends StatelessWidget {
             DataCell(Text(u.rol ?? 'Visitante')),
           ])
       ],
+    );
+  }
+}
+
+class CheckboxExample extends StatefulWidget {
+  const CheckboxExample({super.key});
+
+  @override
+  State<CheckboxExample> createState() => _CheckboxExampleState();
+}
+
+//Checkbox
+class _CheckboxExampleState extends State<CheckboxExample> {
+  bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return Colors.blue;
+      }
+      return Colors.red;
+    }
+
+    return Checkbox(
+      checkColor: Colors.white,
+      fillColor: MaterialStateProperty.resolveWith(getColor),
+      value: isChecked,
+      onChanged: (bool? value) {
+        setState(() {
+          isChecked = value!;
+        });
+      },
     );
   }
 }
