@@ -274,6 +274,24 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
                             ),
                             child: const Text('Borrar'),
                           ),
+                          const SizedBox(width: 16),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          OperadorUsuariosScreen()));
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.white,
+                              onPrimary: Colors.black,
+                              fixedSize: const Size(150, 40),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                            ),
+                            child: const Text('Actualizar datos'),
+                          ),
                         ],
                       ),
                     ],
@@ -291,7 +309,8 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
 
 class TableWidget extends StatefulWidget {
   final List<UsersModel> users;
-  final List<String> columns;
+
+  var columns;
 
   TableWidget({required this.users, required this.columns});
 
@@ -300,37 +319,23 @@ class TableWidget extends StatefulWidget {
 }
 
 class _TableWidgetState extends State<TableWidget> {
-  List<bool> selectedRows = [];
-
-  @override
-  void initState() {
-    super.initState();
-    selectedRows = List<bool>.filled(widget.users.length, false);
-  }
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: DataTable(
-        columns: <DataColumn>[
-          for (var c in widget.columns) DataColumn(label: Text(c)),
+        columns: const <DataColumn>[
+          DataColumn(label: Text('Cedula')),
+          DataColumn(label: Text('Nombre')),
+          DataColumn(label: Text('Rol')),
         ],
         rows: [
-          for (var i = 0; i < widget.users.length; i++)
+          for (var user in widget.users)
             DataRow(
-              selected: selectedRows[i],
-              onSelectChanged: (bool? value) {
-                setState(() {
-                  if (value != null) {
-                    selectedRows[i] = value;
-                  }
-                });
-              },
               cells: [
-                DataCell(Text(widget.users[i].Cedula.toString())),
-                DataCell(Text(widget.users[i].Nombre)),
-                DataCell(Text(widget.users[i].rol ?? 'Visitante')),
+                DataCell(Text(user.Cedula.toString())),
+                DataCell(Text(user.Nombre)),
+                DataCell(Text(user.rol ?? 'Visitante')),
               ],
             ),
         ],
