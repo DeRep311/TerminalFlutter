@@ -245,7 +245,8 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
                           margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
                           decoration: const BoxDecoration(
                               color: Color.fromARGB(255, 255, 254, 254)),
-                          child: TableWidget(users: users, columns: columns),
+                          child: UsersDataTable(users: users),
+                          //TableWidget(users: users, columns: columns),
                         ),
                       ),
                       Row(
@@ -307,38 +308,58 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
   }
 }
 
-class TableWidget extends StatefulWidget {
+class UsersDataTable extends StatefulWidget {
   final List<UsersModel> users;
 
-  var columns;
-
-  TableWidget({required this.users, required this.columns});
+  const UsersDataTable({
+    required this.users,
+  });
 
   @override
-  _TableWidgetState createState() => _TableWidgetState();
+  _UsersDataTableState createState() => _UsersDataTableState();
 }
 
-class _TableWidgetState extends State<TableWidget> {
+class _UsersDataTableState extends State<UsersDataTable> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
       child: DataTable(
-        columns: const <DataColumn>[
-          DataColumn(label: Text('Cedula')),
-          DataColumn(label: Text('Nombre')),
-          DataColumn(label: Text('Rol')),
+        columns: [
+          DataColumn(
+            label: Text('Cedula'),
+            onSort: (columnIndex, ascending) {
+              // Ordenar la lista de usuarios por cédula.
+              widget.users.sort((a, b) => (a.Cedula).compareTo(b.Cedula));
+            },
+          ),
+          DataColumn(
+            label: Text('Nombre'),
+            onSort: (columnIndex, ascending) {
+              // Ordenar la lista de usuarios por nombre.
+              widget.users.sort((a, b) => (a.Nombre).compareTo(b.Nombre));
+            },
+          ),
+          DataColumn(
+            label: Text('Rol'),
+          ),
         ],
-        rows: [
-          for (var user in widget.users)
-            DataRow(
-              cells: [
-                DataCell(Text(user.Cedula.toString())),
-                DataCell(Text(user.Nombre)),
-                DataCell(Text(user.rol ?? 'Visitante')),
-              ],
-            ),
-        ],
+        rows: widget.users
+            .map(
+              (user) => DataRow(
+                cells: [
+                  DataCell(Text(user.Cedula.toString())),
+                  DataCell(Text(user.Nombre)),
+                  DataCell(Text(user.rol ?? '')),
+                ],
+                selected: user.selected,
+                onSelectChanged: (value) {
+                  setState(() {
+                    user.selected = value!;
+                  });
+                },
+              ),
+            )
+            .toList(),
       ),
     );
   }
