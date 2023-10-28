@@ -61,8 +61,8 @@ class SearchFilterUsuarios extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(
                   10.0), // Ajusta el espacio entre el TextField y el Dropdown
-              child: _buildDropdownMenu("Grupo",
-                  const OutlineInputBorder(borderSide: BorderSide.none)),
+              child: _buildDropdownMenu(
+                  "Rol", const OutlineInputBorder(borderSide: BorderSide.none)),
             ),
             Padding(
               padding: const EdgeInsets.all(
@@ -92,23 +92,51 @@ class SearchFilterUsuarios extends StatelessWidget {
         color: Colors.white,
       ),
       child: DropdownMenu<String>(
-       
-        
-        initialSelection: 'Rol',
+        inputDecorationTheme: InputDecorationTheme(
+          border: InputBorder.none,
+        ),
+        initialSelection: hintText,
         onSelected: (String? value) {
           if (kDebugMode) {
             print(value);
           }
         },
-        dropdownMenuEntries: <String>['A', 'B', 'Rol'].map((String value) {
+        dropdownMenuEntries: <String>[
+          'Operador',
+          'Administrador',
+          'Docente',
+          'Alumno',
+          'Rol'
+        ].map((String value) {
           return DropdownMenuEntry<String>(
             value: value,
             label: value,
           );
         }).toList(),
-      
       ),
-      
     );
   }
+
+  // Widget _buildDropdownMenu(String hintText, InputBorder border) {
+  //   return Container(
+  //     decoration: BoxDecoration(
+  //       borderRadius: BorderRadius.circular(26.0),
+  //       color: Colors.white,
+  //     ),
+  //     child: DropdownMenu<String>(
+  //       initialSelection: 'Rol',
+  //       onSelected: (String? value) {
+  //         if (kDebugMode) {
+  //           print(value);
+  //         }
+  //       },
+  //       dropdownMenuEntries: <String>['A', 'B', 'Rol'].map((String value) {
+  //         return DropdownMenuEntry<String>(
+  //           value: value,
+  //           label: value,
+  //         );
+  //       }).toList(),
+  //     ),
+  //   );
+  // }
 }
