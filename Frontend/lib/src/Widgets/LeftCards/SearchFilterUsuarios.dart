@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class SearchFilterUsuarios extends StatelessWidget {
@@ -91,15 +92,23 @@ class SearchFilterUsuarios extends StatelessWidget {
         color: Colors.white,
       ),
       child: DropdownMenu<String>(
+       
+        
         initialSelection: 'Rol',
-        onSelected: (String? value) {},
+        onSelected: (String? value) {
+          if (kDebugMode) {
+            print(value);
+          }
+        },
         dropdownMenuEntries: <String>['A', 'B', 'Rol'].map((String value) {
           return DropdownMenuEntry<String>(
             value: value,
             label: value,
           );
         }).toList(),
+      
       ),
+      
     );
   }
 }

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 import 'package:my_app/src/Widgets/Items.dart';
@@ -8,13 +8,13 @@ import 'package:my_app/src/Widgets/LeftCards/UbicationsPanel.dart';
 import '../Widgets/Header/Header.dart';
 import '../Widgets/Layout.dart';
 
- class OperadorUbicaciones extends StatelessWidget {
-  const OperadorUbicaciones
-({super.key});
+class OperadorUbicaciones extends StatelessWidget {
+  const OperadorUbicaciones({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+  
         body: Container(
             color: const Color.fromRGBO(255, 255, 255, 1),
             child: Layout(
