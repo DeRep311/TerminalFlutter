@@ -97,6 +97,79 @@ class _UbicationPanelState extends State<UbicationPanel> {
             ],
           ),
           //Escribir el codigo para la edicion de puntos
+          Container(
+            height: 200,
+            width:240,
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25.0),
+              color: Color.fromRGBO(255, 255, 255, 1)
+            ),
+            child: Container(
+              height: 50,
+              width: 240,
+              decoration: BoxDecoration(
+                color: Colors.transparent ,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+
+                  mainAxisAlignment: MainAxisAlignment.start,
+
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 230,
+                      margin: EdgeInsetsDirectional.only(top: 25),
+                      decoration: BoxDecoration(
+                        
+                        color: Color.fromARGB(31, 0, 0, 0),
+                        
+                      ),
+                      child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                               padding: EdgeInsets.fromLTRB(10, 5, 5, 0),
+                                child: Text("X"),
+                              ),
+                              
+                             Container(
+                               padding: EdgeInsets.fromLTRB(10, 5, 5, 0),
+                                child: Text("Y"),
+                              ),
+                            ],
+                          )
+                          ,
+                          Column(
+                            children: [
+                              IconButton(onPressed: ()=> print("hola"), icon: ImageIcon(
+                                AssetImage("lib/src/Assets/Icons/ListaUbicaciones.png"),
+                                color: Colors.black,
+                              ))
+                            ],
+                          )
+                        ],
+                        
+                      ),
+                    )
+                  ],
+
+
+                ),
+              ),
+              
+              
+            
+
+            )
+
+          
 
          
           
