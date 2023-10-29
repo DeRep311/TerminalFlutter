@@ -92,7 +92,9 @@ class SearchFilterUsuarios extends StatelessWidget {
         color: Colors.white,
       ),
       child: DropdownMenu<String>(
+        
         inputDecorationTheme: InputDecorationTheme(
+          
           border: InputBorder.none,
         ),
         initialSelection: hintText,

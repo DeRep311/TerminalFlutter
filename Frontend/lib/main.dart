@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:my_app/src/Providers/Provider_Ubications.dart';
 import 'package:my_app/src/Screens/Home.dart';
 import 'package:my_app/src/Screens/Operador.dart';
 import 'package:my_app/src/Screens/Login.dart';
@@ -11,6 +12,7 @@ import 'package:my_app/src/Screens/OperadorMenuUbicaciones.dart';
 import 'package:my_app/src/Screens/OperadorUsuarios.dart';
 import 'package:my_app/src/Screens/Schedule.dart';
 import 'package:my_app/src/Screens/Ubications.dart';
+import 'package:provider/provider.dart';
 
 import 'package:window_manager/window_manager.dart';
 
@@ -34,7 +36,11 @@ void windowsManager() async {
 }
 
 void main() async {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+    create: (_) => Provider_Ubications(), 
+    child: const MyApp()
+    ));
 
   windowsManager();
 }

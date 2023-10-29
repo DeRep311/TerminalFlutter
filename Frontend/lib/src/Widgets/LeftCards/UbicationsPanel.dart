@@ -3,8 +3,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:my_app/src/Providers/Provider_Ubications.dart';
 import 'package:my_app/src/Widgets/Items/DropDownSelect.dart';
 import 'package:my_app/src/Widgets/Items/FieldRounded.dart';
+import 'package:provider/provider.dart';
 
 class UbicationPanel extends StatefulWidget {
   const UbicationPanel({super.key});
@@ -16,6 +18,8 @@ class UbicationPanel extends StatefulWidget {
 class _UbicationPanelState extends State<UbicationPanel> {
   @override
   Widget build(BuildContext context) {
+    Provider_Ubications ubicationsProvider =
+        Provider.of<Provider_Ubications>(context);
     List<String> dropdownValue = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
     String? selectedOption;
     return Container(
@@ -45,7 +49,7 @@ class _UbicationPanelState extends State<UbicationPanel> {
               return null;
             },
           ),
-         
+
           DropDownSelect(
             label: "Plano Dependiente",
             options: dropdownValue,
@@ -53,18 +57,19 @@ class _UbicationPanelState extends State<UbicationPanel> {
             OnChanged: (value) {
               setState(() {
                 selectedOption = value;
+                print(ubicationsProvider.isDeleting);
                 print(selectedOption);
               });
             },
           ),
-           DropDownSelect(
+          DropDownSelect(
             label: "Plano Dependiente",
             options: dropdownValue,
             selectedValue: selectedOption,
             OnChanged: (value) {
               setState(() {
                 selectedOption = value;
-                print(selectedOption);
+                print(ubicationsProvider.points);
               });
             },
           ),
@@ -73,106 +78,110 @@ class _UbicationPanelState extends State<UbicationPanel> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-               Container(
+              Container(
                 margin: EdgeInsets.only(right: 20, top: 20),
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100.0),
-              color: Color.fromARGB(255, 255, 255, 255),
-             
-            ),
-            ),
-             Container(
-              margin: EdgeInsets.only(right: 20, top: 20),
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100.0),
-              color: Color.fromARGB(255, 255, 255, 255),
-             
-            ),
-            ),
-
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100.0),
+                  color: ubicationsProvider.isDeleting
+                      ? Color.fromARGB(139, 255, 255, 255)
+                      : Color.fromARGB(255, 255, 255, 255),
+                ),
+                child: IconButton(
+                  onPressed: () => ubicationsProvider.isDeletingChange(),
+                  icon: ImageIcon(
+                    AssetImage("lib/src/Assets/Icons/Borrar.png"),
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 20, top: 20),
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100.0),
+                    color: ubicationsProvider.isDrawing
+                        ? Color.fromARGB(139, 255, 255, 255)
+                        : Color.fromARGB(255, 255, 255, 255)),
+                child: IconButton(
+                  onPressed: () => ubicationsProvider.isDrawingChange(),
+                  icon: ImageIcon(
+                    AssetImage("lib/src/Assets/Icons/Editar.png"),
+                    color: Colors.black,
+                  ),
+                ),
+              ),
             ],
           ),
           //Escribir el codigo para la edicion de puntos
           Container(
             height: 200,
-            width:240,
+            width: 240,
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25.0),
-              color: Color.fromRGBO(255, 255, 255, 1)
-            ),
-            child: Container(
-              height: 50,
-              width: 240,
-              decoration: BoxDecoration(
-                color: Colors.transparent ,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-
-                  mainAxisAlignment: MainAxisAlignment.start,
-
-                  children: [
-                    Container(
-                      height: 50,
-                      width: 230,
-                      margin: EdgeInsetsDirectional.only(top: 25),
-                      decoration: BoxDecoration(
-                        
-                        color: Color.fromARGB(31, 0, 0, 0),
-                        
-                      ),
-                      child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                               padding: EdgeInsets.fromLTRB(10, 5, 5, 0),
-                                child: Text("X"),
-                              ),
-                              
-                             Container(
-                               padding: EdgeInsets.fromLTRB(10, 5, 5, 0),
-                                child: Text("Y"),
-                              ),
-                            ],
-                          )
-                          ,
-                          Column(
-                            children: [
-                              IconButton(onPressed: ()=> print("hola"), icon: ImageIcon(
-                                AssetImage("lib/src/Assets/Icons/ListaUbicaciones.png"),
-                                color: Colors.black,
-                              ))
-                            ],
-                          )
-                        ],
-                        
-                      ),
-                    )
-                  ],
-
-
-                ),
-              ),
-              
-              
+                borderRadius: BorderRadius.circular(25.0),
+                color: Color.fromRGBO(255, 255, 255, 1)),
             
-
+                    child: Item(ubicationsProvider.points),
+                  
             )
-
-          
-
-         
-          
+        
         ]));
+  }
+
+  ListView Item(List<Offset> points) {
+    List<Widget> data = [];
+
+    for (var off in points) {
+      data.add(Container(
+        margin: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          border: BorderDirectional(
+            bottom: BorderSide(
+              color: const Color.fromARGB(255, 0, 0, 0),
+              width: 1.0,
+            ),
+          ),
+          
+         
+        ),
+        child:   Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: EdgeInsets.fromLTRB(10, 5, 5, 0),
+                  child: Text('X ${off.dx}'),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(10, 5, 5, 0),
+                  child: Text('Y ${off.dy}'),
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                IconButton(
+                    onPressed: () => print("hola"),
+                    icon: ImageIcon(
+                      AssetImage("lib/src/Assets/Icons/ListaUbicaciones.png"),
+                      color: Colors.black,
+                    ))
+              ],
+            )
+          ],
+        ),
+      ),
+      
+      );
+    }
+
+    return ListView(
+      children: data,
+    );
   }
 }

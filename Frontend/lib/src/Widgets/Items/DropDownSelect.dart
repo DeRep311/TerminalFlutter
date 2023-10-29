@@ -6,7 +6,7 @@ class DropDownSelect extends StatefulWidget {
   final List<String> options;
   final String? selectedValue;
   final Function(String?) OnChanged;
-  final String? label;
+  final String label;
 
   DropDownSelect({
     required this.label,
@@ -25,11 +25,12 @@ class _DropDownSelectState extends State<DropDownSelect> {
   @override
   void initState() {
     super.initState();
-    dropdownValue = widget.selectedValue ?? widget.options.first;
   }
 
   @override
   Widget build(BuildContext context) {
+    dropdownValue = widget.label;
+
     return Container(
       height: 50,
       width: 230,
@@ -39,17 +40,11 @@ class _DropDownSelectState extends State<DropDownSelect> {
           borderRadius: BorderRadius.circular(24.0),
           color: Color.fromARGB(255, 255, 255, 255)),
       child: DropdownMenu<String>(
-    initialSelection: widget.label!,
-        inputDecorationTheme: InputDecorationTheme(
-          
-          border: InputBorder.none
-        )
-        
-        
-        ,
-        dropdownMenuEntries: 
-         
-         widget.options.map((String e) {
+     
+        width: 210,
+        hintText: dropdownValue,
+        inputDecorationTheme: InputDecorationTheme(border: InputBorder.none),
+        dropdownMenuEntries: widget.options.map((String e) {
           return DropdownMenuEntry<String>(
             value: e,
             label: e!,
@@ -58,11 +53,9 @@ class _DropDownSelectState extends State<DropDownSelect> {
         onSelected: (String? value) {
           setState(() {
             dropdownValue = value!;
-           
           });
           widget.OnChanged(value!);
-          
-          },
+        },
       ),
     );
   }
