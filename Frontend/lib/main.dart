@@ -36,11 +36,8 @@ void windowsManager() async {
 }
 
 void main() async {
-  runApp(
-    ChangeNotifierProvider(
-    create: (_) => Provider_Ubications(), 
-    child: const MyApp()
-    ));
+  runApp(ChangeNotifierProvider(
+      create: (_) => Provider_Ubications(), child: const MyApp()));
 
   windowsManager();
 }
@@ -61,6 +58,8 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginScreen(),
         '/operador': (context) => OperadorScreen(),
         '/operador/ubicaciones': (context) => OperadorUbicaciones(),
+      
+     
         '/operador/horarios': (context) => OperadorHorariosScreen(),
         '/operador/usuarios': (context) => OperadorUsuariosScreen(),
       },

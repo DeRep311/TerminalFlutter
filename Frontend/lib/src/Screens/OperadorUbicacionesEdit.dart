@@ -19,6 +19,7 @@ class OperadorUbicaciones extends StatelessWidget {
   Widget build(BuildContext context) {
     Provider_Ubications ubicationsProvider =
         Provider.of<Provider_Ubications>(context);
+
     return Scaffold(
         body: Container(
             color: const Color.fromRGBO(255, 255, 255, 1),
@@ -34,7 +35,11 @@ class OperadorUbicaciones extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        BackButton(                         
+                        BackButton(
+                          onPressed: () {
+                            ubicationsProvider.disposeclean();
+                            Navigator.pop(context);
+                          },
                           color: Colors.white,
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
@@ -43,11 +48,9 @@ class OperadorUbicaciones extends StatelessWidget {
                                 Colors.transparent),
                           ),
                         ),
-                    
                         Column(
                           children: [
-                                PanelEditor(),
-                          
+                            PanelEditor(),
                             SizedBox(
                               width: 900,
                               height: 90,
@@ -57,55 +60,32 @@ class OperadorUbicaciones extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    alignment: Alignment.center,
-                                    width: 130,
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(25.0)),
-                                    child:TextButton(
-                                      child:Text(
-                                      "Guardar",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 25,
-                                        fontFamily: "Poppins-Regular",
-                                      ),
-                                    ),
-                                     onPressed: () => {})                                   ),
-                                  
+                                      alignment: Alignment.center,
+                                      width: 130,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(25.0)),
+                                      child: TextButton(
+                                          child: Text(
+                                            "Guardar",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 25,
+                                              fontFamily: "Poppins-Regular",
+                                            ),
+                                          ),
+                                          onPressed: () => {
+                                                ubicationsProvider.saveData(),
+                                              })),
                                 ],
                               ),
                             )
                           ],
                         ),
-                        Container(
-                          child: UbicationPanel(),
-                        ),
+                        UbicationPanel(),
                       ])
                 ]))));
-  }
-}
-
-class RedPointsPainter extends CustomPainter {
-  final List<Offset> redPoints;
-
-  RedPointsPainter(this.redPoints);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.red
-      ..style = PaintingStyle.fill;
-
-    for (Offset point in redPoints) {
-      canvas.drawCircle(point, 5.0, paint);
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
   }
 }

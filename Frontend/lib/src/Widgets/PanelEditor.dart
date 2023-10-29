@@ -40,6 +40,7 @@ class _PanelEditorState extends State<PanelEditor> {
           ubicationsProvider.image == null
               ? SizedBox(
                 
+                
                   width: 900,
                   height: 500,
                 child: Container(

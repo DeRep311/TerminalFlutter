@@ -38,7 +38,7 @@ class Provider_Ubications with ChangeNotifier {
   void deletePoint(Offset point) {
     _points.remove(point);
     cooImages.remove(point);
-    print(_points);
+
     notifyListeners();
   }
   void addImage(Offset point, XFile? image) {
@@ -49,14 +49,14 @@ class Provider_Ubications with ChangeNotifier {
   void isDrawingChange() {
     _isDeleting = false;
     _isDrawing = !_isDrawing;
-    print(_isDrawing);
+
     notifyListeners();
   }
 
   void isDeletingChange() {
     _isDrawing = false;
     _isDeleting = !_isDeleting;
-    print(_isDeleting);
+   
     notifyListeners();
   }
 
@@ -77,5 +77,18 @@ class Provider_Ubications with ChangeNotifier {
 
   void saveData(){
     //aqui se guardan los datos en la base de datos haciendo una peticion post dandole el tipo de dato
+
+    //luego se vacia para ahorrar memoria
+    disposeclean();
+
+  }
+
+  void disposeclean() {
+    _points = [];
+    cooImages = {};
+    _isDrawing = false;
+    _isDeleting = false;
+    _image = null;
+    notifyListeners();
   }
 }
