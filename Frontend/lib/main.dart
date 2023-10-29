@@ -5,6 +5,7 @@ import 'package:my_app/src/Screens/Home.dart';
 import 'package:my_app/src/Screens/Operador.dart';
 import 'package:my_app/src/Screens/Login.dart';
 import 'package:my_app/src/Screens/LoginErrorScreen.dart';
+import 'package:my_app/src/Screens/OperadorHorarios.dart';
 import 'package:my_app/src/Screens/OperadorUbicacionesEdit.dart';
 import 'package:my_app/src/Screens/OperadorMenuUbicaciones.dart';
 import 'package:my_app/src/Screens/OperadorUsuarios.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: '/operador/ubicaciones',
+      initialRoute: '/operador',
       routes: {
         '/': (context) => Home(),
         '/locations': (context) => Ubications(),
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginScreen(),
         '/operador': (context) => OperadorScreen(),
         '/operador/ubicaciones': (context) => OperadorUbicaciones(),
-        '/operador/horarios': (context) => OperadorUbicacionesMenu(),
+        '/operador/horarios': (context) => OperadorHorariosScreen(),
         '/operador/usuarios': (context) => OperadorUsuariosScreen(),
       },
     );
