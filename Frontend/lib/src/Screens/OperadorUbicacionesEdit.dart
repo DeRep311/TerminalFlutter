@@ -34,7 +34,7 @@ class OperadorUbicaciones extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        BackButton(
+                        BackButton(                         
                           color: Colors.white,
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
@@ -64,40 +64,17 @@ class OperadorUbicaciones extends StatelessWidget {
                                         color: Colors.white,
                                         borderRadius:
                                             BorderRadius.circular(25.0)),
-                                    child: Text(
-                                      "Viajar",
+                                    child:TextButton(
+                                      child:Text(
+                                      "Guardar",
                                       style: TextStyle(
+                                        color: Colors.black,
                                         fontSize: 25,
                                         fontFamily: "Poppins-Regular",
                                       ),
                                     ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        width: 50,
-                                        height: 50,
-                                        child: Image(
-                                            image: AssetImage(
-                                                "lib/src/Assets/Icons/IconZoom.png")),
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(100.0),
-                                            color: Colors.white),
-                                      ),
-                                      Container(
-                                        width: 50,
-                                        height: 50,
-                                        child: Image(
-                                            image: AssetImage(
-                                                "lib/src/Assets/Icons/IconZoom.png")),
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(100.0),
-                                            color: Colors.white),
-                                      ),
-                                    ],
-                                  )
+                                     onPressed: () => {})                                   ),
+                                  
                                 ],
                               ),
                             )

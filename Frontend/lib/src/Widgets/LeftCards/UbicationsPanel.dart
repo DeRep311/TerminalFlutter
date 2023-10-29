@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:my_app/src/Providers/Provider_Ubications.dart';
 import 'package:my_app/src/Widgets/Items/DropDownSelect.dart';
 import 'package:my_app/src/Widgets/Items/FieldRounded.dart';
@@ -19,8 +20,8 @@ class _UbicationPanelState extends State<UbicationPanel> {
   @override
   Widget build(BuildContext context) {
     Provider_Ubications ubicationsProvider =
-        Provider.of<Provider_Ubications>(context);
-    List<String> dropdownValue = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+    Provider.of<Provider_Ubications>(context);
+    List<String> dropdownValue = ubicationsProvider.options.keys.toList();
     String? selectedOption;
     return Container(
         margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -57,8 +58,7 @@ class _UbicationPanelState extends State<UbicationPanel> {
             OnChanged: (value) {
               setState(() {
                 selectedOption = value;
-                print(ubicationsProvider.isDeleting);
-                print(selectedOption);
+                ubicationsProvider.setImage(ubicationsProvider.options[value]!);
               });
             },
           ),
@@ -123,60 +123,61 @@ class _UbicationPanelState extends State<UbicationPanel> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25.0),
                 color: Color.fromRGBO(255, 255, 255, 1)),
-            
-                    child: Item(ubicationsProvider.points),
-                  
-            )
-        
+            child: Item(ubicationsProvider.points, ubicationsProvider),
+          )
         ]));
   }
 
-  ListView Item(List<Offset> points) {
+  ListView Item(List<Offset> points, Provider_Ubications ubicationsProvider) {
     List<Widget> data = [];
+    File? image;
 
     for (var off in points) {
-      data.add(Container(
-        margin: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          border: BorderDirectional(
-            bottom: BorderSide(
-              color: const Color.fromARGB(255, 0, 0, 0),
-              width: 1.0,
+      data.add(
+        Container(
+          margin: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            border: BorderDirectional(
+              bottom: BorderSide(
+                color: const Color.fromARGB(255, 0, 0, 0),
+                width: 1.0,
+              ),
             ),
           ),
-          
-         
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10, 5, 5, 0),
+                    child: Text('X ${off.dx}'),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10, 5, 5, 0),
+                    child: Text('Y ${off.dy}'),
+                  ),
+                ],
+              ),
+              Container(
+                child: ubicationsProvider.cooImages[off] != null
+                    ? Text("Imagen cargada")
+                    : TextButton(onPressed: ()async{
+                    final ImagePicker _picker = ImagePicker();
+                    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+                    if(image != null){
+                      ubicationsProvider.addImage(off, image);
+                    }
+
+                 },
+                  child: Text("Cargar imagen",
+                  style: TextStyle(
+                    color: Colors.black),),),
+              )
+            ],
+          ),
         ),
-        child:   Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 5, 5, 0),
-                  child: Text('X ${off.dx}'),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 5, 5, 0),
-                  child: Text('Y ${off.dy}'),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                IconButton(
-                    onPressed: () => print("hola"),
-                    icon: ImageIcon(
-                      AssetImage("lib/src/Assets/Icons/ListaUbicaciones.png"),
-                      color: Colors.black,
-                    ))
-              ],
-            )
-          ],
-        ),
-      ),
-      
       );
     }
 

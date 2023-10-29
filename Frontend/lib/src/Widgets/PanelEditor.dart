@@ -35,16 +35,39 @@ class _PanelEditorState extends State<PanelEditor> {
         }
         setState(() {});
       },
-      child: SizedBox(
-        width: 900,
-        height: 462,
-        child: Container(
-            margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-            decoration: BoxDecoration(color: Colors.black),
-            child: CustomPaint(
-                painter: RedPointsPainter(ubicationsProvider.points))),
+      child: Stack(
+        children: [
+          ubicationsProvider.image == null
+              ? SizedBox(
+                
+                  width: 900,
+                  height: 500,
+                child: Container(
+                  margin: EdgeInsets.all(10),
+                  color: Colors.white,
+                  child: Center(
+                    child: Text("Seleccione un plano"),
+                  ),
+                )
+                )
+              
+              : Image.network(ubicationsProvider.image!,
+              scale: ubicationsProvider.zoom,
+               fit: BoxFit.cover,
+                width: 900,
+                height: 500,
+                
+             
+              )
+          ,CustomPaint(
+            painter: RedPointsPainter(ubicationsProvider.points),
+          ),
+        ],
       ),
     );
+ 
+   
+
   }
 }
 
@@ -58,6 +81,7 @@ class RedPointsPainter extends CustomPainter {
     final paint = Paint()
       ..color = Colors.red
       ..style = PaintingStyle.fill;
+      
 
     for (Offset point in redPoints) {
       canvas.drawCircle(point, 5.0, paint);
