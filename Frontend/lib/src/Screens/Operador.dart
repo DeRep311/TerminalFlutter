@@ -51,7 +51,7 @@ class OperadorScreen extends StatelessWidget {
                           OptionBox(
                             title: 'Administracion\ncursos',
                             imagePath: 'lib/src/Assets/Icons/AdminCursos.png',
-                            route: '/Option3',
+                            route: '/operador/cursos',
                           ),
                           OptionBox(
                             title: 'Administrar\nsuarios',

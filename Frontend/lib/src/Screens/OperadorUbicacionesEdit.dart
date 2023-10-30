@@ -78,7 +78,9 @@ class OperadorUbicaciones extends StatelessWidget {
                                           ),
                                           onPressed: () => {
                                                 ubicationsProvider.saveData(),
-                                              })),
+                                              }
+                                  )
+                                  ),
                                 ],
                               ),
                             )
