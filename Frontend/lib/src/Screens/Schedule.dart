@@ -80,18 +80,17 @@ class Schedule extends StatelessWidget {
           Header(nameOption: 'Visitante'),
 
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                   width: 319,
                   height: 312,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(35.0)),
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  child: Center(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -111,16 +110,6 @@ class Schedule extends StatelessWidget {
                             )
                           ],
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [],
-                        ),
                       ],
                     ),
                   )),
@@ -129,8 +118,7 @@ class Schedule extends StatelessWidget {
                   height: 312,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(35.0)),
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  child: Center(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -153,19 +141,10 @@ class Schedule extends StatelessWidget {
                             )
                           ],
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [],
-                        ),
                       ],
                     ),
                   )),
+              Padding(padding: EdgeInsets.fromLTRB(0, 0, 220, 0)),
               Container(
                 margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
                 decoration: BoxDecoration(

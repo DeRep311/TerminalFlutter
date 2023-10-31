@@ -24,21 +24,27 @@ class HorarioCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300, // Define la altura de la Card
-      width: 300, // Define la anchura de la Card
+      height: 265, // Define la altura de la Card
+      width: 250, // Define la anchura de la Card
       child: Card(
+        color: Color.fromRGBO(61, 61, 61, 1),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        elevation: 5.0,
         child: Container(
-          color: Color.fromRGBO(61, 61, 61, 1),
           padding: EdgeInsets.all(30.0),
           child: Column(
             children: <Widget>[
-              Text(
-                title,
-                style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.w700,
-                    color: Color.fromRGBO(255, 255, 255, 1)),
-              ),
+              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.w700,
+                      color: Color.fromRGBO(255, 255, 255, 1)),
+                ),
+              ]),
               SizedBox(height: 15.0),
               Padding(padding: EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0)),
               Row(
