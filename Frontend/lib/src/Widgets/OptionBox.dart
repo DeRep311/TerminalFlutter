@@ -37,8 +37,8 @@ class OptionBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: 115,
-                width: 110,
+                height: 90,
+                width: 200,
                 child: Image(image: AssetImage(imagePath)),
               ),
               Text(

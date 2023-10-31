@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_app/src/Widgets/Items.dart';
+import 'package:my_app/src/Widgets/LeftCards/HorarioCards.dart';
 
 import '../Widgets/Header/Header.dart';
 import '../Widgets/Layout.dart';
@@ -68,182 +69,132 @@ class Schedule extends StatelessWidget {
       }
     ];
     return Scaffold(
-      body: Container(
-          child: Layout(
-              children: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-            //Header main screen
+        body: Container(
+            child: Layout(
+                children: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+          //Header main screen
 
-            Header(nameOption: 'Visitante'),
+          Header(nameOption: 'Visitante'),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
                   width: 319,
                   height: 312,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(61, 61, 61, 1),
-                    borderRadius: BorderRadius.circular(35.0)
-                    ),
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(35.0)),
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                    
-                    child:Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text("Ahora mismo", style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40
-                      ),),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image(
-                              width: 50,
-                              height: 50,
-                              image: AssetImage(
-                                  "lib/src/Assets/Icons/LocationsIcon.png")),
-                          Text(" Filosofia", style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 31
-                          ),)
-                        ],
-                      ), Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image(
-                              width: 50,
-                              height: 50,
-                              image: AssetImage(
-                                  "lib/src/Assets/Icons/LocationsIcon.png")),
-                          Text(" Filosofia", style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 31
-                          ),)
-                        ],
-                      ), Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image(
-                              width: 50,
-                              height: 50,
-                              image: AssetImage(
-                                  "lib/src/Assets/Icons/LocationsIcon.png")),
-                          Text(" Filosofia", style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 31
-                          ),)
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-            ),
-            Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            HorarioCard(
+                              title: "Ahora mismo",
+                              materia: "HOlaaa",
+                              horario: "12:35-1:20",
+                              salon: "104",
+                              imagePathMateria:
+                                  'lib/src/Assets/Icons/MateriaIcon.png',
+                              imagePathHorario:
+                                  'lib/src/Assets/Icons/MiniClock.png',
+                              imagePathSalon:
+                                  'lib/src/Assets/Icons/ClaseIcon.png',
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [],
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
                   width: 319,
                   height: 312,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(61, 61, 61, 1),
-                    borderRadius: BorderRadius.circular(35.0)
-                    ),
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(35.0)),
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                    
-                    child:Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text("Ahora mismo", style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40
-                      ),),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image(
-                              width: 50,
-                              height: 50,
-                              image: AssetImage(
-                                  "lib/src/Assets/Icons/LocationsIcon.png")),
-                          Text(" Filosofia", style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 31
-                          ),)
-                        ],
-                      ), Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image(
-                              width: 50,
-                              height: 50,
-                              image: AssetImage(
-                                  "lib/src/Assets/Icons/LocationsIcon.png")),
-                          Text(" Filosofia", style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 31
-                          ),)
-                        ],
-                      ), Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image(
-                              width: 50,
-                              height: 50,
-                              image: AssetImage(
-                                  "lib/src/Assets/Icons/LocationsIcon.png")),
-                          Text(" Filosofia", style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 31
-                          ),)
-                        ],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            HorarioCard(
+                              title: "Proximo",
+                              materia: "HOlaaa",
+                              horario: "12:35-1:20",
+                              salon: "104",
+                              imagePathMateria:
+                                  'lib/src/Assets/Icons/MateriaIcon.png',
+                              imagePathHorario:
+                                  'lib/src/Assets/Icons/MiniClock.png',
+                              imagePathSalon:
+                                  'lib/src/Assets/Icons/ClaseIcon.png',
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [],
+                        ),
+                      ],
+                    ),
+                  )),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Color.fromRGBO(61, 61, 61, 1),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.25),
+                        offset: Offset(0.0, 4.0),
+                        blurRadius: 4.0,
+                        spreadRadius: 0,
                       ),
-                    ],
-                  ),
-                )
-            ),
-            
-             Container(
-                           margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.0),
-                              color: Color.fromRGBO(61, 61, 61, 1),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.25),
-                                  offset: Offset(0.0, 4.0),
-                                  blurRadius: 4.0,
-                                  spreadRadius: 0,
-                                ),
-                              ]),
-                          height: 500,
-                          width: 250,
-                          alignment: Alignment.center,
-                          child: ListView.builder(
-                            itemCount: _items.length,
-                            scrollDirection: Axis.vertical,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Items(
-                                titulo: _items[index]["Nombre"],
-                                Imagen: _items[index]["Imagen"],
-                              );
-                            },
-                          ),
-                        ),],
-            )
-          ])
+                    ]),
+                height: 500,
+                width: 250,
+                alignment: Alignment.center,
+                child: ListView.builder(
+                  itemCount: _items.length,
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Items(
+                      titulo: _items[index]["Nombre"],
+                      Imagen: _items[index]["Imagen"],
+                    );
+                  },
+                ),
+              ),
+            ],
           )
-          )
-          );
-    
+        ]))));
   }
 }

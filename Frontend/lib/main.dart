@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/Providers/Provider_Ubications.dart';
 import 'package:my_app/src/Screens/Home.dart';
+import 'package:my_app/src/Screens/Horarios.dart';
+import 'package:my_app/src/Screens/OperadorOpciones.dart';
+import 'package:my_app/src/Screens/PantallaPrincipal.dart';
 import 'package:my_app/src/Screens/Operador.dart';
 import 'package:my_app/src/Screens/Login.dart';
 import 'package:my_app/src/Screens/LoginErrorScreen.dart';
@@ -51,17 +54,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: '/operador',
+      initialRoute: '/schedule',
       routes: {
-        '/': (context) => Home(),
+        '/': (context) => PantallaPrincipal(),
+        '/home': (context) => Home(),
+        // '/horarios': (context) => Horarios(),
         '/locations': (context) => Ubications(),
         '/schedule': (context) => Schedule(),
         '/loginError': (context) => LoginErrorScreen(),
         '/login': (context) => LoginScreen(),
         '/operador': (context) => OperadorScreen(),
+        '/operador/opcionesAdministrativas': (context) =>
+            OpcionesOperadorScreen(),
         '/operador/ubicaciones': (context) => OperadorUbicaciones(),
-      
-        '/operador/cursos':(context) => OperadorCursos(),
+        '/operador/cursos': (context) => OperadorCursos(),
         '/operador/horarios': (context) => OperadorHorariosScreen(),
         '/operador/usuarios': (context) => OperadorUsuariosScreen(),
       },
