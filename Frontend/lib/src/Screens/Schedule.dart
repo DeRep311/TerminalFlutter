@@ -78,7 +78,18 @@ class Schedule extends StatelessWidget {
           //Header main screen
 
           Header(nameOption: 'Visitante'),
-
+          Align(
+            alignment: Alignment.topLeft,
+            child: BackButton(
+              color: Colors.white,
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.transparent),
+                overlayColor:
+                    MaterialStateProperty.all<Color>(Colors.transparent),
+              ),
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
