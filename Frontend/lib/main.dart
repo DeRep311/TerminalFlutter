@@ -20,6 +20,7 @@ import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
 
 import 'src/Screens/OperadorCursos.dart';
+import 'src/Screens/OperadorCursosAdministrar.dart';
 
 void windowsManager() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
         '/operador/cursos': (context) => OperadorCursos(),
         '/operador/horarios': (context) => OperadorHorariosScreen(),
         '/operador/usuarios': (context) => OperadorUsuariosScreen(),
+        '/operador/cursos/administrar': (context) => CursosAdministrador(),
       },
     );
   }

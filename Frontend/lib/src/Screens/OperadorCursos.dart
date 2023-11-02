@@ -182,7 +182,9 @@ class OperadorCursos extends StatelessWidget {
 
                             ),
                             child: TextButton(
-                              onPressed: () => {},
+                              onPressed: () => {
+                                Navigator.pushNamed(context, '/operador/cursos/administrar')
+                              },
                               child: Text("Administrar\nCursos",style: TextStyle(
                                 color: Color.fromARGB(255, 61, 61, 61),
                                 fontSize: 12,
