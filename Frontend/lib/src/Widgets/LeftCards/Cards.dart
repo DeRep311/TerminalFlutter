@@ -12,7 +12,7 @@ class CardTime extends StatelessWidget {
         margin: EdgeInsets.fromLTRB(100.0, 40.0, 0.0, 0.0),
         alignment: Alignment(0.0, -0.2),
         width: 340,
-        height: 295,
+        height: 325,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
           color: Color.fromRGBO(61, 61, 61, 1),

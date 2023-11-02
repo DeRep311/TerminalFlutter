@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: '/operador/cursos',
+      initialRoute: '/operador/horarios',
       routes: {
         '/': (context) => PantallaPrincipal(),
         '/home': (context) => Home(),

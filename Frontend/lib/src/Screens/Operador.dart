@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:my_app/src/Widgets/LeftCards/Calendar.dart';
+import 'package:my_app/src/Widgets/LeftCards/CalendarOperador.dart';
 
 import '../Widgets/LeftCards/Cards.dart';
 import '../Widgets/Layout.dart';
@@ -22,7 +23,7 @@ class OperadorScreen extends StatelessWidget {
             children: [
               //Header main screen
 
-              Header(
+              const Header(
                 nameOption: 'Visitante',
               ),
               //Container for grid and weather
@@ -32,7 +33,7 @@ class OperadorScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(
+                      primary: const Color.fromARGB(
                           255, 255, 255, 255), // background color
                       onPrimary: Colors.black, // text color
                     ),
@@ -40,12 +41,12 @@ class OperadorScreen extends StatelessWidget {
                       //mejorar la funcion de logout
                       Navigator.pushReplacementNamed(context, '/login');
                     },
-                    child: Text('Salir'),
+                    child: const Text('Salir'),
                   ),
                 ),
               ),
 
-              Row(
+              const Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -62,7 +63,7 @@ class OperadorScreen extends StatelessWidget {
                               child: OptionBox(
                                 title: 'Horarios',
                                 imagePath: 'lib/src/Assets/Icons/RelojIcon.png',
-                                route: '/horarios',
+                                route: '/schedule',
                               ),
                             ),
                             Expanded(

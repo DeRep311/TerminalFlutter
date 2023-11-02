@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:my_app/src/Widgets/LeftCards/Calendar.dart';
 import 'package:my_app/src/Widgets/LeftCards/CalendarOperador.dart';
 import 'package:my_app/src/Widgets/LeftCards/CardsOperador.dart';
 
@@ -26,21 +27,15 @@ class OpcionesOperadorScreen extends StatelessWidget {
 
               Header(nameOption: 'Operador'),
               //Container for grid and weather
-              SizedBox(
-                child: Align(
-                  //ARREGLAR PROBLEMA DEL ESPACIO
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: BackButton(
-                      color: Colors.white,
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.transparent),
-                        overlayColor: MaterialStateProperty.all<Color>(
-                            Colors.transparent),
-                      ),
-                    ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: BackButton(
+                  color: Colors.white,
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.transparent),
+                    overlayColor:
+                        MaterialStateProperty.all<Color>(Colors.transparent),
                   ),
                 ),
               ),
@@ -84,8 +79,8 @@ class OpcionesOperadorScreen extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CardTimeOperador(
-                        children: CalendarOperador(),
+                      CardTime(
+                        children: Calendar(),
                       ),
                     ],
                   )

@@ -90,58 +90,9 @@ class _OperadorHorariosScreenState extends State<OperadorHorariosScreen> {
                     bottom: 16.0,
                   ),
                   child: TextField(
-                    controller: cedulaController,
-                    keyboardType: TextInputType.number,
+                    controller: telefonoController,
                     decoration: InputDecoration(
-                      hintText: 'Grupo',
-                      fillColor: const Color.fromARGB(110, 231, 227, 227),
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(26.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                    ),
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 16.0,
-                  ),
-                  child: TextField(
-                    controller: nombreController,
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(nombreRegExp),
-                    ],
-                    decoration: InputDecoration(
-                      hintText: 'Docente',
-                      fillColor: const Color.fromARGB(110, 231, 227, 227),
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(26.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                    ),
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 16.0,
-                  ),
-                  child: TextField(
-                    controller: apellidoController,
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(nombreRegExp),
-                    ],
-                    decoration: InputDecoration(
-                      hintText: 'Materia',
+                      hintText: 'Dia',
                       fillColor: const Color.fromARGB(110, 231, 227, 227),
                       filled: true,
                       border: OutlineInputBorder(
@@ -196,52 +147,7 @@ class _OperadorHorariosScreenState extends State<OperadorHorariosScreen> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 16.0,
-                  ),
-                  child: TextField(
-                    controller: telefonoController,
-                    decoration: InputDecoration(
-                      hintText: 'Dia',
-                      fillColor: const Color.fromARGB(110, 231, 227, 227),
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(26.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                    ),
-                  ),
-                ),
 
-                Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 16.0,
-                  ),
-                  child: TextField(
-                    controller: pinController,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      FilteringTextInputFormatter.digitsOnly,
-                      LengthLimitingTextInputFormatter(3),
-                    ],
-                    decoration: InputDecoration(
-                      hintText: 'Salon',
-                      fillColor: const Color.fromARGB(110, 231, 227, 227),
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(26.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                    ),
-                  ),
-                ),
                 // const TextWithCheckbox(text: 'Operador '),
                 // const TextWithCheckbox(text: '   Docente'),
                 // const TextWithCheckbox(text: 'Estudiante'),
