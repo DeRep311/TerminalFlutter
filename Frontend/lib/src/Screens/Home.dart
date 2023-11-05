@@ -65,7 +65,7 @@ class Home extends StatelessWidget {
                               child: OptionBox(
                                 title: 'Horarios',
                                 imagePath: 'lib/src/Assets/Icons/RelojIcon.png',
-                                route: '/horarios',
+                                route: '/schedule',
                               ),
                             ),
                             Expanded(

@@ -606,7 +606,7 @@ class _UbicacionesHorariosDialogState extends State<UbicacionesHorariosDialog> {
   }
 }
 
-//------------------Pop up Estudiantes-----------------------------------
+//------------------Pop up grupos-----------------------------------
 class MainDataTable extends StatefulWidget {
   @override
   _MainDataTableState createState() => _MainDataTableState();

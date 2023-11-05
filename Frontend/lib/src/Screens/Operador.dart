@@ -24,7 +24,7 @@ class OperadorScreen extends StatelessWidget {
               //Header main screen
 
               const Header(
-                nameOption: 'Visitante',
+                nameOption: 'Operador',
               ),
               //Container for grid and weather
               Align(
