@@ -20,7 +20,7 @@ class _UbicationPanelState extends State<UbicationPanel> {
   @override
   Widget build(BuildContext context) {
     Provider_Ubications ubicationsProvider =
-    Provider.of<Provider_Ubications>(context);
+        Provider.of<Provider_Ubications>(context);
     List<String> dropdownValue = ubicationsProvider.options.keys.toList();
     String? selectedOption;
     return Container(
@@ -53,6 +53,8 @@ class _UbicationPanelState extends State<UbicationPanel> {
 
           DropDownSelect(
             label: "Plano Dependiente",
+            color: Color.fromARGB(255, 255, 255, 255),
+            margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
             options: dropdownValue,
             selectedValue: selectedOption,
             OnChanged: (value) {
@@ -64,6 +66,8 @@ class _UbicationPanelState extends State<UbicationPanel> {
           ),
           DropDownSelect(
             label: "Plano Dependiente",
+            color: Color.fromARGB(255, 255, 255, 255),
+            margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
             options: dropdownValue,
             selectedValue: selectedOption,
             OnChanged: (value) {
@@ -163,17 +167,20 @@ class _UbicationPanelState extends State<UbicationPanel> {
               Container(
                 child: ubicationsProvider.cooImages[off] != null
                     ? Text("Imagen cargada")
-                    : TextButton(onPressed: ()async{
-                    final ImagePicker _picker = ImagePicker();
-                    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-                    if(image != null){
-                      ubicationsProvider.addImage(off, image);
-                    }
-
-                 },
-                  child: Text("Cargar imagen",
-                  style: TextStyle(
-                    color: Colors.black),),),
+                    : TextButton(
+                        onPressed: () async {
+                          final ImagePicker _picker = ImagePicker();
+                          final XFile? image = await _picker.pickImage(
+                              source: ImageSource.gallery);
+                          if (image != null) {
+                            ubicationsProvider.addImage(off, image);
+                          }
+                        },
+                        child: Text(
+                          "Cargar imagen",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
               )
             ],
           ),

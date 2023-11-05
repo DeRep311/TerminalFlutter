@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/src/Data/UsersData.dart';
 import 'package:my_app/src/Models/UsersModel.dart';
 import 'package:my_app/src/Widgets/CheckBox.dart';
+import 'package:my_app/src/Widgets/Items/DropDownSelect.dart';
 import 'package:my_app/src/Widgets/LeftCards/SearchFilterUsuarios.dart';
 
 import '../Widgets/Header/Header.dart';
@@ -33,10 +34,13 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
   List<String> columns = ['Cedula', 'Nombre', 'Rol'];
   List<UsersModel> users = [];
 
-  bool operadorCheckbox = false;
-  bool administradorCheckbox = false;
-  bool docenteCheckbox = false;
-  bool estudianteCheckbox = false;
+  String? selectedRol;
+
+  List<String> dropdownValueRol = [
+    'Operador',
+    'Docente',
+    'Estudiante',
+  ];
 
   @override
   void initState() {
@@ -185,9 +189,17 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
                     ),
                   ),
                 ),
-                const TextWithCheckbox(text: 'Operador '),
-                const TextWithCheckbox(text: '   Docente'),
-                const TextWithCheckbox(text: 'Estudiante'),
+                DropDownSelect(
+                  label: "Elija un rol...",
+                  color: Color.fromARGB(110, 231, 227, 227),
+                  options: dropdownValueRol,
+                  selectedValue: selectedRol,
+                  OnChanged: (value) {
+                    setState(() {
+                      selectedRol = value;
+                    });
+                  },
+                ),
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/src/Widgets/Items/DropDownSelect.dart';
 
 class SearchFilterHorarios extends StatefulWidget {
   const SearchFilterHorarios({Key? key}) : super(key: key);
@@ -11,6 +12,24 @@ class _SearchFilterHorariosState extends State<SearchFilterHorarios> {
   String? selectedDocente;
   String? selectedGrupo;
   String? selectedSalon;
+
+  List<String> dropdownValueDocentes = [
+    'Pepe',
+    'Juan',
+    'Momo',
+    'Mauro',
+    'El cazcu',
+    'Ayuda, el estres me come'
+  ];
+  List<String> dropdownValueGrupo = [
+    'grupo1',
+    'Coscu Army',
+    'Grupos socialos por Durkheim',
+    'Lil durk',
+    'C noventa c noventaa',
+    'Porque 5 minutos con ella eran 10h con cualquier otro'
+  ];
+  List<String> dropdownValueSalon = ['102', '9/11', '323', '777', '999', '123'];
 
   @override
   Widget build(BuildContext context) {
@@ -48,47 +67,44 @@ class _SearchFilterHorariosState extends State<SearchFilterHorarios> {
             ),
             Padding(
               padding: const EdgeInsets.all(5.0),
-              child: CustomDropdownMenu(
-                options: [
-                  'Docente',
-                  'Docente',
-                  'Docente',
-                  'Docente',
-                  'Docente'
-                ],
+              child: DropDownSelect(
+                label: "Elija un docente...",
+                color: Color.fromARGB(255, 255, 255, 255),
+                options: dropdownValueDocentes,
                 selectedValue: selectedDocente,
-                onChanged: (value) {
+                OnChanged: (value) {
                   setState(() {
                     selectedDocente = value;
                   });
                 },
-                hintText: 'Docente a cargo',
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(5.0),
-              child: CustomDropdownMenu(
-                options: ['3BM', '3BP', 'No se', 'No se', 'Grupo'],
+              child: DropDownSelect(
+                label: "Elija un grupo...",
+                color: Color.fromARGB(255, 255, 255, 255),
+                options: dropdownValueGrupo,
                 selectedValue: selectedGrupo,
-                onChanged: (value) {
+                OnChanged: (value) {
                   setState(() {
                     selectedGrupo = value;
                   });
                 },
-                hintText: 'Grupos',
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(5.0),
-              child: CustomDropdownMenu(
-                options: ['100', '102', '103', '104'],
+              child: DropDownSelect(
+                label: "Elija un salon...",
+                color: Color.fromARGB(255, 255, 255, 255),
+                options: dropdownValueSalon,
                 selectedValue: selectedSalon,
-                onChanged: (value) {
+                OnChanged: (value) {
                   setState(() {
                     selectedSalon = value;
                   });
                 },
-                hintText: 'Salon',
               ),
             ),
             Padding(
@@ -112,48 +128,6 @@ class _SearchFilterHorariosState extends State<SearchFilterHorarios> {
     );
   }
 }
-
-class CustomDropdownMenu extends StatelessWidget {
-  final List<String> options;
-  final String? selectedValue;
-  final void Function(String?) onChanged;
-  final String hintText;
-
-  CustomDropdownMenu({
-    required this.options,
-    required this.selectedValue,
-    required this.onChanged,
-    required this.hintText,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(26.0),
-        color: Colors.white,
-      ),
-      child: DropdownMenu<String>(
-        inputDecorationTheme: InputDecorationTheme(
-          border: InputBorder.none,
-        ),
-        initialSelection: selectedValue,
-        onSelected: onChanged,
-        dropdownMenuEntries: options.map((String value) {
-          return DropdownMenuEntry<String>(
-            value: value,
-            label: value,
-          );
-        }).toList(),
-        hintText: hintText,
-      ),
-    );
-  }
-}
-
-
-
-
 
 
 

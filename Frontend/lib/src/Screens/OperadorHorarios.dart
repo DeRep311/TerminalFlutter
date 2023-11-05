@@ -7,6 +7,7 @@ import 'package:my_app/src/Models/UsersModel.dart';
 import 'package:my_app/src/Models/UsersModel.dart';
 import 'package:my_app/src/Widgets/CheckBox.dart';
 import 'package:my_app/src/Widgets/Header/Header.dart';
+import 'package:my_app/src/Widgets/Items/DropDownSelect.dart';
 import 'package:my_app/src/Widgets/Layout.dart';
 import 'package:my_app/src/Widgets/LeftCards/SearchFilterHorarios.dart';
 import 'package:my_app/src/Widgets/LeftCards/SearchFilterUsuarios.dart';
@@ -21,7 +22,7 @@ class OperadorHorariosScreen extends StatefulWidget {
 final horarios = [
   HorariosModel(
       grupo: '1B',
-      docente: 'Juan Pérez',
+      docente: 'Juan Alpaca',
       materia: 'Matemáticas',
       horaInicio: '8:00',
       horaFin: '9:00',
@@ -38,16 +39,8 @@ final horarios = [
 ];
 
 class _OperadorHorariosScreenState extends State<OperadorHorariosScreen> {
-  TextEditingController cedulaController = TextEditingController();
-  TextEditingController nombreController = TextEditingController();
-  TextEditingController apellidoController = TextEditingController();
-  TextEditingController telefonoController = TextEditingController();
-  TextEditingController pinController = TextEditingController();
-
-  // final RegExp cedulaRegExp = RegExp(r'^\d{1,8}$');
-  final RegExp nombreRegExp = RegExp(r'^[a-zA-Z ]+$');
-  // final RegExp telefonoRegExp = RegExp(r'^\d+$');
-  // final RegExp pinRegExp = RegExp(r'^\d{3}$');
+  TextEditingController horainicioController = TextEditingController();
+  TextEditingController horafinController = TextEditingController();
 
   List<String> columns = ['Cedula', 'Nombre', 'Rol'];
   List<UsersModel> users = [];
@@ -73,7 +66,17 @@ class _OperadorHorariosScreenState extends State<OperadorHorariosScreen> {
   //   });
   // }
 
-  void _showAddUserDialog() {
+  void _CrearHorarios() {
+    List<String> dropdownValue = [
+      'Lunes',
+      'Martes',
+      'Miercoles',
+      'Jueves',
+      'Viernes',
+      'Sabado'
+    ];
+    String? selectedDia;
+
     showDialog(
       context: context,
       builder: (context) {
@@ -85,33 +88,30 @@ class _OperadorHorariosScreenState extends State<OperadorHorariosScreen> {
           content: SingleChildScrollView(
             child: Column(
               children: <Widget>[
+                // Dropdown para seleccionar el día de la semana
+                DropDownSelect(
+                  label: "Elija un día de la semana...",
+                  color: Color.fromARGB(110, 231, 227, 227),
+                  options: dropdownValue,
+                  selectedValue: selectedDia,
+                  OnChanged: (value) {
+                    setState(() {
+                      selectedDia = value;
+                    });
+                  },
+                ),
                 Padding(
                   padding: const EdgeInsets.only(
                     bottom: 16.0,
-                  ),
-                  child: TextField(
-                    controller: telefonoController,
-                    decoration: InputDecoration(
-                      hintText: 'Dia',
-                      fillColor: const Color.fromARGB(110, 231, 227, 227),
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(26.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                    ),
                   ),
                 ),
-
+                // Campo de texto para la hora de inicio
                 Padding(
                   padding: const EdgeInsets.only(
                     bottom: 16.0,
                   ),
                   child: TextField(
-                    controller: telefonoController,
+                    controller: horainicioController,
                     decoration: InputDecoration(
                       hintText: 'Hora inicio',
                       fillColor: const Color.fromARGB(110, 231, 227, 227),
@@ -127,12 +127,13 @@ class _OperadorHorariosScreenState extends State<OperadorHorariosScreen> {
                   ),
                 ),
 
+                // Campo de texto para la hora de fin
                 Padding(
                   padding: const EdgeInsets.only(
                     bottom: 16.0,
                   ),
                   child: TextField(
-                    controller: telefonoController,
+                    controller: horafinController,
                     decoration: InputDecoration(
                       hintText: 'Hora fin',
                       fillColor: const Color.fromARGB(110, 231, 227, 227),
@@ -148,27 +149,31 @@ class _OperadorHorariosScreenState extends State<OperadorHorariosScreen> {
                   ),
                 ),
 
-                // const TextWithCheckbox(text: 'Operador '),
-                // const TextWithCheckbox(text: '   Docente'),
-                // const TextWithCheckbox(text: 'Estudiante'),
+                // Botones para crear y cancelar
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        // Lógica para guardar el horario
+
+                        // ...
+
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('Crear'),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('Cancelar'),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                // Lógica para guardar el usuario
-                Navigator.of(context).pop();
-              },
-              child: const Text('Crear'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('Cancelar'),
-            ),
-          ],
         );
       },
     );
@@ -214,7 +219,7 @@ class _OperadorHorariosScreenState extends State<OperadorHorariosScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElevatedButton(
-                            onPressed: _showAddUserDialog,
+                            onPressed: _CrearHorarios,
                             style: ElevatedButton.styleFrom(
                               primary: Colors.white,
                               onPrimary: const Color.fromRGBO(0, 0, 0, 1),

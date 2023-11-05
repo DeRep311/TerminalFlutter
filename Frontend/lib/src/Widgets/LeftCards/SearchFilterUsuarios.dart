@@ -1,8 +1,23 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/src/Widgets/Items/DropDownSelect.dart';
 
-class SearchFilterUsuarios extends StatelessWidget {
+class SearchFilterUsuarios extends StatefulWidget {
   const SearchFilterUsuarios({Key? key}) : super(key: key);
+
+  @override
+  _SearchFilterUsuariosState createState() => _SearchFilterUsuariosState();
+}
+
+class _SearchFilterUsuariosState extends State<SearchFilterUsuarios> {
+  String? selectedRol;
+
+  List<String> dropdownValueRol = [
+    'Administrador',
+    'Operador',
+    'Docente',
+    'Estudiante',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +76,17 @@ class SearchFilterUsuarios extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(
                   10.0), // Ajusta el espacio entre el TextField y el Dropdown
-              child: _buildDropdownMenu(
-                  "Rol", const OutlineInputBorder(borderSide: BorderSide.none)),
+              child: DropDownSelect(
+                label: "Elija un rol a buscar...",
+                color: Color.fromARGB(255, 255, 255, 255),
+                options: dropdownValueRol,
+                selectedValue: selectedRol,
+                OnChanged: (value) {
+                  setState(() {
+                    selectedRol = value;
+                  });
+                },
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(
@@ -81,38 +105,6 @@ class SearchFilterUsuarios extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildDropdownMenu(String hintText, InputBorder border) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(26.0),
-        color: Colors.white,
-      ),
-      child: DropdownMenu<String>(
-        inputDecorationTheme: InputDecorationTheme(
-          border: InputBorder.none,
-        ),
-        initialSelection: hintText,
-        onSelected: (String? value) {
-          if (kDebugMode) {
-            print(value);
-          }
-        },
-        dropdownMenuEntries: <String>[
-          'Operador',
-          'Administrador',
-          'Docente',
-          'Alumno',
-          'Rol'
-        ].map((String value) {
-          return DropdownMenuEntry<String>(
-            value: value,
-            label: value,
-          );
-        }).toList(),
       ),
     );
   }
