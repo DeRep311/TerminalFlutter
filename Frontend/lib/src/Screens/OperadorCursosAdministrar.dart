@@ -11,7 +11,7 @@ class CursosAdministrador extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      List<UsersModel> users = [];
+    List<UsersModel> users = [];
     return Scaffold(
       body: Container(
         color: const Color.fromRGBO(255, 255, 255, 1),
@@ -43,7 +43,7 @@ class CursosAdministrador extends StatelessWidget {
                           margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
                           decoration: const BoxDecoration(
                               color: Color.fromARGB(255, 255, 254, 254)),
-                          child: UsersDataTable(users: users),
+                          // child: UsersDataTable(users: users),
                           //TableWidget(users: users, columns: columns),
                         ),
                       ),
@@ -53,7 +53,6 @@ class CursosAdministrador extends StatelessWidget {
                           ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                      
                               fixedSize: const Size(100, 40),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20)),
@@ -73,8 +72,6 @@ class CursosAdministrador extends StatelessWidget {
                             child: const Text('Borrar'),
                           ),
                           const SizedBox(width: 16),
-                        
-                       
                         ],
                       ),
                     ],
@@ -86,6 +83,7 @@ class CursosAdministrador extends StatelessWidget {
           ),
         ),
       ),
-    );;
+    );
+    ;
   }
 }
