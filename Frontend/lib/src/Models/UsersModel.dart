@@ -1,52 +1,43 @@
 class UsersModel {
-  late int Cedula;
-  late int pin;
-  late String Nombre;
-  late String Apellido;
-  late int Telefono;
-  late String Direccion;
-  late bool Administrador;
-  late bool Operador;
-  late bool Docente;
-  late bool Estudiante;
-  late String? rol;
-  bool selected = false;
+  final int cedula;
+  final String nombre;
+  final String apellido;
+  final int telefono;
+  final int direccion;
+  final int pin;
+  final String rol;
 
-  UsersModel.fromJson(Map<String, dynamic> json) {
-    Cedula = json['cedula'];
-    pin = json['pin'];
-    Nombre = json['nombre'];
-    Apellido = json['apellido'];
-    Telefono = json['telefono'];
-    Direccion = json['direccion'];
-    Administrador = json['administrador'];
-    Operador = json['operador'];
-    Docente = json['docente'] ?? false;
-    Estudiante = json['estudiante'] ?? false;
+  UsersModel({
+    required this.cedula,
+    required this.nombre,
+    required this.apellido,
+    required this.telefono,
+    required this.direccion,
+    required this.pin,
+    required this.rol,
+  });
 
-    if (Administrador) {
-      rol = 'Administrador';
-    } else if (Operador) {
-      rol = 'Operador';
-    } else if (Docente) {
-      rol = 'Docente';
-    } else if (Estudiante) {
-      rol = 'Estudiante';
-    } else {
-      rol = 'Visitante';
-    }
+  factory UsersModel.fromJson(Map<String, dynamic> json) {
+    return UsersModel(
+      cedula: json['Cedula'],
+      nombre: json['Nombre'],
+      apellido: json['Apellido'],
+      telefono: json['Telefono'],
+      direccion: json['Direccion'],
+      pin: json['Pin'],
+      rol: json['Rol'],
+    );
   }
 
-  UsersModel.Vacio() {
-    Cedula = 0;
-    pin = 0;
-    Nombre = '';
-    Apellido = '';
-    Telefono = 0;
-    Direccion = '';
-    Administrador = false;
-    Operador = false;
-    Docente = false;
-    Estudiante = false;
+  Map<String, dynamic> toJson() {
+    return {
+      'Cedula': cedula,
+      'Nombre': nombre,
+      'Apellido': apellido,
+      'Telefono': telefono,
+      'Direccion': direccion,
+      'Pin': pin,
+      'Rol': rol,
+    };
   }
 }

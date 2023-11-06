@@ -54,8 +54,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      initialRoute: '/operador/cursos/administrar',
+      title: 'Totems Apheleon',
+      initialRoute: '/',
       routes: {
         '/': (context) => PantallaPrincipal(),
         '/home': (context) => Home(),

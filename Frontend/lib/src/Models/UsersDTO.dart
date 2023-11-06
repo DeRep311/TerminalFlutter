@@ -1,25 +1,17 @@
-import 'package:my_app/src/Models/UsersModel.dart';
 
-class UserDTO {
-  UsersModel? user;
-  bool? isAdmin;
-  bool? isOperator;
-  bool? isDocente;
-  bool? isEstudiante;
+// import 'package:my_app/src/Models/UsuarioModel.dart';
 
-  UserDTO({
-    required this.user,
-    this.isAdmin = false,
-    this.isOperator = false,
-    this.isDocente = false,
-    this.isEstudiante = false,
-  });
+// class UsuarioDTO {
+//   UsuarioModel? usuario;
+//   String? rol;
 
-  UserDTO.fromMap(Map<String, dynamic> map) {
-    user = UsersModel.fromJson(map['user'] ?? {});
-    isAdmin = map['IsAdmin'] ?? false;
-    isOperator = map['IsOperator'] ?? false;
-    isDocente = map['IsDocente'] ?? false;
-    isEstudiante = map['IsEstudiante'] ?? false;
-  }
-}
+//   UsuarioDTO({
+//     required this.usuario,
+//     this.rol = 'Administrador',
+//   });
+
+//   UsuarioDTO.fromMap(Map<String, dynamic> map) {
+//     usuario = UsuarioModel.fromJson(map['usuario'] ?? {});
+//     rol = map['Rol'] ?? 'Administrador';
+//   }
+// }

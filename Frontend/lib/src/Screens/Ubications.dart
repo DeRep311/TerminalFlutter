@@ -11,6 +11,8 @@ class Ubications extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     final List<Map<String, dynamic>> _items = [
       {"Nombre": "sociologia", "Imagen": 'lib/src/Assets/Icons/BanioIcon.png'},
       {
@@ -158,7 +160,7 @@ class Ubications extends StatelessWidget {
                           ],
                         ),
                         Container(
-                           margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.0),
                               color: Color.fromRGBO(61, 61, 61, 1),
@@ -186,6 +188,5 @@ class Ubications extends StatelessWidget {
                         ),
                       ])
                 ]))));
-    ;
   }
 }

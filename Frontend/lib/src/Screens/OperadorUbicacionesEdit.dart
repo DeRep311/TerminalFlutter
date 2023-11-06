@@ -69,7 +69,7 @@ class OperadorUbicaciones extends StatelessWidget {
                                     style: ElevatedButton.styleFrom(
                                       primary: Colors.white,
                                       onPrimary: Colors.black,
-                                      fixedSize: const Size(115, 50),
+                                      fixedSize: const Size(115, 40),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(25)),
@@ -87,13 +87,13 @@ class OperadorUbicaciones extends StatelessWidget {
                                     style: ElevatedButton.styleFrom(
                                       primary: Colors.white,
                                       onPrimary: Colors.black,
-                                      fixedSize: const Size(150, 50),
+                                      fixedSize: const Size(150, 40),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(25)),
                                     ),
                                     child: const Text(
-                                      'Subir plano',
+                                      'Cargar plano',
                                       style: TextStyle(fontSize: 20),
                                     ),
                                   ),
@@ -112,13 +112,36 @@ class OperadorUbicaciones extends StatelessWidget {
                                     style: ElevatedButton.styleFrom(
                                       primary: Colors.white,
                                       onPrimary: Colors.black,
-                                      fixedSize: const Size(170, 50),
+                                      fixedSize: const Size(170, 40),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(25)),
                                     ),
                                     child: const Text(
                                       'Mostrar planos',
+                                      style: TextStyle(fontSize: 20),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 16),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return UbicacionesDialog();
+                                        },
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.white,
+                                      onPrimary: Colors.black,
+                                      fixedSize: const Size(270, 40),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25)),
+                                    ),
+                                    child: const Text(
+                                      'Administrar ubicaciones',
                                       style: TextStyle(fontSize: 20),
                                     ),
                                   ),
@@ -172,6 +195,29 @@ void _AgregarPlanos(BuildContext context) {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  bottom: 16.0,
+                ),
+                child: TextField(
+                  controller: nombreController,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(nombreRegExp),
+                  ],
+                  decoration: InputDecoration(
+                    hintText: 'Ingrese el codigo...',
+                    fillColor: Color.fromARGB(110, 231, 227, 227),
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(26.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                  ),
+                ),
+              ),
               CargarImagenes()
             ],
           ),
@@ -203,9 +249,9 @@ class PlanosDialog extends StatefulWidget {
 
 class _PlanosDialogState extends State<PlanosDialog> {
   List<Map<String, dynamic>> data = [
-    {'Plano': 'Baños primer piso'},
-    {'Plano': 'Baños segundo piso'},
-    {'Plano': 'Cantina'},
+    {'Codigo': 'baño1', 'Plano': 'Baños primer piso'},
+    {'Codigo': 'baño2', 'Plano': 'Baños segundo piso'},
+    {'Codigo': 'cant', 'Plano': 'Cantina'},
 
     // Add more data here...
   ];
@@ -217,6 +263,12 @@ class _PlanosDialogState extends State<PlanosDialog> {
         child: SingleChildScrollView(
           child: DataTable(
             columns: const <DataColumn>[
+              DataColumn(
+                label: Text(
+                  'Codigo',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
               DataColumn(
                 label: Text(
                   'Plano',
@@ -233,6 +285,7 @@ class _PlanosDialogState extends State<PlanosDialog> {
             rows: data.map((item) {
               return DataRow(
                 cells: <DataCell>[
+                  DataCell(Text(item['Codigo'])),
                   DataCell(Text(item['Plano'])),
                   DataCell(Row(
                     children: <Widget>[
@@ -273,6 +326,245 @@ class _PlanosDialogState extends State<PlanosDialog> {
                 ),
               ),
               child: const Text('Cerrar'),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+void _AgregarUbicaciones(BuildContext context) {
+  TextEditingController nombreController = TextEditingController();
+
+  String? selectedRol;
+
+  List<String> dropdownValueRol = [
+    'Operador',
+    'Docente',
+    'Estudiante',
+  ];
+
+  final RegExp nombreRegExp = RegExp(r'^[a-zA-Z ]+$');
+
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: Text('Agregar planos'),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        content: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(
+                  bottom: 16.0,
+                ),
+                child: TextField(
+                  controller: nombreController,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(nombreRegExp),
+                  ],
+                  decoration: InputDecoration(
+                    hintText: 'Ingrese nombre de la ubicacion...',
+                    fillColor: Color.fromARGB(110, 231, 227, 227),
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(26.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                  ),
+                ),
+              ),
+              DropDownSelect(
+                label: "Elija el codigo...",
+                color: Color.fromARGB(110, 231, 227, 227),
+                options: dropdownValueRol,
+                selectedValue: selectedRol,
+                OnChanged: (value) {
+                  setState(() {
+                    selectedRol = value;
+                  });
+                },
+              ),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              // Lógica para guardar el usuario
+              Navigator.of(context).pop();
+            },
+            child: Text('Guardar'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('Cancelar'),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+void setState(Null Function() param0) {}
+
+class UbicacionesDialog extends StatefulWidget {
+  @override
+  _UbicacionesDialogState createState() => _UbicacionesDialogState();
+}
+
+class _UbicacionesDialogState extends State<UbicacionesDialog> {
+  List<Map<String, dynamic>> data = [
+    {
+      'Codigo': 'Baños1',
+      'Nombre': 'Baños primer piso',
+      'Privado': false,
+      'Publico': false
+    },
+    {
+      'Codigo': 'Baños3',
+      'Nombre': 'Baños segundo piso',
+      'Privado': false,
+      'Publico': false
+    },
+    {'Codigo': 'Cant', 'Nombre': 'Cantina', 'Privado': false, 'Publico': false},
+
+    // Add more data here...
+  ];
+
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      content: Container(
+        width: 700,
+        height: 600,
+        child: SingleChildScrollView(
+          child: DataTable(
+            columns: const <DataColumn>[
+              DataColumn(
+                label: Text(
+                  'Codigo',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+              DataColumn(
+                label: Text(
+                  'Nombre',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+              DataColumn(
+                label: Text(
+                  'Privado',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+              DataColumn(
+                label: Text(
+                  'Publico',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+              DataColumn(
+                label: Text(
+                  'Acciones',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+            ],
+            rows: data.map((item) {
+              return DataRow(
+                cells: <DataCell>[
+                  DataCell(Text(item['Codigo'])),
+                  DataCell(Text(item['Nombre'])),
+                  DataCell(Checkbox(
+                    value: item['Privado'],
+                    onChanged: (value) {
+                      setState(() {
+                        item['Privado'] = value;
+                        if (value!) {
+                          item['Publico'] = !value;
+                        }
+                      });
+                    },
+                  )),
+                  DataCell(Checkbox(
+                    value: item['Publico'],
+                    onChanged: (value) {
+                      setState(() {
+                        item['Publico'] = value;
+                        if (value!) {
+                          item['Privado'] = !value;
+                        }
+                      });
+                    },
+                  )),
+                  DataCell(Row(
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.delete),
+                        onPressed: () {
+                          setState(() {
+                            data.remove(item);
+                          });
+                        },
+                      ),
+                    ],
+                  )),
+                ],
+              );
+            }).toList(),
+          ),
+        ),
+      ),
+      actionsAlignment: MainAxisAlignment.spaceBetween,
+      actions: <Widget>[
+        Row(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+                fixedSize: const Size(90, 40),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25)),
+                side: BorderSide(
+                  color: Colors
+                      .black, // Color del borde al pasar el cursor por encima
+                  width: 0.5, // Ancho del borde al pasar el cursor por encima
+                ),
+              ),
+              child: const Text('Cerrar'),
+            ),
+            const SizedBox(width: 16),
+            ElevatedButton(
+              onPressed: () {
+                _AgregarUbicaciones(context);
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+                fixedSize: const Size(160, 40),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25)),
+                side: BorderSide(
+                  color: Colors
+                      .black, // Color del borde al pasar el cursor por encima
+                  width: 0.5, // Ancho del borde al pasar el cursor por encima
+                ),
+              ),
+              child: const Text('Agregar ubicacions'),
             ),
           ],
         ),
