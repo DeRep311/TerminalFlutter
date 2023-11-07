@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:my_app/src/Models/Coordenadas.dart';
+import 'package:my_app/src/Models/UbicacionDTO.dart';
 
 class Provider_Ubications with ChangeNotifier {
   List<Offset> _points = [];
   //va hacer una peticion a la base de datos para traer las imagenes de los planos
   Map<String, String> options = {
-    'A': 'https://picsum.photos/id/1/200/300',
-    'B': 'https://picsum.photos/id/2/200/300',
-    'C': 'https://picsum.photos/id/3/200/300',
-    'D': 'https://picsum.photos/id/4/200/300',
-    'E': 'https://picsum.photos/id/5/200/300',
+    'Facultad': "lib/src/Assets/Icons/PlanoFacultad.jpg",
   };
   //va hacer una peticion a la base de datos para traer las ubicaciones que puede depender
-  Map<String, String> ubications = {
-    'A': 'https://picsum.photos/id/1/200/300',
-    'B': 'https://picsum.photos/id/2/200/300',
-    'C': 'https://picsum.photos/id/3/200/300',
-    'D': 'https://picsum.photos/id/4/200/300',
-    'E': 'https://picsum.photos/id/5/200/300',
+  Map<String?, String?> ubications = {
+    'Facultad': "lib/src/Assets/Icons/PlanoFacultad.jpg"
   };
+
+  List<UbicationDTO> Ubicaciones = [];
   Map<Offset, XFile?> cooImages = {};
   double zoom = 1;
   bool _isDrawing = false;
@@ -30,8 +26,9 @@ class Provider_Ubications with ChangeNotifier {
   String? get image => _image;
 
   void addPoint(Offset point) {
+
     _points.add(point);
-   cooImages.addAll({point: null});
+    cooImages.addAll({point: null});
     notifyListeners();
   }
 
@@ -41,8 +38,10 @@ class Provider_Ubications with ChangeNotifier {
 
     notifyListeners();
   }
+
   void addImage(Offset point, XFile? image) {
     cooImages.update(point, (value) => image);
+    var stream = image!.readAsBytes().asStream();
     notifyListeners();
   }
 
@@ -56,7 +55,7 @@ class Provider_Ubications with ChangeNotifier {
   void isDeletingChange() {
     _isDrawing = false;
     _isDeleting = !_isDeleting;
-   
+
     notifyListeners();
   }
 
@@ -75,12 +74,15 @@ class Provider_Ubications with ChangeNotifier {
     notifyListeners();
   }
 
-  void saveData(){
+  void saveData() {
     //aqui se guardan los datos en la base de datos haciendo una peticion post dandole el tipo de dato
+    List<Coordenada> coo = [];
+    for (var point in _points) {
+     
+    }
 
     //luego se vacia para ahorrar memoria
     disposeclean();
-
   }
 
   void disposeclean() {
