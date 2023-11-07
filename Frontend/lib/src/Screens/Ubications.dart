@@ -35,11 +35,11 @@ class _UbicationsState extends State<Ubications> {
         idCs: [
           Coordenada(
             idC: 1,
-            cooX: 185,
+            cooX: 165,
             cooY: 397,
             inicio: false,
             Cfinal: false,
-            image: 'lib/src/Assets/panorama.jpg',
+            image: 'lib/src/Assets/panorama2.webp',
           ),
           Coordenada(
             idC: 2,
@@ -51,11 +51,11 @@ class _UbicationsState extends State<Ubications> {
           ),
           Coordenada(
             idC: 3,
-            cooX: 583,
+            cooX: 533,
             cooY: 384,
             inicio: false,
             Cfinal: true,
-            image: 'lib/src/Assets/panorama.jpg',
+            image: 'lib/src/Assets/PlanoFacultad.jpg',
           ),
         ]),
     UbicationDTO(
@@ -80,7 +80,7 @@ class _UbicationsState extends State<Ubications> {
             cooY: 391,
             inicio: false,
             Cfinal: false,
-            image: 'lib/src/Assets/panorama.jpg',
+            image:'lib/src/Assets/panorama2.webp',
           ),
           Coordenada(
             idC: 3,
@@ -88,11 +88,10 @@ class _UbicationsState extends State<Ubications> {
             cooY: 151,
             inicio: false,
             Cfinal: true,
-            image: 'lib/src/Assets/panorama.jpg',
+            image: 'lib/src/Assets/PlanoFacultad.jpg',
           ),
         ])
   ];
-  
 
   @override
   Widget build(BuildContext context) {

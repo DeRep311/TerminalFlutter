@@ -170,8 +170,13 @@ class Schedule extends StatelessWidget {
                       final item = _items[index];
 
                       return ExpansionTile(
+                        backgroundColor: Color.fromRGBO(184, 163, 118, 1),
+                        collapsedBackgroundColor: Color.fromRGBO(184, 163, 118, 1),
+                        expandedCrossAxisAlignment: CrossAxisAlignment.center,
+                        
                         title: Items(
                           titulo: item["Nombre"],
+
                           Imagen: item["Imagen"],
                         ),
                         children: [
