@@ -13,61 +13,50 @@ class Schedule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> _items = [
-      {"Nombre": "sociologia", "Imagen": 'lib/src/Assets/Icons/BanioIcon.png'},
       {
-        "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/AdscripIcon.png'
+        "Nombre": "Sociologia",
+        "Imagen": "lib/src/Assets/Icons/GorroGraduacion.png",
+        "Dia": "Lunes",
+        "Hora": "10:00",
+        "Salon": "105"
+      },
+      {
+        "Nombre": "Matematicas",
+        "Imagen": "lib/src/Assets/Icons/GorroGraduacion.png",
+        "Dia": "Lunes",
+        "Hora": "10:00",
+        "Salon": "107"
+      },
+      {
+        "Nombre": "Filosofia",
+        "Imagen": "lib/src/Assets/Icons/GorroGraduacion.png",
+        "Dia": "Lunes",
+        "Hora": "10:00",
+        "Salon": "208"
+      },
+      {
+        "Nombre": "Programacion",
+        "Imagen": "lib/src/Assets/Icons/GorroGraduacion.png",
+        "Dia": "Jueves",
+        "Hora": "9:15",
+        "Salon": "Lab 2"
       },
       {
         "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/GorroGraduacion.png'
-      },
-      {"Nombre": "sociologia", "Imagen": 'lib/src/Assets/Icons/BanioIcon.png'},
-      {
-        "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/AdscripIcon.png'
+        "Imagen": "lib/src/Assets/Icons/GorroGraduacion.png",
+        "Dia": "Lunes",
+        "Hora": "10:00",
+        "Salon": "101"
       },
       {
         "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/GorroGraduacion.png'
+        "Imagen": "lib/src/Assets/Icons/GorroGraduacion.png",
+        "Dia": "Lunes",
+        "Hora": "10:00",
+        "Salon": "101"
       },
-      {"Nombre": "sociologia", "Imagen": 'lib/src/Assets/Icons/BanioIcon.png'},
-      {
-        "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/AdscripIcon.png'
-      },
-      {
-        "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/GorroGraduacion.png'
-      },
-      {"Nombre": "sociologia", "Imagen": 'lib/src/Assets/Icons/BanioIcon.png'},
-      {
-        "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/AdscripIcon.png'
-      },
-      {
-        "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/GorroGraduacion.png'
-      },
-      {"Nombre": "sociologia", "Imagen": 'lib/src/Assets/Icons/BanioIcon.png'},
-      {
-        "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/AdscripIcon.png'
-      },
-      {
-        "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/GorroGraduacion.png'
-      },
-      {"Nombre": "sociologia", "Imagen": 'lib/src/Assets/Icons/BanioIcon.png'},
-      {
-        "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/AdscripIcon.png'
-      },
-      {
-        "Nombre": "sociologia",
-        "Imagen": 'lib/src/Assets/Icons/GorroGraduacion.png'
-      }
     ];
+
     return Scaffold(
         body: Container(
             child: Layout(
@@ -109,9 +98,10 @@ class Schedule extends StatelessWidget {
                           children: [
                             HorarioCard(
                               title: "Ahora mismo",
-                              materia: "HOlaaa",
-                              horario: "12:35-1:20",
+                              materia: "Filosofia",
+                              horario: "9:15-11:05",
                               salon: "104",
+                              dia: "Lunes",
                               imagePathMateria:
                                   'lib/src/Assets/Icons/MateriaIcon.png',
                               imagePathHorario:
@@ -140,9 +130,10 @@ class Schedule extends StatelessWidget {
                           children: [
                             HorarioCard(
                               title: "Proximo",
-                              materia: "HOlaaa",
-                              horario: "12:35-1:20",
+                              materia: "Ingles",
+                              horario: "11:05-12:35",
                               salon: "104",
+                              dia: "Lunes",
                               imagePathMateria:
                                   'lib/src/Assets/Icons/MateriaIcon.png',
                               imagePathHorario:
@@ -157,32 +148,48 @@ class Schedule extends StatelessWidget {
                   )),
               Padding(padding: EdgeInsets.fromLTRB(0, 0, 220, 0)),
               Container(
-                margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Color.fromRGBO(61, 61, 61, 1),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.25),
-                        offset: Offset(0.0, 4.0),
-                        blurRadius: 4.0,
-                        spreadRadius: 0,
-                      ),
-                    ]),
-                height: 500,
-                width: 250,
-                alignment: Alignment.center,
-                child: ListView.builder(
-                  itemCount: _items.length,
-                  scrollDirection: Axis.vertical,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Items(
-                      titulo: _items[index]["Nombre"],
-                      Imagen: _items[index]["Imagen"],
-                    );
-                  },
-                ),
-              ),
+                  margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: Color.fromRGBO(61, 61, 61, 1),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.25),
+                          offset: Offset(0.0, 4.0),
+                          blurRadius: 4.0,
+                          spreadRadius: 0,
+                        ),
+                      ]),
+                  height: 500,
+                  width: 250,
+                  alignment: Alignment.center,
+                  child: ListView.builder(
+                    itemCount: _items.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, int index) {
+                      final item = _items[index];
+
+                      return ExpansionTile(
+                        title: Items(
+                          titulo: item["Nombre"],
+                          Imagen: item["Imagen"],
+                        ),
+                        children: [
+                          Container(
+                              padding: EdgeInsets.all(16.0),
+                              child: Center(
+                                child: Text(
+                                  "Dia: ${item["Dia"]}\nHora: ${item["Hora"]}\nSalon: ${item["Salon"]}",
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                  ),
+                                ),
+                              )),
+                        ],
+                      );
+                    },
+                  )),
             ],
           )
         ]))));
