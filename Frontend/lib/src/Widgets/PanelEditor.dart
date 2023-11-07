@@ -52,9 +52,9 @@ class _PanelEditorState extends State<PanelEditor> {
                 )
                 )
               
-              : Image.network(ubicationsProvider.image!,
+              : Image.asset(ubicationsProvider.image!,
               scale: ubicationsProvider.zoom,
-               fit: BoxFit.cover,
+               fit: BoxFit.contain,
                 width: 900,
                 height: 500,
                 

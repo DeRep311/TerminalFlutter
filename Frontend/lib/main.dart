@@ -13,6 +13,7 @@ import 'package:my_app/src/Screens/OperadorHorarios.dart';
 import 'package:my_app/src/Screens/OperadorUbicacionesEdit.dart';
 import 'package:my_app/src/Screens/OperadorMenuUbicaciones.dart';
 import 'package:my_app/src/Screens/OperadorUsuarios.dart';
+
 import 'package:my_app/src/Screens/Schedule.dart';
 import 'package:my_app/src/Screens/Ubications.dart';
 import 'package:provider/provider.dart';
@@ -43,7 +44,10 @@ void windowsManager() async {
 
 void main() async {
   runApp(ChangeNotifierProvider(
-      create: (_) => Provider_Ubications(), child: const MyApp()));
+      create: 
+      (_) => 
+      Provider_Ubications(), child: const MyApp()));
+      
 
   windowsManager();
 }
@@ -55,7 +59,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Totems Apheleon',
-      initialRoute: '/',
+      initialRoute: '/operador/ubicaciones',
       routes: {
         '/': (context) => PantallaPrincipal(),
         '/home': (context) => Home(),
@@ -72,6 +76,7 @@ class MyApp extends StatelessWidget {
         '/operador/horarios': (context) => OperadorHorariosScreen(),
         '/operador/usuarios': (context) => OperadorUsuariosScreen(),
         '/operador/cursos/administrar': (context) => CursosAdministrador(),
+        
       },
     );
   }
