@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Models/UbicacionDTO.dart';
+import '../DTOS/UbicacionDTO.dart';
 
 class UbicationPanelView extends StatefulWidget {
   final UbicationDTO ubicacion;

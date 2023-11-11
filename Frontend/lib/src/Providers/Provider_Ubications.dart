@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:my_app/src/Models/Coordenadas.dart';
-import 'package:my_app/src/Models/UbicacionDTO.dart';
+import 'package:my_app/src/Models/CoordenadasModel.dart';
+import 'package:my_app/src/DTOS/UbicacionDTO.dart';
 
 class Provider_Ubications with ChangeNotifier {
   List<Offset> _points = [];

@@ -117,7 +117,8 @@ flutter:
       - lib/src/Assets/baño2.jpg
       - lib/src/Assets/baño3.jpg
       - lib/src/Assets/panorama2.webp
-  
+      - lib/src/Assets/Icons/DiaIcono.png
+
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

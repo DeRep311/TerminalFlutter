@@ -11,23 +11,24 @@ class HorarioCard extends StatelessWidget {
   final String? imagePathMateria;
   final String? imagePathSalon;
   final String? imagePathHorario;
-
+  final String? imagePathDia;
   HorarioCard({
     required this.title,
     required this.materia,
     required this.horario,
     required this.salon,
+    required this.dia,
     this.imagePathMateria,
     this.imagePathHorario,
     this.imagePathSalon,
-    required this.dia,
+    this.imagePathDia,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 300, // Define la altura de la Card
-      width: 250, // Define la anchura de la Card
+      width: 225, // Define la anchura de la Card
       child: Card(
         color: Color.fromRGBO(61, 61, 61, 1),
         shape: RoundedRectangleBorder(
@@ -35,7 +36,7 @@ class HorarioCard extends StatelessWidget {
         ),
         elevation: 5.0,
         child: Container(
-          padding: EdgeInsets.all(30.0),
+          padding: EdgeInsets.all(25.0),
           child: Column(
             children: <Widget>[
               Row(mainAxisAlignment: MainAxisAlignment.start, children: [
@@ -87,6 +88,7 @@ class HorarioCard extends StatelessWidget {
               Padding(padding: EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0)),
               Row(
                 children: <Widget>[
+                  Image.asset(imagePathDia!),
                   SizedBox(width: 10.0),
                   Text(dia,
                       style: TextStyle(

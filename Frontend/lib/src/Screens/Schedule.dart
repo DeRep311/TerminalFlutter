@@ -108,6 +108,7 @@ class Schedule extends StatelessWidget {
                                   'lib/src/Assets/Icons/MiniClock.png',
                               imagePathSalon:
                                   'lib/src/Assets/Icons/ClaseIcon.png',
+                              imagePathDia: 'lib/src/Assets/Icons/DiaIcono.png',
                             )
                           ],
                         ),
@@ -140,6 +141,7 @@ class Schedule extends StatelessWidget {
                                   'lib/src/Assets/Icons/MiniClock.png',
                               imagePathSalon:
                                   'lib/src/Assets/Icons/ClaseIcon.png',
+                              imagePathDia: 'lib/src/Assets/Icons/DiaIcono.png',
                             )
                           ],
                         ),
@@ -148,53 +150,54 @@ class Schedule extends StatelessWidget {
                   )),
               Padding(padding: EdgeInsets.fromLTRB(0, 0, 220, 0)),
               Container(
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Color.fromRGBO(61, 61, 61, 1),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.25),
-                          offset: Offset(0.0, 4.0),
-                          blurRadius: 4.0,
-                          spreadRadius: 0,
-                        ),
-                      ]),
-                  height: 500,
-                  width: 250,
-                  alignment: Alignment.center,
-                  child: ListView.builder(
-                    itemCount: _items.length,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (BuildContext context, int index) {
-                      final item = _items[index];
+                height: 510,
+                width: 260,
+                alignment: Alignment.center,
+                margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Color.fromRGBO(184, 163, 118, 1)),
+                child: Container(
+                    height: 500,
+                    width: 250,
+                    alignment: Alignment.center,
+                    child: ListView.builder(
+                      itemCount: _items.length,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (BuildContext context, int index) {
+                        final item = _items[index];
 
-                      return ExpansionTile(
-                        backgroundColor: Color.fromRGBO(184, 163, 118, 1),
-                        collapsedBackgroundColor: Color.fromRGBO(184, 163, 118, 1),
-                        expandedCrossAxisAlignment: CrossAxisAlignment.center,
-                        
-                        title: Items(
-                          titulo: item["Nombre"],
-
-                          Imagen: item["Imagen"],
-                        ),
-                        children: [
-                          Container(
-                              padding: EdgeInsets.all(16.0),
-                              child: Center(
-                                child: Text(
-                                  "Dia: ${item["Dia"]}\nHora: ${item["Hora"]}\nSalon: ${item["Salon"]}",
-                                  style: TextStyle(
-                                    fontSize: 16.0,
-                                    color: Color.fromRGBO(255, 255, 255, 1),
-                                  ),
-                                ),
-                              )),
-                        ],
-                      );
-                    },
-                  )),
+                        return ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                                10.0), // Ajusta el radio de esquina según tus preferencias
+                            child: ExpansionTile(
+                              backgroundColor: Color.fromRGBO(184, 163, 118, 1),
+                              collapsedBackgroundColor:
+                                  Color.fromRGBO(184, 163, 118, 1),
+                              expandedCrossAxisAlignment:
+                                  CrossAxisAlignment.center,
+                              title: Items(
+                                titulo: item["Nombre"],
+                                Imagen: item["Imagen"],
+                              ),
+                              children: [
+                                Container(
+                                    padding: EdgeInsets.all(16.0),
+                                    child: Center(
+                                      child: Text(
+                                        "Dia: ${item["Dia"]}\nHora: ${item["Hora"]}\nSalon: ${item["Salon"]}",
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          color:
+                                              Color.fromRGBO(255, 255, 255, 1),
+                                        ),
+                                      ),
+                                    )),
+                              ],
+                            ));
+                      },
+                    )),
+              )
             ],
           )
         ]))));

@@ -1,4 +1,4 @@
-import 'package:my_app/src/Models/Coordenadas.dart';
+import 'package:my_app/src/Models/CoordenadasModel.dart';
 
 // ignore: prefer_typing_uninitialized_variables
  class UbicationDTO {
