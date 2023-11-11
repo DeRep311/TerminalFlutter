@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:my_app/src/Data/UsersData.dart';
 import 'package:my_app/src/Models/UsersModel.dart';
+import 'package:my_app/src/Screens/OperadorCursosAdministrar.dart';
 import 'package:my_app/src/Widgets/CheckBox.dart';
 import 'package:my_app/src/Widgets/Items/DropDownSelect.dart';
 import 'package:my_app/src/Widgets/LeftCards/SearchFilterUsuarios.dart';
@@ -208,7 +209,7 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
             TextButton(
               onPressed: () {
                 // Lógica para guardar el usuario
-            
+
                 Navigator.of(context).pop();
               },
               child: Text('Guardar'),
@@ -227,7 +228,6 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
 //-------------------------------------------------------------------------------------
 
 //------------------PETICIONES--------------------
-  
 
   @override
   Widget build(BuildContext context) {
@@ -256,7 +256,7 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
                   Column(
                     children: [
                       MainDataTable(),
-                      //TableWidget(users: users, columns: columns),
+                      // UsersDataTable(users: users),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -576,8 +576,7 @@ void _EditarUsuarios(BuildContext context) {
   );
 }
 
-void setState(Null Function() param0) {}
-
+// void setState(Null Function() param0) {}
 
 // class UsersDataTable extends StatefulWidget {
 //   final List<UsersModel> users;
@@ -600,14 +599,14 @@ void setState(Null Function() param0) {}
 //             label: Text('Cedula'),
 //             onSort: (columnIndex, ascending) {
 //               // Ordenar la lista de usuarios por cédula.
-//               widget.users.sort((a, b) => (a.Cedula).compareTo(b.Cedula));
+//               widget.users.sort((a, b) => (a.cedula).compareTo(b.cedula));
 //             },
 //           ),
 //           DataColumn(
 //             label: Text('Nombre'),
 //             onSort: (columnIndex, ascending) {
 //               // Ordenar la lista de usuarios por nombre.
-//               widget.users.sort((a, b) => (a.Nombre).compareTo(b.Nombre));
+//               widget.users.sort((a, b) => (a.nombre).compareTo(b.nombre));
 //             },
 //           ),
 //           DataColumn(
@@ -618,14 +617,14 @@ void setState(Null Function() param0) {}
 //             .map(
 //               (user) => DataRow(
 //                 cells: [
-//                   DataCell(Text(user.Cedula.toString())),
-//                   DataCell(Text(user.Nombre)),
+//                   DataCell(Text(user.cedula.toString())),
+//                   DataCell(Text(user.nombre)),
 //                   DataCell(Text(user.rol ?? '')),
 //                 ],
 //                 selected: user.selected,
 //                 onSelectChanged: (value) {
 //                   setState(() {
-//                     user.selected = value!;
+//                     //user.selected = value!;
 //                   });
 //                 },
 //               ),

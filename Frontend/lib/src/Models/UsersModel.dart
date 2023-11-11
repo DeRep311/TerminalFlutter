@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class UsersModel {
   final int cedula;
   final String nombre;
@@ -18,26 +20,27 @@ class UsersModel {
   });
 
   factory UsersModel.fromJson(Map<String, dynamic> json) {
+    print(json.toString());
     return UsersModel(
-      cedula: json['Cedula'],
-      nombre: json['Nombre'],
-      apellido: json['Apellido'],
-      telefono: json['Telefono'],
-      direccion: json['Direccion'],
-      pin: json['Pin'],
-      rol: json['Rol'],
+      cedula: json['cedula'],
+      nombre: json['nombre'],
+      apellido: json['apellido'],
+      telefono: json['telefono'],
+      direccion: json['direccion'],
+      pin: json['pin'],
+      rol: json['rol'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'Cedula': cedula,
-      'Nombre': nombre,
-      'Apellido': apellido,
-      'Telefono': telefono,
-      'Direccion': direccion,
-      'Pin': pin,
-      'Rol': rol,
+      'cedula': cedula,
+      'nombre': nombre,
+      'apellido': apellido,
+      'telefono': telefono,
+      'direccion': direccion,
+      'pin': pin,
+      'rol': rol,
     };
   }
 }

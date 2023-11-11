@@ -5,7 +5,7 @@ class AuthDTO {
   AuthDTO({required this.cedula, required this.pin});
 
   Map<String, dynamic> toJson() => {
-        'cedula': cedula,
-        'pin': pin,
+        'Cedula': cedula,
+        'Pin': pin,
       };
 }
