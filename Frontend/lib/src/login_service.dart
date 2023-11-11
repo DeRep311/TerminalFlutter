@@ -18,21 +18,16 @@ class AuthService {
     print('---------------------------------');
 
     // Create a UsersModel object from the fetched data
-    UsersModel user = UsersModel.fromJson(userData);
+    UsersModel user = UsersModel.fromJson(userData['data']['user']);
     print('---------------------------------');
     if (userData == null) {
       print('Failed to fetch user data.');
       return false;
     }
-    // Check if the input pin matches the user's pin
-    if (user.pin == pin) {
-      print('Login successful!');
+   
+ 
       return true;
-    } else {
-      print('Invalid credentials.');
-      print(user.cedula);
-      return false;
-    }
+  
   }
 
   Future<Map<String, dynamic>> fetchUserDataFromDatabase(

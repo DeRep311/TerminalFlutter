@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Totems Apheleon',
-      initialRoute: '/operador/ubicaciones',
+      initialRoute: '/home',
       routes: {
         '/': (context) => PantallaPrincipal(),
         '/home': (context) => Home(),

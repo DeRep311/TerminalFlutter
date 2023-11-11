@@ -109,7 +109,7 @@ class _LoginFormState extends State<LoginForm> {
                   bool loginSuccess = await authService.login(
                       int.parse(cedula), int.parse(pin));
                   if (loginSuccess) {
-                    // Navigate to the next page or show a success message
+                    
                   } else {
                     // Show an error message
                   }
