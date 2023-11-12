@@ -46,8 +46,7 @@ class _OperadorUsuariosScreenState extends State<OperadorUsuariosScreen> {
   }
 
   Future<void> resp() async {
-    users = await GetAll();
-
+    GetAll().then((value) => users = value);
     // print(users);
     // print("------------------------------------");
     // for (var user in users) {
@@ -476,7 +475,7 @@ void _EditarUsuarios(BuildContext context) {
   );
 }
 
-void setState(Null Function() param0) {}
+
 
 // class UsersDataTable extends StatefulWidget {
 //   final List<UsersModel> users;

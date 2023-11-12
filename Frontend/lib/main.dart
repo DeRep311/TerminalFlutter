@@ -6,6 +6,7 @@ import 'package:my_app/src/Providers/Provider_Ubications.dart';
 import 'package:my_app/src/Screens/Home.dart';
 import 'package:my_app/src/Screens/Horarios.dart';
 import 'package:my_app/src/Screens/OperadorOpciones.dart';
+import 'package:my_app/src/Screens/OperadorUsuarios1.dart';
 import 'package:my_app/src/Screens/PantallaPrincipal.dart';
 import 'package:my_app/src/Screens/Operador.dart';
 import 'package:my_app/src/Screens/Login.dart';
@@ -77,7 +78,7 @@ class MyApp extends StatelessWidget {
         '/operador/ubicaciones': (context) => OperadorUbicaciones(),
         '/operador/cursos': (context) => OperadorCursos(),
         '/operador/horarios': (context) => OperadorHorariosScreen(),
-        '/operador/usuarios': (context) => OperadorUsuariosScreen(),
+        '/operador/usuarios': (context) => UsersOperador(),
         '/operador/cursos/administrar': (context) => CursosAdministrador(),
       },
     );

@@ -28,7 +28,7 @@ class UsersModel {
       telefono: json['telefono'],
       direccion: json['direccion'],
       pin: json['pin'],
-      rol: json['rol'],
+      rol: json['rol']?? "",
     );
   }
 
