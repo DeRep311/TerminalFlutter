@@ -32,6 +32,8 @@ class UsersModel {
     );
   }
 
+  get selected => null;
+
   Map<String, dynamic> toJson() {
     return {
       'cedula': cedula,

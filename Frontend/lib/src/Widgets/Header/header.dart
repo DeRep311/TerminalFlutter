@@ -76,6 +76,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:my_app/src/Models/CurrentUser.dart';
+import 'package:my_app/src/Models/UserModel.dart';
+import 'package:my_app/src/Models/UsersModel.dart';
+import 'package:provider/provider.dart';
 import 'Clock.dart';
 
 class Greeting extends StatefulWidget {
@@ -91,8 +95,10 @@ class _GreetingState extends State<Greeting> {
 
   @override
   Widget build(BuildContext context) {
+    UsersModel? user = Provider.of<UserModel>(context).user;
+    //print('Hello, ${user?.nombre}!');
     return Text(
-      'Bienvenido, ${widget.name} ',
+      'Bienvenido, ${user?.nombre ?? 'visitante'}!',
       textDirection: TextDirection.ltr,
       textAlign: TextAlign.right,
       style: const TextStyle(

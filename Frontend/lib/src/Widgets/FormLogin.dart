@@ -107,12 +107,7 @@ class _LoginFormState extends State<LoginForm> {
                   AuthService authService = AuthService();
                   // Convert cedula and pin to int and call the login function
                   bool loginSuccess = await authService.login(
-                      int.parse(cedula), int.parse(pin));
-                  if (loginSuccess) {
-                    
-                  } else {
-                    // Show an error message
-                  }
+                      context, int.parse(cedula), int.parse(pin));
                 }
               },
               style: TextButton.styleFrom(

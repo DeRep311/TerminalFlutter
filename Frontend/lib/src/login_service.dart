@@ -1,11 +1,14 @@
 import 'dart:async';
-
 import 'package:http/http.dart' as http;
+import 'package:my_app/src/Models/UserModel.dart';
 import 'package:my_app/src/Models/UsersModel.dart';
 import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class AuthService {
-  Future<bool> login(int cedula, int pin) async {
+  Future<bool> login(BuildContext context, int cedula, int pin) async {
     // Fetch user data from the database using the cedula
     Map<String, dynamic>? userData =
         await fetchUserDataFromDatabase(cedula, pin);
@@ -14,20 +17,25 @@ class AuthService {
       print('Failed to fetch user data.');
       return false;
     }
-    print(userData);
-    print('---------------------------------');
 
     // Create a UsersModel object from the fetched data
     UsersModel user = UsersModel.fromJson(userData['data']['user']);
-    print('---------------------------------');
+    // ignore: use_build_context_synchronously
+    Provider.of<UserModel>(context, listen: false).setUser(user);
+
     if (userData == null) {
       print('Failed to fetch user data.');
       return false;
     }
-   
- 
-      return true;
-  
+    if (user.rol == 'Administrador' || user.rol == 'Operador') {
+      Navigator.pushNamed(context, '/operador');
+    } else if (user.rol == 'Docente' || user.rol == 'Estudiante') {
+      Navigator.pushNamed(context, '/home');
+    }
+    if (user.rol == 'Operador' && user.rol == 'Docente') {
+      Navigator.pushNamed(context, '/operador');
+    }
+    return true;
   }
 
   Future<Map<String, dynamic>> fetchUserDataFromDatabase(
