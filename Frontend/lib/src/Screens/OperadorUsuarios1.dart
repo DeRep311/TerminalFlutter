@@ -16,7 +16,6 @@ class UsersOperador extends StatefulWidget {
   _UsersOperadorState createState() => _UsersOperadorState();
 }
 
-
 class _UsersOperadorState extends State<UsersOperador> {
   List<UsersModel> users = [];
 
@@ -169,13 +168,6 @@ class _TableState extends State<Table> {
                       DataCell(Row(
                         children: <Widget>[
                           IconButton(
-                            icon: const Icon(Icons.edit),
-                            onPressed: () {
-                              // Acciones para editar
-                              // ...
-                            },
-                          ),
-                          IconButton(
                             icon: const Icon(Icons.delete),
                             onPressed: () {
                               // Cuando se presiona el botón, llama a la función de actualización del widget padre
@@ -201,6 +193,8 @@ ElevatedButton _addUserButton(context, {required Function() onSaved}) {
   TextEditingController apellidoController = TextEditingController();
   TextEditingController telefonoController = TextEditingController();
   TextEditingController pinController = TextEditingController();
+  TextEditingController direccionController = TextEditingController();
+  TextEditingController rolController = TextEditingController();
 
   final RegExp cedulaRegExp = RegExp(r'^\d{1,8}$');
   final RegExp nombreRegExp = RegExp(r'^[a-zA-Z ]+$');
@@ -209,6 +203,15 @@ ElevatedButton _addUserButton(context, {required Function() onSaved}) {
   String? selectedRol;
 
   List<String> dropdownValueRol = ['Operador', 'Docente', 'Estudiante'];
+
+  List<String> dropdownValueRolOperador = ['Docente', 'Estudiante'];
+  List<String> dropdownValueRolAdministrador = [
+    'Operador',
+    'Docente',
+    'Estudiante'
+  ];
+
+//var role = Provider.of<UserModel>(context).userRole;
 
   void _showAddUserDialog() {
     showDialog(
@@ -247,24 +250,228 @@ ElevatedButton _addUserButton(context, {required Function() onSaved}) {
                     ),
                   ),
                 ),
-                // ... (otros campos del formulario)
-                DropDownSelect(
-                  label: "Elija un rol...",
-                  color: Color.fromARGB(110, 231, 227, 227),
-                  options: dropdownValueRol,
-                  selectedValue: selectedRol,
-                  OnChanged: (value) {
-                    onSaved();
-                  },
+                Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 16.0,
+                  ),
+                  child: TextField(
+                    controller: nombreController,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(nombreRegExp),
+                    ],
+                    decoration: InputDecoration(
+                      hintText: 'Nombre',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 16.0,
+                  ),
+                  child: TextField(
+                    controller: apellidoController,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(nombreRegExp),
+                    ],
+                    decoration: InputDecoration(
+                      hintText: 'Apellido',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 16.0,
+                  ),
+                  child: TextField(
+                    controller: telefonoController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
+                    decoration: InputDecoration(
+                      hintText: 'Telefono',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 16.0,
+                  ),
+                  child: TextField(
+                    controller: direccionController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(4),
+                    ],
+                    decoration: InputDecoration(
+                      hintText: 'Direccion',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 16.0,
+                  ),
+                  child: TextField(
+                    controller: pinController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(4),
+                    ],
+                    decoration: InputDecoration(
+                      hintText: 'Pin',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ),
+                // if(role == 'Administrador'){
+
+                // },
+                Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 16.0,
+                  ),
+                  child: TextFormField(
+                    controller: rolController,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      hintText: 'Rol ej: "Docente"',
+                      fillColor: Color.fromARGB(110, 231, 227, 227),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(26.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value != 'Operador' ||
+                          value != 'Administrador' ||
+                          value != 'Docente' ||
+                          value != 'Estudiante') {
+                        return 'Please enter a valid role';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+
+                // DropDownSelect(
+                //   label: "Elija un rol...",
+                //   color: Color.fromARGB(110, 231, 227, 227),
+                //   options: dropdownValueRolOperador,
+                //   selectedValue: selectedRol,
+                //   OnChanged: (value) {
+                //     setState(() {
+                //       selectedRol = value;
+                //     });
+                //   },
+                // ),
               ],
             ),
           ),
           actions: <Widget>[
             TextButton(
-              onPressed: () {
-                // Lógica para guardar el usuario
+              onPressed: () async {
+                // Obtener los valores ingresados en los controladores
 
+                //String rol = "";
+                //String selectedRol = rol;
+                int cedula = int.parse(cedulaController.text);
+                String nombre = nombreController.text;
+                String apellido = apellidoController.text;
+                int telefono = int.parse(telefonoController.text);
+                int pin = int.parse(pinController.text);
+                int direccion = int.parse(direccionController.text);
+                String rol = rolController.text;
+                if (rol == 'Operador' ||
+                    rol == 'Administrador' ||
+                    rol == 'Docente' ||
+                    rol == 'Estudiante') {
+                  //int pin = pinText.isEmpty ? 0 : int.parse(pinText);
+                  // Crear un nuevo objeto UsersModel
+                  UsersModel newUser = UsersModel(
+                      cedula: cedula,
+                      nombre: nombre,
+                      apellido: apellido,
+                      telefono: telefono,
+                      direccion: direccion,
+                      pin: pin,
+                      rol: rol
+                      // Asegúrate de ajustar los atributos según la definición de tu modelo
+                      );
+
+                  // for (var user in newUser) {
+                  //   print(
+                  //       'Cedula: ${user.cedula}, Nombre: ${user.nombre} ${user.apellido}, Rol: ${user.rol}');
+                  // }
+
+                  print(newUser);
+                  // Llamar a la función Add para agregar el nuevo usuario
+                  await Add(newUser);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                          'Rol erroneo, asegurese de la escritura del rol ej "Operador" "Docente" "Administrador" "Estudiante"'
+                         ),
+                      backgroundColor:
+                          Colors.red, // Set the background color to red
+                    ),
+                  );
+
+                  print("DATOS ERRONEos");
+                }
+                // Cerrar el diálogo
                 Navigator.of(context).pop();
               },
               child: Text('Guardar'),
@@ -286,12 +493,11 @@ ElevatedButton _addUserButton(context, {required Function() onSaved}) {
       _showAddUserDialog();
     },
     child: Text('Agregar usuario'),
-     style: ElevatedButton.styleFrom(
-                              primary: Colors.white,
-                              onPrimary: Colors.black,
-                              fixedSize: const Size(100, 40),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                            ),
+    style: ElevatedButton.styleFrom(
+      primary: Colors.white,
+      onPrimary: Colors.black,
+      fixedSize: const Size(100, 40),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+    ),
   );
 }
