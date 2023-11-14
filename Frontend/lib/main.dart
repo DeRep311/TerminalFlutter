@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:my_app/src/Models/UserModel.dart'; // Asegúrate de importar UserModel
 import 'package:my_app/src/Providers/Provider_Ubications.dart';
 import 'package:my_app/src/Screens/Home.dart';
@@ -19,6 +20,7 @@ import 'package:my_app/src/Screens/OperadorUsuarios.dart';
 import 'package:my_app/src/Screens/Schedule.dart';
 import 'package:my_app/src/Screens/Ubications.dart';
 import 'package:provider/provider.dart';
+import 'package:scaled_app/scaled_app.dart';
 
 import 'package:window_manager/window_manager.dart';
 
@@ -45,15 +47,20 @@ void windowsManager() async {
 }
 
 void main() async {
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (_) => Provider_Ubications()),
-      ChangeNotifierProvider(
-          create: (_) => UserModel()), // Añade UserModel aquí
-    ],
-    child: const MyApp(),
-  ));
-
+  runAppScaled(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => Provider_Ubications()),
+          ChangeNotifierProvider(
+              create: (_) => UserModel()), // Añade UserModel aquí
+        ],
+        child: const MyApp(),
+      ), scaleFactor: (deviceSize) {
+    // screen width used in your UI design
+    const double widthOfDesign = 1280;
+    return deviceSize.width / widthOfDesign;
+  });
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   windowsManager();
 }
 
@@ -62,26 +69,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Totems Apheleon',
-      initialRoute: '/',
-      routes: {
-        '/': (context) => PantallaPrincipal(),
-        '/home': (context) => Home(),
-        // '/horarios': (context) => Horarios(),
-        '/locations': (context) => Ubications(),
-        '/schedule': (context) => Schedule(),
-        '/login': (context) => LoginScreen(),
-        '/operador': (context) => OperadorScreen(),
-        '/operador/opcionesAdministrativas': (context) =>
-            OpcionesOperadorScreen(),
-        '/operador/ubicaciones': (context) => OperadorUbicaciones(),
-        '/operador/cursos': (context) => OperadorCursos(),
-        '/operador/horarios': (context) => OperadorHorariosScreen(),
-        '/operador/usuarios': (context) => UsersOperador(),
-        '/operador/cursos/administrar': (context) => CursosAdministrador(),
-      },
-    );
+    return MediaQuery(
+        data: MediaQuery.of(context).scale(),
+        child: MaterialApp(
+          title: 'Totems Apheleon',
+          initialRoute: '/',
+          routes: {
+            '/': (context) => PantallaPrincipal(),
+            '/home': (context) => Home(),
+            // '/horarios': (context) => Horarios(),
+            '/locations': (context) => Ubications(),
+            '/schedule': (context) => Schedule(),
+            '/login': (context) => LoginScreen(),
+            '/operador': (context) => OperadorScreen(),
+            '/operador/opcionesAdministrativas': (context) =>
+                OpcionesOperadorScreen(),
+            '/operador/ubicaciones': (context) => OperadorUbicaciones(),
+            '/operador/cursos': (context) => OperadorCursos(),
+            '/operador/horarios': (context) => OperadorHorariosScreen(),
+            '/operador/usuarios': (context) => UsersOperador(),
+            '/operador/cursos/administrar': (context) => CursosAdministrador(),
+          },
+        ));
   }
 }
 

@@ -26,6 +26,40 @@ class _UbicationsState extends State<Ubications> {
 
   List<UbicationDTO> ubicaciones = [
     UbicationDTO(
+        codigoUbicaciones: "Facultad",
+        nombre: "Casa",
+        publico: false,
+        privado: true,
+        codigoP: "Facultad",
+        planoImg: "lib/src/Assets/Icons/PlanoFacultad.jpg",
+        idCs: [
+          Coordenada(
+            idC: 1,
+            cooX: 165,
+            cooY: 397,
+            inicio: true,
+            Cfinal: false,
+            image: 'lib/src/Assets/panorama2.webp',
+          ),
+          Coordenada(
+            idC: 2,
+            cooX: 512,
+            cooY: 389,
+            inicio: false,
+            Cfinal: false,
+            image: 'lib/src/Assets/panorama.jpg',
+          ),
+          Coordenada(
+            idC: 3,
+            cooX: 533,
+            cooY: 384,
+            inicio: false,
+            Cfinal: true,
+            image: 'lib/src/Assets/PlanoFacultad.jpg',
+          ),
+        ]),
+    
+    UbicationDTO(
         codigoUbicaciones: "baño",
         nombre: "Casa",
         publico: false,
@@ -59,7 +93,7 @@ class _UbicationsState extends State<Ubications> {
           ),
         ]),
     UbicationDTO(
-        codigoUbicaciones: "escaleras",
+        codigoUbicaciones: "Cantina",
         nombre: "Casa",
         publico: false,
         privado: true,
@@ -72,7 +106,7 @@ class _UbicationsState extends State<Ubications> {
             cooY: 72,
             inicio: true,
             Cfinal: false,
-            image: 'lib/src/Assets/panorama.jpg',
+            image: 'lib/src/Assets/Inicio.jpeg',
           ),
           Coordenada(
             idC: 2,
@@ -80,7 +114,7 @@ class _UbicationsState extends State<Ubications> {
             cooY: 391,
             inicio: false,
             Cfinal: false,
-            image:'lib/src/Assets/panorama2.webp',
+            image:'lib/src/Assets/Medio.jpeg',
           ),
           Coordenada(
             idC: 3,
@@ -88,7 +122,7 @@ class _UbicationsState extends State<Ubications> {
             cooY: 151,
             inicio: false,
             Cfinal: true,
-            image: 'lib/src/Assets/PlanoFacultad.jpg',
+            image: 'lib/src/Assets/Final.jpeg',
           ),
         ])
   ];
@@ -171,7 +205,7 @@ class _UbicationsState extends State<Ubications> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    PanoramaViewer( imageUrls: ubicaciones[_count].idCs.map((e) => e.image).toList(),)))
+                                                    PanoramaViewe( imageUrls: ubicaciones[_count].idCs.map((e) => e.image).toList(),)))
                                         }
                                        
                                       },

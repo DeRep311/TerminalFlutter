@@ -50,6 +50,8 @@ dependencies:
   file_picker: ^4.0.2
   excel: ^2.0.5
   panorama: ^0.4.1
+  panorama_viewer: ^1.0.1
+  scaled_app: ^2.1.0
 
 
 
@@ -119,6 +121,9 @@ flutter:
       - lib/src/Assets/baño3.jpg
       - lib/src/Assets/panorama2.webp
       - lib/src/Assets/Icons/DiaIcono.png
+      - lib/src/Assets/Inicio.jpeg
+      - lib/src/Assets/Medio.jpeg
+      - lib/src/Assets/Final.jpeg
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

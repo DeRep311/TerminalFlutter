@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:panorama/panorama.dart';
+import 'package:panorama_viewer/panorama_viewer.dart';
 
-class PanoramaViewer extends StatefulWidget {
+class PanoramaViewe extends StatefulWidget {
   final List<String> imageUrls;
 
-  PanoramaViewer({required this.imageUrls});
+  PanoramaViewe({required this.imageUrls});
 
   @override
   _PanoramaViewerState createState() => _PanoramaViewerState();
 }
 
-class _PanoramaViewerState extends State<PanoramaViewer> {
+class _PanoramaViewerState extends State<PanoramaViewe> {
   int currentIndex = 0;
 
   @override
@@ -25,7 +25,7 @@ class _PanoramaViewerState extends State<PanoramaViewer> {
             child: Column(
               children: <Widget>[
                 Expanded(
-                  child: Panorama(
+                  child: PanoramaViewer(
                     animSpeed: 1.0,
                     child: Image.asset(
                       widget.imageUrls[currentIndex],
