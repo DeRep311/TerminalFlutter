@@ -117,6 +117,11 @@ class Table extends StatefulWidget {
 }
 
 class _TableState extends State<Table> {
+  Future<void> deleteUser(int cedula) async {
+    await Delete(cedula);
+    widget.actualizarUsuarios();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -170,8 +175,8 @@ class _TableState extends State<Table> {
                           IconButton(
                             icon: const Icon(Icons.delete),
                             onPressed: () {
-                              // Cuando se presiona el botón, llama a la función de actualización del widget padre
-                              widget.actualizarUsuarios();
+                              // When the button is pressed, call the delete function
+                              deleteUser(user.cedula);
                             },
                           ),
                         ],
@@ -462,8 +467,7 @@ ElevatedButton _addUserButton(context, {required Function() onSaved}) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text(
-                          'Rol erroneo, asegurese de la escritura del rol ej "Operador" "Docente" "Administrador" "Estudiante"'
-                         ),
+                          'Rol erroneo, asegurese de la escritura del rol ej "Operador" "Docente" "Administrador" "Estudiante"'),
                       backgroundColor:
                           Colors.red, // Set the background color to red
                     ),
