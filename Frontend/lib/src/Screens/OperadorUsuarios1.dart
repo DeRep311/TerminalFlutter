@@ -2,12 +2,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/src/Data/UsersData.dart';
+import 'package:my_app/src/Models/UserModel.dart';
 
 import 'package:my_app/src/Models/UsersModel.dart';
 import 'package:my_app/src/Widgets/Header/header.dart';
 import 'package:my_app/src/Widgets/Items/DropDownSelect.dart';
 import 'package:my_app/src/Widgets/Layout.dart';
 import 'package:my_app/src/Widgets/LeftCards/SearchFilterUsuarios.dart';
+import 'package:provider/provider.dart';
 
 class UsersOperador extends StatefulWidget {
   const UsersOperador({Key? key}) : super(key: key);
@@ -216,7 +218,7 @@ ElevatedButton _addUserButton(context, {required Function() onSaved}) {
     'Estudiante'
   ];
 
-//var role = Provider.of<UserModel>(context).userRole;
+  var role = Provider.of<UserModel>(context).userRole;
 
   void _showAddUserDialog() {
     showDialog(
@@ -376,9 +378,7 @@ ElevatedButton _addUserButton(context, {required Function() onSaved}) {
                     ),
                   ),
                 ),
-                // if(role == 'Administrador'){
 
-                // },
                 Padding(
                   padding: const EdgeInsets.only(
                     bottom: 16.0,
@@ -438,43 +438,76 @@ ElevatedButton _addUserButton(context, {required Function() onSaved}) {
                 int pin = int.parse(pinController.text);
                 int direccion = int.parse(direccionController.text);
                 String rol = rolController.text;
-                if (rol == 'Operador' ||
-                    rol == 'Administrador' ||
-                    rol == 'Docente' ||
-                    rol == 'Estudiante') {
-                  //int pin = pinText.isEmpty ? 0 : int.parse(pinText);
-                  // Crear un nuevo objeto UsersModel
-                  UsersModel newUser = UsersModel(
-                      cedula: cedula,
-                      nombre: nombre,
-                      apellido: apellido,
-                      telefono: telefono,
-                      direccion: direccion,
-                      pin: pin,
-                      rol: rol
-                      // Asegúrate de ajustar los atributos según la definición de tu modelo
-                      );
+                if (role == 'Administrador') {
+                  if (rol == 'Operador' ||
+                      rol == 'Administrador' ||
+                      rol == 'Docente' ||
+                      rol == 'Estudiante') {
+                    //int pin = pinText.isEmpty ? 0 : int.parse(pinText);
+                    // Crear un nuevo objeto UsersModel
+                    UsersModel newUser = UsersModel(
+                        cedula: cedula,
+                        nombre: nombre,
+                        apellido: apellido,
+                        telefono: telefono,
+                        direccion: direccion,
+                        pin: pin,
+                        rol: rol
+                        // Asegúrate de ajustar los atributos según la definición de tu modelo
+                        );
 
-                  // for (var user in newUser) {
-                  //   print(
-                  //       'Cedula: ${user.cedula}, Nombre: ${user.nombre} ${user.apellido}, Rol: ${user.rol}');
-                  // }
+                    // for (var user in newUser) {
+                    //   print(
+                    //       'Cedula: ${user.cedula}, Nombre: ${user.nombre} ${user.apellido}, Rol: ${user.rol}');
+                    // }
 
-                  print(newUser);
-                  // Llamar a la función Add para agregar el nuevo usuario
-                  await Add(newUser);
+                    print(newUser);
+                    // Llamar a la función Add para agregar el nuevo usuario
+                    await Add(newUser);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                            'Rol erroneo, asegurese de la escritura del rol ej "Operador" "Docente" "Administrador" "Estudiante"'),
+                        backgroundColor:
+                            Colors.red, // Set the background color to red
+                      ),
+                    );
+
+                    print("DATOS ERRONEos");
+                  }
                 } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text(
-                          'Rol erroneo, asegurese de la escritura del rol ej "Operador" "Docente" "Administrador" "Estudiante"'),
-                      backgroundColor:
-                          Colors.red, // Set the background color to red
-                    ),
-                  );
+                  if (rol == 'Docente' || rol == 'Estudiante') {
+                    //int pin = pinText.isEmpty ? 0 : int.parse(pinText);
+                    // Crear un nuevo objeto UsersModel
+                    UsersModel newUser = UsersModel(
+                        cedula: cedula,
+                        nombre: nombre,
+                        apellido: apellido,
+                        telefono: telefono,
+                        direccion: direccion,
+                        pin: pin,
+                        rol: rol
+                        // Asegúrate de ajustar los atributos según la definición de tu modelo
+                        );
 
-                  print("DATOS ERRONEos");
+                    print(newUser);
+                    // Llamar a la función Add para agregar el nuevo usuario
+                    await Add(newUser);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                            'Rol erroneo, asegurese de la escritura del rol ej  "Docente" o "Estudiante". Acuerdese que al ser operador, no puede crear otros operadores.'),
+                        backgroundColor:
+                            Colors.red, // Set the background color to red
+                      ),
+                    );
+
+                    print("DATOS ERRONEos");
+                  }
                 }
+
                 // Cerrar el diálogo
                 Navigator.of(context).pop();
               },
@@ -496,7 +529,7 @@ ElevatedButton _addUserButton(context, {required Function() onSaved}) {
     onPressed: () {
       _showAddUserDialog();
     },
-    child: Text('Agregar usuario'),
+    child: Text('Agregar'),
     style: ElevatedButton.styleFrom(
       primary: Colors.white,
       onPrimary: Colors.black,

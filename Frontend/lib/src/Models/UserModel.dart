@@ -6,6 +6,9 @@ class UserModel extends ChangeNotifier {
 
   UsersModel? get user => _user;
 
+  // Getter for user role
+  String? get userRole => _user?.rol;
+
   void setUser(UsersModel user) {
     _user = user;
     notifyListeners();
